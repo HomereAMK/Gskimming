@@ -6,73 +6,105 @@
 
 #if CONSULT used, it needs a lot of memory
 ```
-#salloc --qos=debug --nodes=1 -c 4 --mem-per-cpu 18000 -t 1400
-srun --cpus-per-task=4 --mem=180G --time=2:00:00 --pty bash
+#salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
+srun --cpus-per-task=10 --mem=18G --time=10:00:00 --pty bash
 
-srun --pty -n 1 -c 1 bash -i
- 1) sratoolkit/3.0.0   2) sra-tools/3.0.3
+
+module load sratoolkit/3.0.0  sra-tools/3.0.3
 ```
 
-#Phacochoerus dataset
+# BBmap from Skmer pipeline try for the Phacochoerus dataset (fastq not gzip)
 ```
+#Make the fastq list
+ls /projects/mjolnir1/people/sjr729/Phacochoerus/*.fastq | cut -d '_' -f 1 > Phacochoerus_list.txt
+```
+
+```
+#!/bin/bash
+#SBATCH --job-name=BBmap_Phacochoerus
+#SBATCH --output=BBmap-Phacochoerus.out
+#SBATCH --error=BBmap-Phacochoerus.err
+#SBATCH --cpus-per-task=10
+#SBATCH --mem-per-cpu=180G    # memory per cpu-core
+#SBATCH --time=05:00:00
+#SBATCH --mail-type=begin        # send email when job begins
+#SBATCH --mail-type=end          # send email when job ends
+#SBATCH --mail-type=fail         # send email if job fails
+#SBATCH --mail-user=homerejalves.monteiro@sund.ku.dk
+
+#activate proper conda env
+conda activate tuto
+
+for x in `cat /projects/mjolnir1/people/sjr729/Phacochoerus/Phacochoerus_list.txt`; do 
+        /projects/mjolnir1/people/sjr729/softwares/skimming_scripts/bbmap_pipeline.sh ${x}_1.fastq ${x}_2.fastq ${x}_merged.fastq
+done 
+
+```
+
 accession_list=(
-        SRR19174497
-        SRR19174498
-        SRR19174499
-        SRR19174500
-        SRR19174501
-        SRR19174502
-        SRR19174503
-        SRR19174504
-        SRR19174505
-        SRR19174506
-        SRR19174507
-        SRR19174508
-        SRR19174509
-        SRR19174510
-        SRR19174511
-        SRR19174512
-        SRR19174513
-        SRR19174514
-        SRR19174515
-        SRR19174516
-        SRR19174517
-        SRR19174518
-        SRR19174519
-        SRR19174520
-        SRR19174521
-        SRR19174522
-        SRR19174523
-        SRR19174524
-        SRR19174525
-        SRR19174526
-        SRR19174527
-        SRR19174528
-        SRR19174529
-        SRR19174530
-        SRR19174531
-        SRR19174532
-        SRR19174533
-        SRR19174534
-        SRR19174535
-        SRR19174536
-        SRR19174537
-        SRR19174538
-        SRR19174539
-        SRR19174540
-        SRR19174541
-        SRR19174542
-        SRR19174543
-        SRR19174544
-        SRR19174545
-        SRR19174546
-        SRR19174547
-        SRR19174548
-        SRR19174549
-        SRR19174550
-        SRR19174551
-        SRR19174552
-        SRR19174553
-        SRR19174554
+...
+ERR9709216
+ERR9709220
+ERR9709222
+...
 )
+
 ```
+
+for accession in "${accession_list[@]}"; do
+    prefetch "$accession"
+    fasterq-dump --split-files --outdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Clupea/ "$accession"
+done
+```
+#gzip all the fastq
+find /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Phacochoerus -type f -name "*.fastq" | xargs -I {} -P 30 gzip -k {}
+
+
+```
+#test on few clupea
+#(base) [sjr729@mjolnirhead01fl skimming_scripts]$ pwd
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts
+
+
+#Linking some fastq to a new test dir 
+mkdir testPhacochoerus
+
+test_Phacochoeruslist=(
+SRR19174500_1.fastq.gz
+SRR19174500_2.fastq.gz
+SRR19174498_1.fastq.gz
+SRR19174498_2.fastq.gz
+SRR19174497_1.fastq.gz
+SRR19174497_2.fastq.gz
+SRR19174502_1.fastq.gz
+SRR19174502_2.fastq.gz
+)
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus
+for file in "${test_Phacochoeruslist[@]}"; do
+    ln -s /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Phacochoerus/"$file" .
+done
+
+#Performing 
+conda activate tutorial
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus
+```
+
+
+
+```
+#Clupea skimming processing
+srun --cpus-per-task=30 --mem=180G --time=96:00:00 --pty bash
+
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+ln -s /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Clupea/*.fastq.gz ./
+conda activate tutorial
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus -r 30 -f 30
+```
+
+#skims_processing_pipeline.sh
+#Mandatory inputs:
+#-x  path to folder containing reads (split reads that need to be merged)
+#-g  path to reference library
+#-r  threads for RESPECT; default: 8
+#-d  number of iteration cycles for RESPECT, default: 1000
+#-f  number of cores for SKMER, default: 8"
