@@ -98,7 +98,7 @@ srun --cpus-per-task=30 --mem=180G --time=96:00:00 --pty bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 ln -s /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Clupea/*.fastq.gz ./
 conda activate tutorial
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus -r 30 -f 30
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus -r 30 -f 30 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testPhacochoerus.log
 ```
 
 #skims_processing_pipeline.sh
@@ -108,3 +108,9 @@ bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutoria
 #-r  threads for RESPECT; default: 8
 #-d  number of iteration cycles for RESPECT, default: 1000
 #-f  number of cores for SKMER, default: 8"
+
+
+
+```bash
+conda activate tutorial
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie -r 30 -f 30 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie.log
