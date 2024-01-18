@@ -7,7 +7,7 @@
 #if CONSULT used, it needs a lot of memory
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
-srun --cpus-per-task=10 --mem=50g --time=300:00:00 --pty bash
+srun --cpus-per-task=40 --mem=200g --time=300:00:00 --pty bash
 
 
 module load sratoolkit/3.0.0  sra-tools/3.0.3
@@ -19,7 +19,7 @@ module load sratoolkit/3.0.0  sra-tools/3.0.3
 ls /projects/mjolnir1/people/sjr729/Phacochoerus/*.fastq | cut -d '_' -f 1 > Phacochoerus_list.txt
 ```
 
-```
+```bash
 #!/bin/bash
 #SBATCH --job-name=BBmap_Phacochoerus
 #SBATCH --output=BBmap-Phacochoerus.out
@@ -40,49 +40,33 @@ for x in `cat /projects/mjolnir1/people/sjr729/Phacochoerus/Phacochoerus_list.tx
 done 
 
 ```
-
 accession_list=(
-SRR12106876
-SRR12106878
-SRR12106882
-SRR12106893
-SRR12106894
-SRR12106899
-SRR12106902
-SRR12106905
-SRR12106906
-SRR12106907
-SRR12106909
-SRR12106911
-SRR12106915
-SRR12106916
-SRR12106922
-SRR12106925
-SRR12106926
-SRR12106930
-SRR12106932
-SRR12106934
-SRR12106937
-SRR12106945
-SRR12106949
-SRR12106953
-SRR12106955
-SRR12106956
-SRR12106875
-SRR12106957
-)
+...)
 
-```
+```bash
+
+mkdir -p ./fastq_downloads
 
 for accession in "${accession_list[@]}"; do
-    prefetch "$accession"
-    fastq-dump --split-files --outdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/"$accession"
+    prefetch "$accession" &
+done
+
+wait # Wait for all prefetch processes to complete
+
+for accession in "${accession_list[@]}"; do
+    # Check if the compressed fastq file already exists
+    if [ ! -f "./fastq_downloads/${accession}_1.fastq.gz" ] || [ ! -f "./fastq_downloads/${accession}_2.fastq.gz" ]; then
+        # If not, download and compress the fastq files
+        fasterq-dump --split-files --outdir ./fastq_downloads "$accession"
+        pigz ./fastq_downloads/${accession}_*.fastq
+    else
+        echo "Compressed files for accession ${accession} already exist, skipping."
+    fi
 done
 ```
-#gzip all the fastq
 
 
-```
+```bash
 #test on few clupea
 #(base) [sjr729@mjolnirhead01fl skimming_scripts]$ pwd
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts
@@ -319,7 +303,7 @@ bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutoria
 
 ##### Clupea redl fastq
 ```bash
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea
 #!/bin/bash
 
 # Loop through each directory starting with SRR*
