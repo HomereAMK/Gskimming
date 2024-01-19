@@ -70,7 +70,7 @@ for file in ./*.gz; do base_name=$(basename "$file" | cut -d '_' -f 1); if ls -l
 
 
 
-## The script is launching Skmer on /path/to/folder/*.fastq.gz
+## The script is launching Skmer preprocessing pipeline on /path/to/folder/*.fastq.gz
 # For ClupeaAtmore
 
 ```bash
@@ -78,3 +78,11 @@ cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
 conda activate tutorial
 sbatch --job-name=AtCluSkmin_sbatch --output=AtCluSkmin_sbatch_17jan.out --error=AtCluSkmin_sbatch_17jan.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=80:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/ -r 38 -f 38 >/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/AtCluSkmin_sbatch_17jan.log "
 ```
+
+
+## The script is launching Skmer distance to get dist-mat and jc-dist-mat (Jukes-Cantor correction)
+```bash
+DATE=$(date +%d.%m)
+skmer distance library -t -o jc-$DATE-dist-mat
+```
+

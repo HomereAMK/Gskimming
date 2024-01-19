@@ -68,7 +68,7 @@ def move_bad_specimens(tsv_file, source_dir, destination_dir):
         read_length = data['read_length']
 
         try:
-            if (error_rate == 'NA' or float(error_rate) > 0.02) or (read_length != 'NA' and int(read_length) < 70):
+            if (error_rate == 'NA' or float(error_rate) > 0.02) or (read_length != 'NA' and int(read_length) < 100):
                 if os.path.exists(filename):
                     dest_file = os.path.join(destination_dir, os.path.basename(filename))
                     print(f"Moving {filename} to {dest_file}")
