@@ -82,9 +82,9 @@ mv *realigned.bai realigned/
 SEARCH_DIR="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/realigned/"
 LIST_FILE="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/Atmore_modern_full_paths.txt"
 OUTPUT_FILE="Atmore_modern_bam_list.txt"
-> "$OUTPUT_FILE"
-while IFS= read -r line; do
-    id_part=$(echo "$line" | grep -o 'ERR[0-9]*')
-    find "$SEARCH_DIR" -type f -name "*${id_part}*.bam" >> "$OUTPUT_FILE"
-done < "$LIST_FILE"
+BAMS=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/realigned/*.bam
+ls $BAMS > 01_infofiles/Atmore_modern_bam_list.txt
 ```
+
+### Downsizing bam files
+https://github.com/HomereAMK/Shucking/blob/master/00_scripts/Utility_scripts/13_downsizefastq.sh

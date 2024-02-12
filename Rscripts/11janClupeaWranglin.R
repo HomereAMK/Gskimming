@@ -18,9 +18,18 @@ data2 <- read_delim("~/Desktop/GitHub/Gskimming/Metadata/ClupeaAtmore/11janModer
 # Merging the data frames on the 'sample_title' variable
 merged_data <- merge(data1, data2, by = "sample_title")
 
+
+# Extracting the first four letters and converting to uppercase
+merged_data$population <- toupper(substr(merged_data$`geographic location (region and locality)`, 1, 4))
+
+# Now, your merged_data will have an additional column 'new_variable' with the desired values
 # Viewing the first few rows of the merged data frame
-head(merged_data)
+str(merged_data)
 write.csv(merged_data, "~/Desktop/GitHub/Gskimming/Metadata/ClupeaAtmore/Master_list_ClupeaAtmore.csv", row.names = FALSE)
+
+
+
+
 
 
 #### ClupeaHan ####
