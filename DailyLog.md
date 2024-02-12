@@ -124,7 +124,7 @@ bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutoria
 
 
 ```bash
-srun --cpus-per-task=10 --mem=50G --time=52:00:00 --pty bash
+srun --cpus-per-task=30 --mem=40G --time=20:00:00 --pty bash
 conda activate tutorial
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie -r 39 -f 3390 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie_11feb24_screen.log
 

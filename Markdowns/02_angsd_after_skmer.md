@@ -87,4 +87,7 @@ ls $BAMS > 01_infofiles/Atmore_modern_bam_list.txt
 ```
 
 ### Downsizing bam files
-https://github.com/HomereAMK/Shucking/blob/master/00_scripts/Utility_scripts/13_downsizefastq.sh
+```bash
+awk -F, '{print "reformat.sh in1=done/"$1"_1.fastq.gz in2=done/"$1"_2.fastq.gz out1="$1"_4x_1.fastq.gz out2="$1"_4x_2.fastq.gz samplerate="$6"\njava -ea -Xms300m -cp /projects/mjolnir1/apps/conda/bbmap-39.01/opt/bbmap-39.01-0/current/ jgi.ReformatReads in1=done/"$1"_1.fastq.gz in2=done/"$1"_2.fastq.gz out1="$1"_4x_1.fastq.gz out2="$1"_4x_2.fastq.gz samplerate="$6"}' library_4x/feb24_Atmore_modern_4x_stat_clupea_df.csv
+```
+
