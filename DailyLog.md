@@ -126,7 +126,7 @@ bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutoria
 ```bash
 srun --cpus-per-task=30 --mem=40G --time=20:00:00 --pty bash
 conda activate tutorial
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie -r 39 -f 3390 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie_11feb24_screen.log
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie_11feb24_screen.log
 
 
 
@@ -849,4 +849,4 @@ cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea
 conda activate tutorial
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/fastq_downloads  -r 38 -f 38 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/Skmin_sbatch_16jan.log
 
-sbatch --job-name=HanSkmin_sbatch --output=Skmin_sbatch_16jan.out --error=Skmin_sbatch_16jan.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea && conda activate tutorial && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/fastq_downloads -r 38 -f 38 "
+sbatch --job-name=4xSkmin_sbatch --output=4xSkmin_sbatch_16jan.out --error=4xSkmin_sbatch_16jan.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate tutorial && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "

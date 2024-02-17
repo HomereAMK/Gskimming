@@ -30,6 +30,15 @@ conda activate tutorial
 sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
 ```
 
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
+conda activate tutorial
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea_12feb24_screen.log"
+
+```
+
+
+
 ## Fast Skmer Pipeline for Eduardo
 
 Launches a faster Skmer preprocessing pipeline.
@@ -93,6 +102,14 @@ Computes distance matrices using Skmer.
 ```bash
 DATE=$(date +%d.%m)
 skmer distance library -t -o "jc-$DATE-dist-mat"
+```
+
+## Subsample to 4x and estimate with Skmer
+```bash
+cd /path/to/dir
+conda activate tutorial 
+module load parallel
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 20
 ```
 
 ## Quick Phylogeny with FastTree
