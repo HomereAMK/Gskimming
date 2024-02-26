@@ -109,7 +109,7 @@ skmer distance library -t -o "jc-$DATE-dist-mat"
 cd /path/to/dir
 conda activate tutorial 
 module load parallel
-bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 20
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
 ```
 
 ## Quick Phylogeny with FastTree
