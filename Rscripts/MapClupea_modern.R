@@ -54,13 +54,12 @@ Clupea_Map <-
         axis.title = element_blank(),
         axis.text = element_text(colour = "#000000", size = 15, face = "bold"),
         axis.ticks = element_line(color ="black", size = .5)) +
-  guides(colour = guide_legend(title = "Location", title.theme = element_text(size = 14, face = "bold"),
-                               label.theme = element_text(size = 12),
-                               override.aes = list(shape = 21, size = 4)),
-         fill = guide_legend(title = "Location", title.theme = element_text(size = 14, face = "bold"),
+  guides(fill = guide_legend(title = "Locality", title.theme = element_text(size = 14, face = "bold"),
                              label.theme = element_text(size = 12),
                              override.aes = list(shape = 21, size = 4)),
-         shape = guide_legend(title = "Species", title.theme = element_text(size = 14, face = "bold"),
+         shape = guide_legend(title = "Ecotype", title.theme = element_text(size = 14, face = "bold"),
                               label.theme = element_text(size = 12), override.aes = list(size = 4)))
 Clupea_Map
+# Use ggsave to save the plot
+ggsave("~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/Map/Clupea_modern_Atmore_Map.png", plot = Clupea_Map, dpi = 400, width = 12, height = 10, units = "in")
 

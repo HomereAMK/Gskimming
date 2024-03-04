@@ -1,4 +1,4 @@
-### FST matrix
+### FST matrix with ANGSD pipeline
 
 ## Extracting `chr` and `pos` Columns for -sites (ANGSD): Inversion-free SNP list
 
