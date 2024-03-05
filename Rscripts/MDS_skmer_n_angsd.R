@@ -71,16 +71,17 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/Fst/Skmer/jc-24.02-dist-mat_4x_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/Fst/Skmer/jc-24.02-dist-mat_4x_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
 mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 mds_plot
-ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",
-       scale = 1, width = 12, height = 12, dpi = 600)
+ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
+ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 pcoa_table_genome_wide <- pcoa_table
-write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
+#write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
 
 pcoa_table
 pcoa_table_genome_wide_joined <- pcoa_table_genome_wide %>%
@@ -134,24 +135,24 @@ print(outlier_table)
 
 ### Reading metadata and updating annotation_df
 metadata_clupea <- read_tsv("../../Gskimming/Metadata/filereport_read_run_PRJEB52723_tsv (5).txt", col_names = TRUE)
-
 annotation_df <- merge(annotation_df, metadata_clupea, by.x = "cleaned_id", by.y = "run_accession")
 
 ### Adding 'type' column based on sample_alias
-annotation_df <- annotation_df %>%
-  mutate(
-    type = case_when(
-      substr(sample_alias, 1, 8) == "BAL_22_M" ~ "modern",
-      substr(sample_alias, 1, 8) == "BAL_22_H" ~ "ancient",
-      TRUE ~ "unknown"
-    )
-  )
+# annotation_df <- annotation_df %>%
+#   mutate(
+#     type = case_when(
+#       substr(sample_alias, 1, 8) == "BAL_22_M" ~ "modern",
+#       substr(sample_alias, 1, 8) == "BAL_22_H" ~ "ancient",
+#       TRUE ~ "unknown"
+#     )
+#   )
 
 ### Performing PCoA with updated annotation and type information
-PCoA(ibs_mat, annotation_df$cleaned_id, annotation_df$type, 3, 1, 2, show.ellipse = TRUE, show.label = FALSE)
+mds_type <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$tissue_type, 3, 1, 2, show.ellipse = TRUE, show.label = FALSE)
+ggsave(mds_type, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_tissue_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 ### Reading skims stats file
-stat_clupea <- read_tsv("../data/stats-skims_processing_pipeline.csv", col_names = FALSE)
+stat_clupea <- read_tsv("../01_infofiles/ClupeaAtmore/Stats/stats-postprocess_03.02.csv", col_names = FALSE)
 str(stat_clupea)
 stat_clupea_df <- stat_clupea %>%
   pivot_wider(names_from = X2, values_from = X3) %>%
@@ -165,7 +166,7 @@ stat_clupea_df <- stat_clupea %>%
   mutate(X1 = gsub("unclassified-kra_", "",X1))%>%
   mutate(X1 = gsub("_", "",X1))
 
-annotation_df_tot <- merge(annotation_df, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
+annotation_df_tot <- merge(annot_df_final, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
 
 # Range of coverage by adding CoverageCategory ~
 annotation_df_tot$CoverageCategory <- ifelse(annotation_df_tot$coverage <= 0.7, "< 1x",
@@ -184,10 +185,21 @@ annotation_df_tot$error_rateCategory <- ifelse(annotation_df_tot$error_rate <= 0
                                                       ifelse(annotation_df_tot$error_rate <= 0.05, "< 5%", "error rate dangerously high")))
 
 
+annotation_df_tot$genome_lengthCategory <- ifelse(annotation_df_tot$genome_length <= 7e+08, "< 7e+08 bp",
+                                               ifelse(annotation_df_tot$genome_length <= 8e+08, "< 8e+08 bp",
+                                                      ifelse(annotation_df_tot$genome_length <= 9e+08, "< 9e+08 bp",
+                                                             ifelse(annotation_df_tot$genome_length <= 10e+08, "< 10e+08 bp", "genome length dangerously high"))))
+
+
+
 
 ### 
-PCoA2(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$CoverageCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
-PCoA2(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$error_rateCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$CoverageCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+mds_errate <- PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$error_rateCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+ggsave(mds_errate, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_errorrate_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+
+mds_geno <- PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$genome_lengthCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+ggsave(mds_geno, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_genomelength_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 
 
