@@ -19,4 +19,4 @@ python csv_to_tsv_stats.py <input_csv_file> <output_tsv_file>
 python badspecimens_identifier.py <input.tsv> path/source/directory path/destination/directory
 ```
 
-
+https://docs.google.com/presentation/d/1rcb3jAm5pVCBZR-8-XX3RHaOb3JGdPfM4nEqcMzS_OE/edit#slide=id.p 

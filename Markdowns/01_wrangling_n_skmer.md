@@ -107,9 +107,10 @@ skmer distance library -t -o "jc-$DATE-dist-mat"
 ## Subsample to 4x and estimate with Skmer
 ```bash
 cd /path/to/dir
-conda activate tutorial 
-module load parallel
+conda activate Mar_skmer_pip 
+module load parallel kraken2 
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
+
 ```
 
 ## Quick Phylogeny with FastTree
@@ -123,4 +124,16 @@ bash ../tsv_to_phymat.sh "jc-$DATE-dist-mat.txt" "jc-$DATE-dist-mat.phy"
 ../fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i "jc-$DATE-dist-mat.phy" -o "backbone-fastme_jc-$DATE-dist-mat.tre"
 ../fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i "jc-$DATE-dist-mat.phy" -u "backbone-fastme_jc-$DATE-dist-mat.tre" -o "backbone-fastme_jc-$DATE-dist-mat.tre"
 nw_reroot "backbone-fastme_jc-$DATE-dist-mat.tre" | nw_display -
+```
+
+
+## sbatch-ready script for preprocessing pipeline with skmer
+```bash
+#With conda env= tutorial 
+sbatch --job-name=4xSkmin_sbatch --output=4xSkmin_sbatch_16jan.out --error=4xSkmin_sbatch_16jan.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=400:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate tutorial && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "
+
+#With conda env= tutorial 
+With conda env= Mar_skmer_pip 
+sbatch --job-name=Skmin_sbatch_24mar --output=Skmin_sbatch_24mar.out --error=Skmin_sbatch_24mar.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=400:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "
+
 ```

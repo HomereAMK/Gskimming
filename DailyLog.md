@@ -8,6 +8,7 @@
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
 srun --cpus-per-task=40 --mem=200g --time=300:00:00 --pty bash
+srun --cpus-per-task=30 --mem=70g --time=48:00:00 --pty bash
 
 
 module load sratoolkit/3.0.0  sra-tools/3.0.3
