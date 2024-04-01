@@ -106,10 +106,11 @@ skmer distance library -t -o "jc-$DATE-dist-mat"
 
 ## Subsample to 4x and estimate with Skmer
 ```bash
-cd /path/to/dir
+#cd /path/to/dir
 conda activate Mar_skmer_pip 
 module load parallel kraken2 
-bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
+#bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 2 -t 40
 
 ```
 
@@ -134,6 +135,9 @@ sbatch --job-name=4xSkmin_sbatch --output=4xSkmin_sbatch_16jan.out --error=4xSkm
 
 #With conda env= tutorial 
 With conda env= Mar_skmer_pip 
-sbatch --job-name=Skmin_sbatch_24mar --output=Skmin_sbatch_24mar.out --error=Skmin_sbatch_24mar.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=400:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "
+sbatch --job-name=Skmin_sbatch_27mar --output=Skmin_sbatch_27mar.out --error=Skmin_sbatch_27mar.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=300:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "
+
+#Alt
+sbatch --job-name=Skmin_sbatch_27mar --output=Skmin_sbatch_27mar.out --error=Skmin_sbatch_27mar.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=300:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && source activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40"
 
 ```

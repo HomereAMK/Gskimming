@@ -1,4 +1,4 @@
-### FST matrix with ANGSD pipeline
+### FST matrix with ANGSD pipeline for Clupea Dataset
 
 ## Extracting `chr` and `pos` Columns for -sites (ANGSD): Inversion-free SNP list
 
