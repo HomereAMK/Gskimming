@@ -26,7 +26,7 @@ Executes Skmer preprocessing on fastq.gz files.
 
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
-conda activate tutorial
+conda activate Mar_skmer_pip
 sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
 ```
 
@@ -110,7 +110,9 @@ skmer distance library -t -o "jc-$DATE-dist-mat"
 conda activate Mar_skmer_pip 
 module load parallel kraken2 
 #bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
-bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 2 -t 40
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 2 -t 40 #not complete for Magpie
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 #done
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40 #done
 
 ```
 
@@ -141,3 +143,28 @@ sbatch --job-name=Skmin_sbatch_27mar --output=Skmin_sbatch_27mar.out --error=Skm
 sbatch --job-name=Skmin_sbatch_27mar --output=Skmin_sbatch_27mar.out --error=Skmin_sbatch_27mar.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=300:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && source activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40"
 
 ```
+
+
+
+## Magpie skmer preprocess not finished
+
+```bash 
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Magpie/
+conda activate Mar_skmer_pip
+sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
+
+
+sbatch --job-name=Skmin_sbatch_1apr --output=Skmin_sbatch_1apr.out --error=Skmin_sbatch_1apr.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie && source activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 40 -f 40"
+
+```
+
+
+## Clupea skmer preprocess not finished
+
+```bash 
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
+conda activate Mar_skmer_pip
+sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
+
+
+sbatch --job-name=CluSkmin_sbatch_2apr --output=CluSkmin_sbatch_2apr.out --error=CluSkmin_sbatch_2apr.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40"
