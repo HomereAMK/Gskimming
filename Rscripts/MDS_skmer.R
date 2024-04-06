@@ -7,7 +7,6 @@
 
 ### Clearing environment and setting working directory
 rm(list = ls(all = TRUE))
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 ### Loading necessary packages
 library(tidyverse)
@@ -71,18 +70,18 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/Fst/Skmer/jc-24.02-dist-mat_4x_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/jc-24.02-dist-mat_4x_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
 mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,40, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 mds_plot
-ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+#ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
-ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+#ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 pcoa_table_genome_wide <- pcoa_table
 #write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
-write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
+#write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
 
 pcoa_table
 pcoa_table_genome_wide_joined <- pcoa_table_genome_wide %>%
@@ -168,6 +167,7 @@ stat_clupea_df <- stat_clupea %>%
   mutate(X1 = gsub("_", "",X1))
 
 annotation_df_tot <- merge(annot_df_final, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
+write.csv(annotation_df_tot, "../../Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv", row.names = FALSE)
 
 # Range of coverage by adding CoverageCategory ~
 annotation_df_tot$CoverageCategory <- ifelse(annotation_df_tot$coverage <= 0.7, "< 1x",

@@ -39,3 +39,14 @@ Han_raw <- read_tsv("~/Desktop/GitHub/Gskimming/Metadata/ClupeaHan/filereport_re
 # Reading the CSV file into a data frame
 data2 <- read_delim("~/Desktop/GitHub/Gskimming/Metadata/ClupeaAtmore/11janModern_Inds_Clupea.csv", delim = ";")
 
+
+
+#### Magpie ####
+magpie_annot <- read_tsv("~/Desktop/GitHub/Gskimming/01_infofiles/Magpie/Magpie_bam_list.txt", col_names = FALSE)
+magpie_annot$sample_id <- magpie_annot$X1
+magpie_annot$sample_id <- gsub("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/angsd/realigned/", "", magpie_annot$sample_id)
+magpie_annot$sample_id <- gsub(".nocig.dedup_clipoverlap.minq20_minq20.nocig.realigned.bam", "", magpie_annot$sample_id)
+# create the pop var
+magpie_annot <- magpie_annot %>%
+  mutate(population = sub("_.*", "", sample_id))
+write.csv(magpie_annot,"~/Desktop/GitHub/Gskimming/01_infofiles/Magpie/Magpie_annot.csv")

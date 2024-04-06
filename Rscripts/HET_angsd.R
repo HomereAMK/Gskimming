@@ -16,7 +16,6 @@ master_annot$sample_id <- gsub("unclassified-kra", "unclassified-seq", master_an
 master_annot$sample_id <- sub("_$", "", master_annot$sample_id)
 
 
-
 # Initialize an empty data frame
 all_theta_notrans <- data.frame()
 
@@ -45,7 +44,7 @@ for (i in 1:nrow(master_annot)){
 ## Calculate average heterozygosity while filtering out inversions
 het <- all_theta_notrans %>%
   filter(! is.na(chr)) %>% 
-  #filter(! chr %in% c("LG01", "LG02", "LG07", "LG12")) %>%
+  #filter(! chr %in% c("LR535869.1")) %>% filter out some chr if needed
   group_by(sample_id, population, group, type) %>%
   summarise(sum_t_w=sum(t_w), sum_n_sites=sum(n_sites), heterozygosity=sum_t_w/sum_n_sites) 
 set.seed(42)
