@@ -33,10 +33,16 @@ sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkm
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
 conda activate tutorial
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea_12feb24_screen.log"
+module load parallel kraken2 respect consult-ii
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40
 
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
+conda activate Mar_skmer_pip
+module load parallel kraken2 respect consult-ii
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea_9apr24_screen2.log
 ```
-
 
 
 ## Fast Skmer Pipeline for Eduardo
@@ -45,7 +51,7 @@ Launches a faster Skmer preprocessing pipeline.
 
 ```bash
 conda activate tutorial
-bash ../fast_skims_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/ > Magpie_fasterskim_30jan.log
+bash ../fast_skims_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/ > Magpie_fasterskim_9apr24.log
 ```
 
 ## File Movement Based on Matching Base Names for ClupeaAtmore
@@ -77,12 +83,27 @@ done
 
 ## Skim Stats Refresh and Update
 
-Concatenates .dat files to a .csv for postprocessing.
+#Concatenates .dat files to a .csv for postprocessing.
 
 ```bash
 DATE=$(date +%d.%m)
 cat ./library/*/*dat > "stats-postprocess_$DATE.csv"
 ```
+
+#specific for Clupea skmer raw cov
+```bash
+for file in ./library/done/*/*.dat; do
+    awk -v fname=$(basename "$file" .dat) '{print fname"    "$0}' "$file"
+done > stats-rowcov_postprocess_$DATE.csv
+```
+
+#specific for Magpie skmer raw cov
+```bash
+for file in ./library/*/*.dat; do
+    awk -v fname=$(basename "$file" .dat) '{print fname"    "$0}' "$file"
+done > stats-rowcov_postprocess_$DATE.csv
+```
+
 
 ## Preprocess Stats and Output Wrangling for ClupeaAtmore
 
@@ -168,3 +189,95 @@ sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkm
 
 
 sbatch --job-name=CluSkmin_sbatch_2apr --output=CluSkmin_sbatch_2apr.out --error=CluSkmin_sbatch_2apr.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40"
+
+```
+
+
+
+## Kraken only script after consult decontamination for Clupea dataset
+```bash
+#!/bin/bash
+
+# Define the directories
+input_dir="skims_processing_pipeline_jan24/consult/"  # Change this to your actual consult directory path
+kraken_db="../../skimming_scripts/kraken2/krakenlib/"          # Change this to your Kraken2 database path
+output_dir="skims_processing_pipeline_jan24/kraken"     # Specify your desired output directory for Kraken results
+
+# Create the output directory if it doesn't exist
+mkdir -p "$output_dir"
+
+# Loop over each file in the consult directory
+for file in "$input_dir"/*; do
+  filename=$(basename -- "$file")
+  output_file="${output_dir}/unclassified-kra_${filename}"
+
+  # Run Kraken2
+  echo "Running Kraken2 decontamination on $filename"
+  kraken2 --db "$kraken_db" "$file" --unclassified-out "$output_file"
+  echo "Kraken2 decontamination completed for $filename"
+done
+
+echo "All Kraken2 decontamination processes are complete."
+
+```
+
+## Skmer operations, Respect pipeline, and Skmer distance calculation after consult + kraken decontamination
+
+```bash
+#!/bin/bash
+module load parallel kraken2 skmer respect
+
+# Paths
+input_dir="/path/to/skims_processing_pipeline/kraken"
+lib_dir="/path/to/library"
+output_dir="/path/to/output"
+temp_dir="/path/to/temp"
+
+# Settings
+cores=8
+iterations=1000
+threads=8
+
+# Ensure necessary directories exist
+mkdir -p "$lib_dir" "$output_dir" "$temp_dir"
+
+# Skmer Operations + Respect Pipeline
+for file in "$input_dir"/*_read.fq; do
+    filename=$(basename "$file")
+    sample_id="${filename%_read.fq}"
+
+    # Skmer Operations
+    echo "Running Skmer operations for $sample_id"
+    if [ ! -d "${lib_dir}/${sample_id}" ]; then
+        mkdir -p "${lib_dir}/${sample_id}"
+        # Placeholder for Skmer sketching command, replace with actual Skmer command
+        skmer sketch "$file" -o "${lib_dir}/${sample_id}" --threads $cores
+    fi
+
+    # Respect Pipeline (Pseudo-code, replace with actual commands if applicable)
+    echo "Running Respect pipeline for $sample_id"
+    if [ ! -d "${output_dir}/respect/${sample_id}" ]; then
+        mkdir -p "${output_dir}/respect/${sample_id}"
+        # Placeholder for Respect command, replace with actual Respect command
+        respect -i "$file" -l "${lib_dir}/${sample_id}" -o "${output_dir}/respect/${sample_id}" --iterations $iterations --threads $threads
+    fi
+
+    echo "Completed processing for $sample_id"
+done
+
+# Skmer Distance Calculation
+echo "Calculating Skmer distances"
+# Assuming skmer distance calculation requires a list of all sketches directories
+skmer_lib_dirs=$(find "$lib_dir" -type d -name 'unclassified-kra_*' -print)
+skmer distance $skmer_lib_dirs --threads $cores -o "$output_dir/skmer_distances"
+
+# Post-Processing
+echo "Starting post-processing steps"
+# Assuming a generic post-processing command, replace with actual needs
+../post_processing_pipeline.sh "$output_dir/skmer_distances" -o "$output_dir/final_results"
+
+echo "Cleaning up temporary files"
+rm -rf "$temp_dir"
+
+echo "All operations completed successfully"
+```

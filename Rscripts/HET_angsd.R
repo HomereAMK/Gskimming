@@ -11,7 +11,7 @@ library(cowplot)
 library(RcppCNPy)
 library(knitr)
 master_annot <- read_csv("~/Desktop/Github/Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv")
-# warngling
+# wrangling
 master_annot$sample_id <- gsub("unclassified-kra", "unclassified-seq", master_annot$sample_id)
 master_annot$sample_id <- sub("_$", "", master_annot$sample_id)
 
@@ -25,7 +25,7 @@ for (i in 1:nrow(master_annot)){
   population <- master_annot$population[i]
   data_type <- master_annot$tissue_type[i]
   group <- master_annot$sample_description[i]
-  path <- str_c("~/Desktop/Github/Gskimming/00_data/Angsd/Clupea/RawCov/Theta/", sample_seq_id,  ".nocig.dedup_clipoverlap.minq20_minq20.nocig.realigned_mindp2_maxdp800_minq33_minmapq20")
+  path <- str_c("~/Desktop/Github/Gskimming/00_data/Angsd/Clupea/RawCov/Theta/noTrans/", sample_seq_id,  ".nocig.dedup_clipoverlap.minq20_minq20.nocig.realigned_mindp2_maxdp800_minq33_minmapq20")
   
   # Check if the file exists before trying to read it
   if (file.exists(str_c(path, ".average_thetas.pestPG"))) {
@@ -48,11 +48,11 @@ het <- all_theta_notrans %>%
   group_by(sample_id, population, group, type) %>%
   summarise(sum_t_w=sum(t_w), sum_n_sites=sum(n_sites), heterozygosity=sum_t_w/sum_n_sites) 
 set.seed(42)
-het %>%
-  ggplot(aes(x=population, y=heterozygosity, color=population)) +
+het %>%ggplot(aes(x=population, y=heterozygosity, color=population)) +
   geom_boxplot(outlier.alpha = 0) +
   geom_jitter(height = 0) +
   facet_wrap(~type) +
   coord_flip() +
-  theme_cowplot() +
+  theme_cowplot()+
   theme(legend.position = "none")
+ggsave(het, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/RawCov/Angsd/Theta/Het_Clupea_n45_Invfree_minq20_minq20.nocig.realigned_mindp2_maxdp800_minq33_minmapq20.average_thetas.png",scale = 1, dpi = 600)
