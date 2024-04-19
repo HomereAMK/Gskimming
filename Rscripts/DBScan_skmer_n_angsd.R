@@ -7,14 +7,19 @@ rm(list = ls(all = TRUE))
 # R 4.3.2 GUI 1.80 Big Sur ARM build (8281)
 library(mclust)
 library(dbscan)
-install.packages("chngpt")
+library(tidyverse)
+#install.packages("chngpt")
 library("chngpt")
 #### Clustering evaluation ####
 ##Angsd
 pcoa_table_angsd <- read.csv("~/Desktop/GitHub/Gskimming/00_data/Angsd/Clupea/RawCov/MDS/Angsd_rawcov_AtmoreClupea_pcoa_table-mat_Mar24.csv")
+pcoa_table_angsd
 #  We'll focus on dist_1 and dist_2 for clustering
-data <- pcoa_table_angsd[, c("dist_1", "dist_2")]
-ggplot(data, aes(x = dist_1, y = dist_2)) + geom_point()
+ggplot(pcoa_table_angsd, aes(x = dist_1, y = dist_2, color = population)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "PCoA based on ANGSD distance", x = "PCoA 1", y = "PCoA 2")
+
 y<-sort(dbscan::kNNdist(data, k =  2))
 dbscan::kNNdistplot(data, k =  2)
 chngptm.xy(x=1:(length(y)),y=y,type="segmented")

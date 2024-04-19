@@ -12,7 +12,7 @@ colnames(stats_clupea) <- c("cleaned_id", "rawreads", "rawbases", "adapterclipba
 stats_clupea <- subset(stats_clupea, select = -ncol(stats_clupea))
 
 ann_stats_clupea <- merge(stats_clupea, master_annot, by.x = "cleaned_id")
-
+write.csv(ann_stats_clupea, ""~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Stats/ann_stats_clupea.csv")
 select_relevant_rows <- function(x){
   dplyr::select(x, cleaned_id, population, rawbases, adapterclipbases, mappedbases, dedupmappedbases, realignedmappedbases)
 }
