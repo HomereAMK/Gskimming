@@ -116,8 +116,8 @@ done
 [[ -z $initial_sampling ]] && initial_sampling="${def_sampling}"
 [[ -z $mean_cov ]] && mean_cov="${def_mean_cov}"
 [[ -z $cov_dev ]] && cov_dev="${def_cov_dev}"
-high_cov=$(bc <<< "$mean_cov + $cov_dev")
-low_cov=$(bc <<< "$mean_cov - $cov_dev")
+high_cov=$(awk "BEGIN {print $mean_cov + $cov_dev}")
+low_cov=$(awk "BEGIN {print $mean_cov - $cov_dev}")
 
 #################
 ## MAIN SCRIPT ##
