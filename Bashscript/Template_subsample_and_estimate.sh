@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -x
-set -e
+#set -e
 
 ###############
 ## FUNCTIONS ##
@@ -13,7 +13,7 @@ function subsample {
     local out_dir="${3}"
     local subsampled_dir="${4}"
     local subsampled_out="subsampled_${in_file##*/}"
-	
+
     echo "${in_file}" "${sample_size}"
     seqtk sample -s100 -2 "${in_file}" "${sample_size}" > "${out_dir}/${subsampled_dir}/${subsampled_out}"
 }
@@ -29,7 +29,7 @@ function calc_new_subsample {
     local optimal_samp=$(bc <<< "${mean_cov}*${initial_sampling}/${cov}")
 
     if echo ${genome} | grep -q "subsampled_"; then
-        subsample "${input}/${genome#unclassified-seq_subsampled_*}.fastq" "${optimal_samp}" "${out_dir}" "subsampled_reads2"
+        subsample "${input}/${genome#subsampled_*}.fq" "${optimal_samp}" "${out_dir}" "subsampled_reads"
     fi
 }
 
@@ -38,12 +38,12 @@ function run_skmer {
     local skmer_lib="${2}"
 
     if [ -d "${out_dir}/skmer_library" ]; then
-        skmer query -a "${in_file}" "${skmer_lib}/skmer_library" -p "2"
+        skmer query -a "${in_file}" "${skmer_lib}/skmer_library" -p "10"
     else
         temp_input=$(mktemp -d "${skmer_lib}/temp_in.XXXXXX")
         ln -s $(realpath "${in_file}") "${temp_input}"
 
-        skmer reference "${temp_input}" -l "${skmer_lib}/skmer_library" -p "2"
+        skmer reference "${temp_input}" -l "${skmer_lib}/skmer_library" -p "10"
         rm -r "${temp_input}"
     fi
 }
@@ -83,7 +83,7 @@ def_sampling=30000000
 usage="bash ${BASH_SOURCE[0]} -h [ -i input ] [ -o output directory ] [ -t threads ] [ -m merge ] [ -s initial read sampling ] [ -c target coverage ] [ -d coverage deviation ]
 
 Runs nuclear read processing pipeline on a batch of merged and decontaminated reads in reference to a constructed library:
-    
+
     Arguments:
     -h          Display this help message and exit.
     -i          Path to INPUT directory.
@@ -91,11 +91,11 @@ Runs nuclear read processing pipeline on a batch of merged and decontaminated re
     -t          Threads to be used by all software in this pipeline (seqtk sample, Skmer, RESPECT). [Default = 2]
     -s          Size of initial sample in number of reads. [Default = 30000000]
     -c          Target coverage for subsampling. [Default = 4]
-    -d          Sets top and bottom deviation thresholds for coverage (+ and - from target coverage). [Default = 1] 
+    -d          Sets top and bottom deviation thresholds for coverage (+ and - from target coverage). [Default = 1]
 "
 ## TODO: Implement different number of skmer threads, post-processing pipelines, custom decontmination directories.
 
-while getopts ":hi:o:t:m:s:c:d:" opts 
+while getopts ":hi:o:t:m:s:c:d:" opts
 do
     case $opts in
         h) echo "${usage}"; exit;;
@@ -110,7 +110,7 @@ do
 done
 
 # setting default values...
-[[ -z $input ]] && echo "NO INPUT GIVEN" && exit 
+[[ -z $input ]] && echo "NO INPUT GIVEN" && exit
 [[ -z $out_dir ]] && out_dir="${def_out_dir}"
 [[ -z $threads ]] && threads="${def_threads}"
 [[ -z $initial_sampling ]] && initial_sampling="${def_sampling}"
@@ -163,13 +163,13 @@ for sample in $coverages; do
     rm "${out_dir}/skmer_library/${genome}/${genome}.msh"
     rmdir "${out_dir}/skmer_library/${genome}"
     rm "${out_dir}/respect_data/${genome}.hist"
-    rm "${out_dir}/subsampled_reads/${genome}.f*" 
+    rm "${out_dir}/subsampled_reads/${genome}.f*"
 done
 
 export -f calc_new_subsample
 parallel -j "${threads}" calc_new_subsample {} "${out_dir}" "${mean_cov}" "${initial_sampling}" "${input}" ::: "${coverages}"
-
-if [ "$(ls ${out_dir}/skmer_library/)" == "CONFIG" ]; then 
+exit
+if [ "$(ls ${out_dir}/skmer_library/)" == "CONFIG" ]; then
     rm "${out_dir}/skmer_library/CONFIG"
     rmdir "${out_dir}/skmer_library/"
 fi

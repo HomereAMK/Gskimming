@@ -7,10 +7,10 @@
 #if CONSULT used, it needs a lot of memory
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
-srun --cpus-per-task=40 --mem=200g --time=100:00:00 --pty bash
-srun --cpus-per-task=20 --mem=100g --time=24:00:00 --pty bash
+srun --cpus-per-task=40 --mem=200g --time=70:00:00 --pty bash
+srun --cpus-per-task=20 --mem=100g --time=62:00:00 --pty bash
 
-
+sacct -u sjr729 --units=G --format "JobID%25,JobName%30,Partition,NodeList,Elapsed,CPUTime,ReqMem,MaxRSS,State%15, AllocTRES%32_" --starttime 2024-03-20
 module load sratoolkit/3.0.0  sra-tools/3.0.3
 ```
 
@@ -58,7 +58,7 @@ for accession in "${accession_list[@]}"; do
     # Check if the compressed fastq file already exists
     if [ ! -f "./fastq_downloads/${accession}_1.fastq.gz" ] || [ ! -f "./fastq_downloads/${accession}_2.fastq.gz" ]; then
         # If not, download and compress the fastq files
-        fasterq-dump --split-files --outdir ./fastq_downloads "$accession"
+        fastq-dump --split-files --outdir ./fastq_downloads SRR26417696
         pigz ./fastq_downloads/${accession}_*.fastq
     else
         echo "Compressed files for accession ${accession} already exist, skipping."

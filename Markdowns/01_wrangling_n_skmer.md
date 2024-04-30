@@ -34,7 +34,7 @@ sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkm
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
 conda activate tutorial
 module load parallel kraken2 respect consult-ii
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/16apr24_screen_skimprocess.log
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40
 
 ```bash
@@ -130,12 +130,23 @@ skmer distance library -t -o "jc-$DATE-dist-mat"
 #cd /path/to/dir
 conda activate Mar_skmer_pip 
 module load parallel kraken2 
+DATE=$(date +%d.%m)
 #bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 4 -t 40
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 2 -t 40 #not complete for Magpie
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 #done
-bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40 #done
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40  > .log #done
+
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40  > .log #done
+```
+
+## Troubleshoot subsample_and_estimate.sh
+```bash
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 -o OUT_subsample_and_estimate_1x  > "$DATE"_test_toubleshoot_11apr_1x.log
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 -o OUT_subsample_and_estimate_1x  > "$DATE"_test_toubleshoot_withmodules_1x.log
+bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40 -o OUT_subsample_and_estimate_0.5x  > "$DATE"_test_toubleshoot_withmodules_0.5x.log
 
 ```
+
 
 ## Quick Phylogeny with FastTree
 

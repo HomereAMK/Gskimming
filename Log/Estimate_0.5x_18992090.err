@@ -1,0 +1,742 @@
+usage: conda [-h] [-v] [--no-plugins] [-V] COMMAND ...
+conda: error: argument COMMAND: invalid choice: 'activate' (choose from 'clean', 'compare', 'config', 'create', 'info', 'init', 'install', 'list', 'notices', 'package', 'remove', 'uninstall', 'rename', 'run', 'search', 'update', 'upgrade', 'content-trust', 'doctor', 'repoquery', 'env')
++ def_out_dir=./OUT_subsample_and_estimate
++ def_threads=2
++ def_mean_cov=4
++ def_cov_dev=1
++ def_sampling=30000000
++ usage='bash subsample_and_estimate.sh -h [ -i input ] [ -o output directory ] [ -t threads ] [ -m merge ] [ -s initial read sampling ] [ -c target coverage ] [ -d coverage deviation ]
+
+Runs nuclear read processing pipeline on a batch of merged and decontaminated reads in reference to a constructed library:
+    
+    Arguments:
+    -h          Display this help message and exit.
+    -i          Path to INPUT directory.
+    -o          Path to directory of pipeline'\''s OUTPUT. [Default = ./OUT_fast_skims_pipeline]
+    -t          Threads to be used by all software in this pipeline (seqtk sample, Skmer, RESPECT). [Default = 2]
+    -s          Size of initial sample in number of reads. [Default = 30000000]
+    -c          Target coverage for subsampling. [Default = 4]
+    -d          Sets top and bottom deviation thresholds for coverage (+ and - from target coverage). [Default = 1] 
+'
++ getopts :hi:o:t:m:s:c:d: opts
++ case $opts in
++ input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken
++ getopts :hi:o:t:m:s:c:d: opts
++ case $opts in
++ mean_cov=0.5
++ getopts :hi:o:t:m:s:c:d: opts
++ case $opts in
++ threads=40
++ getopts :hi:o:t:m:s:c:d: opts
++ case $opts in
++ out_dir=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ getopts :hi:o:t:m:s:c:d: opts
++ [[ -z /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken ]]
++ [[ -z /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x ]]
++ [[ -z 40 ]]
++ [[ -z '' ]]
++ initial_sampling=30000000
++ [[ -z 0.5 ]]
++ [[ -z '' ]]
++ cov_dev=1
+++ bc
++ high_cov=1.5
+++ bc
++ low_cov=-.5
++ mkdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ mkdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ export -f subsample
++ awk '$1 > 10485760'
++ cut -f 2
++ parallel -j 40 subsample '{}' 30000000 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x subsampled_reads
++ du --summarize --block-size=1K /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709202__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709203__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709204__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709206__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709208__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709209__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709210__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709211__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709212__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709213__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709214__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709215__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709216__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709217__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709218__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709219__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709220__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709221__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709224__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709225__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709226__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709227__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709228__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709230__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709231__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709234__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709235__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709236__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709238__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709240__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709241__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709242__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709243__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709244__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709245__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709246__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709247__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709248__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709249__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709251__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709252__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709253__merged.fq
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_DK.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_DK.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_DK.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_DK.UTF-8").
+environment: line 6: seqtk: command not found
+++ awk '$1 <= 10485760'
+++ cut -f 2
+++ xargs
+++ du --summarize --block-size=1K /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709202__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709203__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709204__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709206__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709208__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709209__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709210__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709211__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709212__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709213__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709214__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709215__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709216__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709217__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709218__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709219__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709220__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709221__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709224__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709225__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709226__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709227__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709228__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709230__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709231__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709234__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709235__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709236__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709238__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709240__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709241__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709242__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709243__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709244__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709245__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709246__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709247__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709248__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709249__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709251__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709252__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709253__merged.fq
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709202__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709202__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709203__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709203__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709204__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709204__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709206__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709206__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709208__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709208__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709209__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709209__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709210__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709210__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709211__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709211__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709212__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709212__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709213__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709213__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709214__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709214__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709215__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709215__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709216__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709216__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709217__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709217__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709218__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709218__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709219__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709219__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709220__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709220__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709224__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709224__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709225__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709225__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709226__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709226__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709227__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709227__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709228__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709228__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709230__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709230__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709231__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709231__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709234__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709234__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709235__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709235__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709236__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709236__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709238__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709238__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709240__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709240__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709241__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709241__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709242__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709242__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709243__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709243__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709244__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709244__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709245__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709245__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709246__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709246__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709247__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709247__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709248__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709248__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709249__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709249__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709251__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709251__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709252__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709252__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs)
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709253__merged.fq
++ ln --symbolic /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709253__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
+++ ls /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/subsampled_unclassified-kra_unclassified-seq_ERR9709221__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/subsampled_unclassified-kra_unclassified-seq_ERR9709221__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.9MTsHr
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/subsampled_unclassified-kra_unclassified-seq_ERR9709221__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/subsampled_unclassified-kra_unclassified-seq_ERR9709221__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.9MTsHr
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.9MTsHr -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.9MTsHr
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709202__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709202__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.JsEUf9
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709202__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709202__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.JsEUf9
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.JsEUf9 -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.JsEUf9
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709203__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709203__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.FKq4do
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709203__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709203__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.FKq4do
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.FKq4do -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.FKq4do
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709204__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709204__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.uCldQy
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709204__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709204__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.uCldQy
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.uCldQy -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.uCldQy
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709206__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709206__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.a0jcib
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709206__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709206__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.a0jcib
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.a0jcib -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.a0jcib
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709208__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709208__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.yi4uUA
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709208__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709208__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.yi4uUA
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.yi4uUA -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.yi4uUA
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709209__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709209__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Jva2r2
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709209__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709209__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Jva2r2
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Jva2r2 -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Jva2r2
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709210__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709210__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Om6eLX
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709210__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709210__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Om6eLX
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Om6eLX -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Om6eLX
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709211__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709211__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LTG0xB
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709211__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709211__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LTG0xB
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LTG0xB -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LTG0xB
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709212__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709212__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.3A3Z8M
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709212__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709212__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.3A3Z8M
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.3A3Z8M -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.3A3Z8M
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709213__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709213__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.nsg8FH
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709213__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709213__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.nsg8FH
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.nsg8FH -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.nsg8FH
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709214__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709214__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRsOWz
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709214__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709214__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRsOWz
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRsOWz -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRsOWz
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709215__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709215__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LtI8zk
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709215__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709215__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LtI8zk
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LtI8zk -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LtI8zk
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709216__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709216__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Y08lXy
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709216__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709216__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Y08lXy
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Y08lXy -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.Y08lXy
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709217__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709217__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zRTAaa
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709217__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709217__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zRTAaa
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zRTAaa -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zRTAaa
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709218__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709218__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.TG4Yfs
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709218__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709218__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.TG4Yfs
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.TG4Yfs -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.TG4Yfs
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709219__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709219__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.e2rDhR
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709219__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709219__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.e2rDhR
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.e2rDhR -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.e2rDhR
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709220__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709220__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IriZnN
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709220__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709220__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IriZnN
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IriZnN -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IriZnN
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709224__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709224__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.rF68Es
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709224__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709224__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.rF68Es
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.rF68Es -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.rF68Es
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709225__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709225__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.KJ8xqu
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709225__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709225__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.KJ8xqu
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.KJ8xqu -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.KJ8xqu
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709226__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709226__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.SaxwDB
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709226__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709226__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.SaxwDB
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.SaxwDB -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.SaxwDB
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709227__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709227__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XJfOSw
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709227__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709227__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XJfOSw
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XJfOSw -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XJfOSw
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709228__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709228__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.OmiJNT
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709228__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709228__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.OmiJNT
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.OmiJNT -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.OmiJNT
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709230__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709230__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.xgqqNt
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709230__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709230__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.xgqqNt
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.xgqqNt -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.xgqqNt
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709231__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709231__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.AiOlwQ
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709231__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709231__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.AiOlwQ
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.AiOlwQ -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.AiOlwQ
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709234__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709234__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LDOQBV
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709234__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709234__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LDOQBV
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LDOQBV -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.LDOQBV
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709235__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709235__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.cjTjuv
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709235__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709235__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.cjTjuv
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.cjTjuv -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.cjTjuv
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709236__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709236__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.l7h6kg
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709236__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709236__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.l7h6kg
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.l7h6kg -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.l7h6kg
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709238__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709238__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zogLMX
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709238__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709238__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zogLMX
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zogLMX -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zogLMX
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709240__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709240__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bM5waI
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709240__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709240__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bM5waI
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bM5waI -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bM5waI
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709241__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709241__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zwPb3d
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709241__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709241__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zwPb3d
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zwPb3d -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.zwPb3d
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709242__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709242__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.K3Hg0R
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709242__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709242__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.K3Hg0R
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.K3Hg0R -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.K3Hg0R
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709243__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709243__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.mOBgrH
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709243__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709243__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.mOBgrH
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.mOBgrH -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.mOBgrH
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709244__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709244__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.RHloZT
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709244__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709244__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.RHloZT
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.RHloZT -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.RHloZT
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709245__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709245__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.EWtEfq
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709245__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709245__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.EWtEfq
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.EWtEfq -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.EWtEfq
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709246__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709246__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.NNZSK3
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709246__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709246__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.NNZSK3
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.NNZSK3 -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.NNZSK3
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709247__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709247__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRZiIG
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709247__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709247__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRZiIG
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRZiIG -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.IRZiIG
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709248__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709248__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.GmTG2n
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709248__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709248__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.GmTG2n
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.GmTG2n -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.GmTG2n
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709249__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709249__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.QJ07Yz
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709249__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709249__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.QJ07Yz
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.QJ07Yz -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.QJ07Yz
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709251__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709251__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.hTMots
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709251__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709251__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.hTMots
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.hTMots -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.hTMots
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709252__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709252__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.0mFcjN
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709252__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709252__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.0mFcjN
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.0mFcjN -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.0mFcjN
++ for file in $(ls "${out_dir}/subsampled_reads/")
++ run_skmer /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709253__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ local in_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709253__merged.fq
++ local skmer_lib=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x
++ '[' -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library ']'
+++ mktemp -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.XXXXXX
++ temp_input=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bp0gI7
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/subsampled_reads/unclassified-kra_unclassified-seq_ERR9709253__merged.fq
++ ln -s /maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/unclassified-kra_unclassified-seq_ERR9709253__merged.fq /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bp0gI7
++ skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bp0gI7 -l /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library -p 10
+subsample_and_estimate.sh: line 46: skmer: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/temp_in.bp0gI7
++ mkdir -p /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/respect_data/
++ echo -e 'Input\tread_length'
+++ find /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library/ -maxdepth 1 -mindepth 1 -type d
+find: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/skmer_library/': No such file or directory
++ respect -d /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/respect_data/ -I /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/respect_data/hist_info.txt -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x -N 10000 --threads 40
+subsample_and_estimate.sh: line 156: respect: command not found
+++ check_coverage /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt
+++ local param_file=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt
++++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt
++++ cut -f1,4
++++ tail -n+2
++++ awk -v high_cov=1.5 '$2 > high_cov'
++++ sed -e 's/\t/,/g'
+cat: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt: No such file or directory
++++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt
++++ cut -f1,4
++++ tail -n+2
++++ awk -v high_cov=1.5 '$2 < low_cov'
+cat: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x/estimated-parameters.txt: No such file or directory
++++ sed -e 's/\t/,/g'
++ coverages=
++ export -f calc_new_subsample
++ parallel -j 40 calc_new_subsample '{}' /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/OUT_subsample_and_estimate_0.5x 0.5 30000000 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken ::: ''
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_DK.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_DK.UTF-8").
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_DK.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_DK.UTF-8").
+(standard_in) 2: syntax error
++ exit

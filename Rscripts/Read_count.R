@@ -12,7 +12,7 @@ colnames(stats_clupea) <- c("cleaned_id", "rawreads", "rawbases", "adapterclipba
 stats_clupea <- subset(stats_clupea, select = -ncol(stats_clupea))
 
 ann_stats_clupea <- merge(stats_clupea, master_annot, by.x = "cleaned_id")
-write.csv(ann_stats_clupea, ""~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Stats/ann_stats_clupea.csv")
+write.csv(ann_stats_clupea, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Stats/ann_stats_clupea.csv")
 select_relevant_rows <- function(x){
   dplyr::select(x, cleaned_id, population, rawbases, adapterclipbases, mappedbases, dedupmappedbases, realignedmappedbases)
 }
@@ -85,3 +85,37 @@ ggplot(ann_stats_clupea, aes(x=population, y=realignedmappedbases/rawbases*100))
   coord_flip() +
   theme_cowplot()
 
+
+
+
+## MDS angsd highlighting individuals with abnormaly high genome lenght estimation
+pcoa_table_angsd <- read.csv("~/Desktop/GitHub/Gskimming/00_data/Angsd/Clupea/RawCov/MDS/Angsd_rawcov_AtmoreClupea_pcoa_table-mat_Mar24.csv")
+ann_pcoa_table_angsd <- merge(pcoa_table_angsd, ann_stats_clupea, by.x = "individual", by.y = "cleaned_id", all.x = TRUE)
+str(ann_pcoa_table_angsd)
+
+
+# Individuals subset with genome_length > 1 billion 
+high_genome_length <- ann_pcoa_table_angsd %>%
+  filter(genome_length > 1000000000)
+
+ggplot(ann_pcoa_table_angsd, aes(x = dist_1, y = dist_2, color = population.x)) +
+  geom_point() +
+  geom_point(data = high_genome_length, aes(x = dist_1, y = dist_2), color = "red", size = 4) +
+  geom_text(data = high_genome_length, aes(x = dist_1, y = dist_2, label = individual), size = 2, vjust = -1) +
+  theme_minimal() +
+  labs(title = "PCoA based on ANGSD distance", x = "PCoA 1", y = "PCoA 2") 
+
+
+## Same thing but with the Skmer MDS
+pcoa_table_skmer <- read.csv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv")
+ann_pcoa_table_skmer <- merge(pcoa_table_skmer, ann_stats_clupea, by.x = "individual", by.y = "cleaned_id", all.x = TRUE)
+# Individuals subset with genome_length > 1 billion 
+high_genome_length <- ann_pcoa_table_skmer %>%
+  filter(genome_length > 1000000000)
+
+ggplot(ann_pcoa_table_skmer, aes(x = dist_1, y = dist_2, color = sample_description)) +
+  geom_point() +
+  geom_point(data = high_genome_length, aes(x = dist_1, y = dist_2), color = "red", size = 4) +
+  geom_text(data = high_genome_length, aes(x = dist_1, y = dist_2, label = individual), size = 2, vjust = -1) +
+  theme_minimal() +
+  labs(title = "PCoA based on Skmer distance", x = "PCoA 1", y = "PCoA 2") 

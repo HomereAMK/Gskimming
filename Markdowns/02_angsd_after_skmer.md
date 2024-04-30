@@ -56,7 +56,7 @@ GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/
 base=__BASE__
 
 # BWA Alignment, Sorting, and Indexing
-bwa mem -t "$NCPU" -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$DATAINPUT"/"$base"__merged > "$DATAOUTPUT"/"$base".sam
+bwa mem -t "$NCPU" -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$DATAINPUT"/"$base"__merged > "$DATAOUTPUT"/"$base".sam 2> "$DATAOUTPUT"/"$base".bwa.log
 samtools view -bS -h -q 20 -F 4 "$DATAOUTPUT"/"$base".sam > "$DATAOUTPUT"/"$base".bam
 samtools sort "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sort.minq20.bam
 samtools index "$DATAOUTPUT"/"$base".sort.minq20.bam
@@ -91,3 +91,50 @@ ls $BAMS > 01_infofiles/Atmore_modern_bam_list.txt
 awk -F, '{print "reformat.sh in1=done/"$1"_1.fastq.gz in2=done/"$1"_2.fastq.gz out1="$1"_4x_1.fastq.gz out2="$1"_4x_2.fastq.gz samplerate="$6"\njava -ea -Xms300m -cp /projects/mjolnir1/apps/conda/bbmap-39.01/opt/bbmap-39.01-0/current/ jgi.ReformatReads in1=done/"$1"_1.fastq.gz in2=done/"$1"_2.fastq.gz out1="$1"_4x_1.fastq.gz out2="$1"_4x_2.fastq.gz samplerate="$6"}' library_4x/feb24_Atmore_modern_4x_stat_clupea_df.csv
 ```
 
+
+
+### Stats mapping Clupea 
+module load tools
+module load ngs
+module load samtools/1.14
+
+```bash
+DIR=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+
+# Iterate over only the *_1.fastq.gz files to avoid processing each base twice
+for file in $DIR/rawfastqmodernClupea/*_1.fastq.gz; do
+    # Extract the base name by taking the first 10 characters of the filename
+    base=$(basename $file _1.fastq.gz | cut -c1-10)
+    #Global variables
+    #raw reads
+    a=`zcat $DIR/rawfastqmodernClupea/"$base"_1.fastq.gz  | wc -l | awk '{print $1/4}'` #raw read forward
+    b=`zcat $DIR/rawfastqmodernClupea/"$base"_2.fastq.gz | wc -l | awk '{print $1/4}'` #raw read reverse
+    echo $(( $a + $b )) > $DIR/StatsMapping/"$base".count_fastq_1.tmp
+    #raw bases
+    c=`zcat $DIR/rawfastqmodernClupea/"$base"_1.fastq.gz | awk 'NR%4==2' | tr -d "\n" | wc -m` 
+    d=`zcat $DIR/rawfastqmodernClupea/"$base"_2.fastq.gz | awk 'NR%4==2' | tr -d "\n" | wc -m`
+    echo $(( $c + $d )) > $DIR/StatsMapping/"$base".count_fastq_2.tmp
+
+    #trim bases
+    e=`cat $DIR/skims_processing_pipeline_jan24/consult/unclassified-seq_"$base"__merged | awk 'NR%4==2' | tr -d "\n" | wc -m` 
+    echo  $e  > $DIR/StatsMapping/"$base".count_fastq_3.tmp 
+
+    #mapped bases
+    samtools stats $DIR/angsd/mapped/unclassified-seq_"$base".sort.minq20.bam -@ 12 | grep ^SN | cut -f 2- | grep "^bases mapped (cigar)" | cut -f 2 > $DIR/StatsMapping/"$base".count_bam_1.tmp
+        
+    #deduplicate mapped bases
+    samtools stats $DIR/angsd/dedup/unclassified-seq_"$base".nocig.dedup_clipoverlap.minq20.bam -@ 12 | grep ^SN | cut -f 2- | grep "^bases mapped (cigar)" | cut -f 2  > $DIR/StatsMapping/"$base".count_bam_2.tmp
+
+    #realigned around indels mapped bases
+    samtools stats $DIR/angsd/realigned/unclassified-seq_"$base".nocig.dedup_clipoverlap.minq20_minq20.nocig.realigned.bam -@ 12 | grep ^SN | cut -f 2- | grep "^bases mapped (cigar)" | cut -f 2  > $DIR/StatsMapping/"$base".count_bam_3.tmp
+
+    RAWREADS=`cat $DIR/StatsMapping/"$base".count_fastq_1.tmp`
+    RAWBASES=`cat $DIR/StatsMapping/"$base".count_fastq_2.tmp`
+    ADPTERCLIPBASES=`cat $DIR/StatsMapping/"$base".count_fastq_3.tmp`
+    MAPPEDBASES=`cat $DIR/StatsMapping/"$base".count_bam_1.tmp`
+    DEDUPMAPPEDBASES=`cat $DIR/StatsMapping/"$base".count_bam_2.tmp`
+    REALIGNEDMAPPEDBASES=`cat $DIR/StatsMapping/"$base".count_bam_3.tmp`
+
+    printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" $base $RAWREADS $RAWBASES $ADPTERCLIPBASES $MAPPEDBASES $DEDUPMAPPEDBASES $REALIGNEDMAPPEDBASES >> $DIR/StatsMapping/Summary_modernClupea_stats_9apr23.txt
+done
+```

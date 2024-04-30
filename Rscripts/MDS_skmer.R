@@ -76,12 +76,12 @@ write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst
 mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,40, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 mds_plot
 #ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
-mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
+#mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 #ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 pcoa_table_genome_wide <- pcoa_table
 #write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
-#write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
+write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
 
 pcoa_table
 pcoa_table_genome_wide_joined <- pcoa_table_genome_wide %>%
@@ -167,7 +167,7 @@ stat_clupea_df <- stat_clupea %>%
   mutate(X1 = gsub("_", "",X1))
 
 annotation_df_tot <- merge(annot_df_final, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
-write.csv(annotation_df_tot, "../../Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv", row.names = FALSE)
+#write.csv(annotation_df_tot, "../../Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv", row.names = FALSE)
 
 # Range of coverage by adding CoverageCategory ~
 annotation_df_tot$CoverageCategory <- ifelse(annotation_df_tot$coverage <= 0.7, "< 1x",
@@ -206,25 +206,5 @@ ggsave(mds_geno, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/S
 
 
 
-#### Clustering evaluation ####
-##Skmer
-str(pcoa_table)
-#  We'll focus on dist_1 and dist_2 for clustering
-data <- pcoa_table[, c("dist_1", "dist_2")]
-ggplot(data, aes(x = dist_1, y = dist_2)) + geom_point()
-dbscan::kNNdistplot(data, k =  2)
 
-# Step 3: Apply the DBSCAN clustering algorithm
-# adjust 'eps' and 'minPts'
-dbscan_result <- dbscan(data, eps = 0.5, minPts = 2)
 
-# Step 4: Determine the ground truth based on unique populations
-ground_truth <- as.factor(pcoa_table$population)
-
-# Step 5: Calculate the Adjusted Rand Index (ARI)
-# Note: You need to convert clustering labels to a factor for ARI calculation
-cluster_labels <- factor(dbscan_result$cluster)
-ari_result <- adjustedRandIndex(cluster_labels, ground_truth)
-
-# Print the ARI result
-print(ari_result)

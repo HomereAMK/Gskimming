@@ -40,9 +40,10 @@ N_IND=$(cat $BAMLIST | wc -l)  # Count the number of individuals based on the ba
 angsd \
 -bam $BAMLIST \
 -ref $GENOME \
--out "${OUTPUTFOLDER}/mar24_Magpie_SNP_minInd0.25" \
+-out "${OUTPUTFOLDER}/mar24_Magpie_SNP_minInd0.25_MinDepth450_MaxDepth1600" \
 -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -baq 1 \
 -minMapQ 20 -minQ 20 -minInd $((N_IND*1/4)) \
+-setMinDepthInd 1 -setMinDepth 450 -setMaxDepth 1600 \
 -doCounts 1 -dumpCounts 2 \
 -GL 1 -doGlf 2 \
 -doMajorMinor 1 -doMaf 1 -SNP_pval 1e-6 -minMaf 0.05 -rmTriallelic 0.05 -doPost 1 -doGeno 8 \
