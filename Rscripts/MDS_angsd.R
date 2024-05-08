@@ -22,16 +22,16 @@ library(dbscan)
 library(mclust)
 
 ### Sourcing required functions
-source("individual_mdsGskim_functions_hjam.R")
+source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 #### Herring ####
 ### Reading and processing ibs matrix
 ibs_mat <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Angsd/Clupea/RawCov/MDS/screenfeb24_Atmore_modern_SNP_Inv_free_regions_minInd0.25.ibsMat", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
-
+str(ibs_mat)
 # Load complete modern Clupea atmore annotation file 
-annot <- read_csv("../../Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv")
+annot <- read_csv("~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv")
 
 ### Performing PCoA with initial annotation
 mds_plot <- PCoA(ibs_mat, annot$cleaned_id, annot$population,40, 1, 2, show.ellipse = FALSE, show.label = TRUE)

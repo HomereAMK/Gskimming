@@ -113,7 +113,7 @@ ann_pcoa_table_skmer <- merge(pcoa_table_skmer, ann_stats_clupea, by.x = "indivi
 high_genome_length <- ann_pcoa_table_skmer %>%
   filter(genome_length > 1000000000)
 
-ggplot(ann_pcoa_table_skmer, aes(x = dist_1, y = dist_2, color = sample_description)) +
+ggplot(ann_pcoa_table_skmer, aes(x = dist_2, y = dist_1, color = population.x)) +
   geom_point() +
   geom_point(data = high_genome_length, aes(x = dist_1, y = dist_2), color = "red", size = 4) +
   geom_text(data = high_genome_length, aes(x = dist_1, y = dist_2, label = individual), size = 2, vjust = -1) +

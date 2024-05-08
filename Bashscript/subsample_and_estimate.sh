@@ -132,7 +132,7 @@ du --summarize --block-size=1K "${input}/"* \
 	| cut -f 2 \
 	| parallel -j "${threads}" subsample {} "${initial_sampling}" "${out_dir}" "subsampled_reads"
 
-for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 10485760' | cut -f 2 | xargs); do
+for file in $(du --summarize --block-size=1K "${input}/"* | awk '$1 <= 100000' | cut -f 2 | xargs); do
     ## Creating symlinks for small files ##
    ln --symbolic $(realpath "${file}") "${out_dir}/subsampled_reads/"
 done

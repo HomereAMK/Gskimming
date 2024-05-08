@@ -18,9 +18,34 @@ for query in ${POP[*]}
         angsd -nThreads 40 -ref $REF -anc $REF -bam $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -baq 1 -minMapQ 20 -minQ 20 -setMinDepth 400 -setMaxDepth 800 -GL 1 -doSaf 1 -doCounts 1 -out $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}
     done
 done
-
-```
 🤝
+
+for query in ${POP[*]}
+    do
+        N_IND=$(cat $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list | wc -l) 
+        angsd -nThreads 40 -ref $REF -anc $REF -bam $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -baq 1 -minMapQ 20 -minQ 20 -minInd $((N_IND*1/4)) -GL 1 -doSaf 1 -doCounts 1 -out $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}
+    done
+done
+🤝
+```
+
+
+```bash
+#alternative
+module load angsd parallel
+BAMLIST="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/01_infofiles/Atmore_modern_bam_list.txt"
+BASEDIR="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/"
+POP=("BLEK" "IDEI" "IDEO" "KALI" "KALM" "KARM" "MORE" "MASE" "RISO")  # Add more populations
+REF="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+OUTPUTDIR="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/Het/"
+for query in ${POP[*]}
+do
+    N_IND=$(cat $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list | wc -l) 
+    angsd -nThreads 40 -ref $REF -anc $REF -bam $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -baq 1 -minMapQ 20 -minQ 20 -minInd $((N_IND*1/4)) -GL 1 -doSaf 1 -doCounts 1 -out $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}
+done
+```
+
+
 
 ## Runs realSFS
 ```bash
@@ -31,18 +56,37 @@ do
     realSFS -P 40 $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}.saf.idx -tole 1e-08 -maxIter 500 > $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}.sfs
     
 done
+🤝
+for query in ${POP[*]}
+
+do
+    realSFS -P 40 $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.saf.idx -tole 1e-08 -maxIter 500 > $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.sfs
+    
+done
+🤝
 ```
 🤝
 ## Calculates the thetas for each site and Gets summary of thetas
 ```bash
+
 for query in ${POP[*]}
 do
     realSFS saf2theta $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}.saf.idx -sfs $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}.sfs -anc $REF -outname $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}_PopGenEstimates
     thetaStat print $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}_PopGenEstimates.thetas.idx > $OUTPUTDIR/Mar24--Unfolded_Clupea_NIC_MinDepth400-MaxDepth_800${query}_PopGenEstimates.Print
 done
+
+
+for query in ${POP[*]}
+do
+    realSFS saf2theta $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.saf.idx -sfs $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.sfs -anc $REF -outname $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}_PopGenEstimates
+    thetaStat print $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}_PopGenEstimates.thetas.idx > $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}_PopGenEstimates.Print
+done
+
 ```
 🤝
+
 ## Estimate theta
+```bash
 for query in ${POP[*]}
 do
 
@@ -53,6 +97,20 @@ do
     -anc $REF \
     -P 40
 done
+🤝
+
+
+for query in ${POP[*]}
+do
+
+    realSFS saf2theta $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.saf.idx \
+    -outname $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}_PopGenEstimates \
+    -sfs $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.sfs \
+    -anc $REF \
+    -P 40
+done
+🤝
+```
 
 ## Gets thetas per sliding window and Edits thetas per sliding window:
 ```bash

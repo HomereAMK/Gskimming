@@ -31,10 +31,10 @@ sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkm
 ```
 
 ```bash
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
-conda activate tutorial
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/
+conda activate Mar_skmer_pip
 module load parallel kraken2 respect consult-ii
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/16apr24_screen_skimprocess.log
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/23apr24_screen_skimprocess.log
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40
 
 ```bash
@@ -116,7 +116,7 @@ python csv_to_tsv_stats.py "stats-postprocess_$DATE.csv" "stats-postprocess_$DAT
 python badspecimens_identifier.py "stats-postprocess_$DATE.tsv" library library_badindividuals
 ```
 
-## Skmer Distance Calculation
+## Skmer Distance Calculation with skmer1
 
 Computes distance matrices using Skmer.
 
@@ -124,6 +124,20 @@ Computes distance matrices using Skmer.
 DATE=$(date +%d.%m)
 skmer distance library -t -o "jc-$DATE-dist-mat"
 ```
+
+## Skmer Distance Calculation with skmer2
+
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+conda activate skmer_2_test
+#conda install jellyfish seqtk mash
+module load jellyfish parallel
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+DATE=$(date +%d.%m)
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug distance ./library_skmer2 -r $GENOME -p 5 -o "skmer2_Ref-$DATE-dist-mat"
+
+```
+
 
 ## Subsample to 4x and estimate with Skmer
 ```bash
@@ -135,15 +149,80 @@ DATE=$(date +%d.%m)
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 2 -t 40 #not complete for Magpie
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 #done
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40  > .log #done
-
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40  > .log #done
 ```
 
 ## Troubleshoot subsample_and_estimate.sh
 ```bash
+# For testMagpie
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 -o OUT_subsample_and_estimate_1x  > "$DATE"_test_toubleshoot_11apr_1x.log
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 1 -t 40 -o OUT_subsample_and_estimate_1x  > "$DATE"_test_toubleshoot_withmodules_1x.log
 bash subsample_and_estimate.sh -i skims_processing_pipeline/kraken -c 0.5 -t 40 -o OUT_subsample_and_estimate_0.5x  > "$DATE"_test_toubleshoot_withmodules_0.5x.log
+
+#For testClupea
+conda activate Mar_skmer_pip 
+module load parallel kraken2 
+DATE=$(date +%d.%m)
+#bash ../testMagpie/subsample_and_estimate.sh -i skims_processing_pipeline_jan24/kraken -c 1 -t 40 -o OUT_subsample_and_estimate_1x  > "$DATE"_testClupea_toubleshoot_withmodules_1x.log #### subsample 1x done
+bash subsample_and_estimate.sh -i skims_processing_pipeline_jan24/kraken -c 0.25 -t 40 -o OUT_subsample_and_estimate_0.25x  > "$DATE"_testClupea_toubleshoot_withmodules_0.25x.log
+
+for file in skims_processing_pipeline_jan24/kraken/*__merged; do
+  mv "$file" "${file}.fq"
+done
+
+# I have cp the updated subsample_and_estimate.sh in testClupea 24apr24
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 30 -o ./OUT_subsample_and_estimate_1x -c 1 2>&1 > "$DATE"_testClupea_subsample_n_estimate_troubleshoot.log
+
+
+sbatch --job-name=ClupeaEstimate_4x \
+--output=Estimate_4x_%j.out \
+--error=Estimate_4x_%j.err \
+--ntasks=1 \
+--cpus-per-task=40 \
+--mem=180G \
+--time=45:00:00 \
+--mail-type=BEGIN,END,FAIL \
+--mail-user=homerejalves.monteiro@sund.ku.dk \
+--wrap="conda activate Mar_skmer_pip; module load parallel kraken2; DATE=\$(date +%d.%m); bash /subsample_and_estimate.sh -i skims_processing_pipeline_jan24/kraken -c 2 -t 40 -o OUT_subsample_and_estimate_2x > \${DATE}_testClupea_subsample_sbatch_2x.log"
+
+
+
+#template
+bash ./template_subsample_27apr.sh -i ./skims_processing_pipeline_jan24/kraken -t 30 -o ./OUT_subsample_and_estimate_4x_template -c 4 2>&1 > "$DATE"_testClupea_templatesubsample_.log
+
+
+
+#30apr24
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 30 -o ./OUT_subsample_and_estimate_4x_template -c 4 2>&1 > "$DATE"_testClupea_templatesubsample.log
+
+
+#1may
+conda activate skmer_2_test
+DATE=$(date +%d.%m)
+module load parallel kraken2 
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 30 -o ./OUT_subsample_and_estimate_4x_template -c 4 2>&1 > "$DATE"_skmer2_Clupea_templatesubsample.log
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 18 -o ./OUT_subsample_and_estimate_2x_skmer2 -c 2 2>&1 > "$DATE"_skmer2__Clupea_2xubsample.log
+
+
+#2may
+conda activate Mar_skmer_pip 
+DATE=$(date +%d.%m)
+module load parallel kraken2 
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 18 -o ./OUT_subsample_and_estimate__Mar_skmer_pip_2x_skmer2 -c 2 2>&1 > "$DATE"_skmer2_condaMar_skmer_pip-_Clupea_2xubsample.log
+
+
+#3may
+conda activate Mar_skmer_pip 
+DATE=$(date +%d.%m)
+module load parallel kraken2 
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+bash ./subsample_and_estimate.sh -i ./skims_processing_pipeline_jan24/kraken -t 18 -o ./OUT_subsample_and_estimate__Mar_skmer_pip_0.25x_skmer2 -c 0.25 2>&1 > "$DATE"_skmer2_condaMar_skmer_pip-_Clupea_0.25xubsample.log
+
+
+du --summarize --block-size=1K ./skims_processing_pipeline_jan24/kraken/* | awk '$1 <= 10485760' | cut -f 2 | xargs
 
 ```
 
@@ -253,7 +332,7 @@ threads=8
 mkdir -p "$lib_dir" "$output_dir" "$temp_dir"
 
 # Skmer Operations + Respect Pipeline
-for file in "$input_dir"/*_read.fq; do
+for file in "$input_dir"/*_read.fq; do  #*_read.fq -> this might not be the suffix
     filename=$(basename "$file")
     sample_id="${filename%_read.fq}"
 
