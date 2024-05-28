@@ -14,6 +14,7 @@ library(dplyr)
 library(ape)
 library(cowplot)
 library(knitr)
+library(purrr)
 library(scales)
 library(miscTools)
 if (!requireNamespace("dbscan", quietly = TRUE)) install.packages("dbscan")
@@ -22,22 +23,41 @@ library(dbscan)
 library(mclust)
 
 ### Sourcing required functions
-source("individual_mdsGskim_functions_hjam.R")
+source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("../../Skmer-2/data/Clupea_4x_24feb24/jc-24.02-dist-mat_4x_Clupea.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer2/Clupea/RawCov/MDS/skmer2_Ref-09.05-dist-mat.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
+str(dist_jc)
 
+## formatting
 pairwise_distances <- dist_jc[-1, -1]
 ibs_mat <- as.data.frame(as.matrix(pairwise_distances))
 ibs_mat[is.na(ibs_mat) | ibs_mat == "nan"] <- 0
 ibs_mat[is.na(ibs_mat) | ibs_mat == "-nan"] <- 0
+ibs_mat[is.na(ibs_mat) | ibs_mat == "None"] <- 0
+ibs_mat[is.na(ibs_mat) | ibs_mat == "none"] <- 0
+
+#str(ibs_mat)
+
+## Convert in numerical | necessary only for distance matrix from skmer2
+# Assuming ibs_mat is already loaded and is as shown in the str() output
+#ibs_mat <- ibs_mat %>%
+#  mutate(across(everything(), ~as.numeric(.))) %>%  # Convert all columns to numeric
+#  mutate(across(everything(), ~replace_na(., 0)))   # Replace NA with 0
+
+# Check the structure and summary to confirm changes
 str(ibs_mat)
+summary(ibs_mat)
+
+# Check for any remaining NA values after conversion
+sum(is.na(ibs_mat))
+
 ### Creating annotation file
 sample_ids <- dist_jc[-1, 1]
-cleaned_ids <- gsub("unclassified-kra_", "", sample_ids)
-cleaned_ids <- gsub("_", "", cleaned_ids)
+cleaned_ids <- gsub("unclassified-kra_unclassified-seq_", "", sample_ids) #beware that the prefix might changed
+cleaned_ids <- gsub("__merged", "", cleaned_ids) #beware that the suffix might changed
 species_names <- rep("Clupea", length(sample_ids))
 
 ### If you already have an tailored annotation file
@@ -51,7 +71,7 @@ master_list<- read_csv("~/Desktop/GitHub/Gskimming/Metadata/ClupeaAtmore/Master_
 annot_df_final <- merge(annotation_df, master_list, by.x = "cleaned_id", by.y = "run_accession", all.x = TRUE)
 
 
-### identify run_accession that are  not present in annot_df_final
+### identify run_accession that are not present in annot_df_final
 missing_ind <- master_list %>% 
   filter(!run_accession %in% annot_df_final$cleaned_id)
 for (accession in missing_ind$run_accession) {
@@ -70,22 +90,34 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/jc-24.02-dist-mat_4x_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer2/jskmer2_Ref-08.05-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
-mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,40, 1, 2, show.ellipse = FALSE, show.label = TRUE)
+mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
 mds_plot
-#ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_locality_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+
+str(ibs_mat)
+
+# Extract the individual IDs from the outliers dataframe
+outlier_ids <- outliers_dist_1$individual
+
+# Assuming 'ibs_mat' is your original matrix with individual IDs as row and column names
+# Remove the rows and columns in 'ibs_mat' corresponding to the outlier IDs
+
+ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/RawCov//Skmer2/Skmer2_ClupeaPCA_n42_locality_JCcorr_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 #mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 #ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 pcoa_table_genome_wide <- pcoa_table
+pcoa_table2 <- pcoa_table[!rownames(pcoa_table) %in% outlier_ids, !colnames(pcoa_table) %in% outlier_ids]
+pcoa_table_cleaned <- pcoa_table[!pcoa_table$individual %in% outlier_ids, ]
+
 #write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
 write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
 
 pcoa_table
-pcoa_table_genome_wide_joined <- pcoa_table_genome_wide %>%
-  dplyr::select(1:6) %>%
+pcoa_table_genome_wide_joined <- pcoa_table_cleaned %>%
+  dplyr::select(1:5) %>%
   left_join(annot_df_final, by=c("individual"="cleaned_id", "population"="population"))
 mds_plot_sum <-pcoa_table_genome_wide_joined %>%
   ggplot(aes(x=dist_1, y=dist_2)) +
@@ -96,7 +128,7 @@ mds_plot_sum <-pcoa_table_genome_wide_joined %>%
   theme(axis.text = element_blank())
 
 #change filename and path
-#ggsave(mds_plot_sum, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/XXX.png", scale = 1, width = 12, height = 12, dpi = 600)
+ggsave(mds_plot_sum, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/RawCov//Skmer2/PerPop_Skmer2_ClupeaPCA_n42_locality_JCcorr_rawcoverage_PC1PC2.png", scale = 1, width = 12, height = 12, dpi = 600)
 
 
 #PCoA_label(ibs_mat, annotation_df$cleaned_id, annotation_df$species,3, 1, 3, show.ellipse = F, show.label = F)
@@ -134,7 +166,7 @@ print(outlier_table)
 
 
 ### Reading metadata and updating annotation_df
-metadata_clupea <- read_tsv("../../Gskimming/Metadata/filereport_read_run_PRJEB52723_tsv (5).txt", col_names = TRUE)
+metadata_clupea <- read_tsv("~/Desktop/GitHub/Gskimming/Metadata/filereport_read_run_PRJEB52723_tsv (5).txt", col_names = TRUE)
 annotation_df <- merge(annotation_df, metadata_clupea, by.x = "cleaned_id", by.y = "run_accession")
 
 ### Adding 'type' column based on sample_alias
