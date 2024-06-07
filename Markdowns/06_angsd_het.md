@@ -27,6 +27,14 @@ for query in ${POP[*]}
     done
 done
 🤝
+
+for query in ${POP[*]}
+    do
+        N_IND=3
+        angsd -nThreads 10 -ref $REF -anc $REF -bam $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list -uniqueOnly 1 -remove_bads 1 -only_proper_pairs 1 -trim 0 -C 50 -baq 1 -minMapQ 30 -minQ 30 -minInd $N_IND -setMinDepth 2 -GL 1 -doSaf 1 -doCounts 1 -out $OUTPUTDIR/May24--Unfolded_Clupea_n3_Q30_setMinDepth2_${query}
+    done
+done
+🤝
 ```
 
 
@@ -60,7 +68,7 @@ done
 for query in ${POP[*]}
 
 do
-    realSFS -P 40 $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.saf.idx -tole 1e-08 -maxIter 500 > $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.sfs
+    realSFS -P 20 $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.saf.idx -tole 1e-08 -maxIter 500 > $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}.sfs
     
 done
 🤝
@@ -111,6 +119,23 @@ do
 done
 🤝
 ```
+
+
+## Perform final calcultion 
+```bash
+module load gcc/11.2.0 R
+for query in ${POP[*]}
+do
+
+    #N_IND=`cat /home/projects/dp_00007/people/geopac/Analyses/Turbot/Turbot_Lists/BSG_Turbot--AllSamples_${query}-Fst.list | wc -l`
+    N_IND=`cat $BASEDIR/01_infofiles/Jan24--ModernClupea_${query}-Fst.list | wc -l`
+
+    Rscript --vanilla --slave /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/GetsThetaSummaries.R $OUTPUTDIR/May24--Unfolded_Clupea_n$N_IND_${query}_PopGenEstimates.Print $N_IND $query
+done > $OUTPUTDIR/BSG_May24_allpop.PopGenEstimates.txt
+```
+
+```bash
+
 
 ## Gets thetas per sliding window and Edits thetas per sliding window:
 ```bash

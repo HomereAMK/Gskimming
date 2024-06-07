@@ -7,8 +7,11 @@
 #if CONSULT used, it needs a lot of memory
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
-srun --cpus-per-task=40 --mem=200g --time=70:00:00 --pty bash
-srun --cpus-per-task=20 --mem=100g --time=62:00:00 --pty bash
+srun --cpus-per-task=40 --mem=200g --time=160:00:00 --pty bash
+srun --cpus-per-task=20 --mem=60g --time=54:00:00 --pty bash
+
+srun --cpus-per-task=10 --mem=40g --time=12:00:00 --pty bash
+
 
 sacct -u sjr729 --units=G --format "JobID%25,JobName%30,Partition,NodeList,Elapsed,CPUTime,ReqMem,MaxRSS,State%15, AllocTRES%32_" --starttime 2024-03-20
 module load sratoolkit/3.0.0  sra-tools/3.0.3
@@ -851,3 +854,17 @@ conda activate tutorial
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/fastq_downloads  -r 38 -f 38 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea/Skmin_sbatch_16jan.log
 
 sbatch --job-name=4xSkmin_sbatch --output=4xSkmin_sbatch_16jan.out --error=4xSkmin_sbatch_16jan.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate tutorial && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40 "
+
+
+```
+Skmer's main strength lies in its ability to quickly estimate distances between lcWGS individuals, without a reference genome, reducing computing requirements and bioinformatics steps for monitoring populations. It is also a great alternative undistinguished taxa using mtDNA barcoding.
+
+Modules (FST and MDS plots) need to incorporate statistics from Skmer to discard individuals and populations that do not meet certain thresholds for error rate, coverage, read length, genome size, and heterozygosity.
+
+Ancient DNA specimens are not suitable for the current Skmer pipeline due to their significantly higher heterozygosity (θ).
+
+Stronger genetic clustering was observed at sampling sites using ANGSD compared to Skmer, likely due to the removal of high LD regions.
+
+Clear genetic breaks between ecotypes were identified by both methods. These methods highlight that many downstream applications of genome skims can be successfully performed if we have an accurate way to measure the distance between two genomes from which genome skims are generated.
+
+Skmer can be upscaled to population diversity metrics estimation since the mean Hamming distance between samples is equivalent to heterozygosity. Fst (genetic differentiation) is defined based on the distance between samples, making Skmer well-suited for identifying structure in species at early stages of domestication and breeding.

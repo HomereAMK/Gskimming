@@ -1,10 +1,10 @@
 ## SRA to FastQ Conversion for HanClupea
 
-Transforms .sra files in ERR* folders to fastq.gz files.
+# Transforms .sra files in ERR* folders to fastq.gz files.
 
 ```bash
 #!/bin/bash
-base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testHanClupea"
+base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis"
 for dir in "$base_dir"/SRR*/; do
     cd "$dir" || continue
     if ! ls *.fastq.gz 1> /dev/null 2>&1; then
@@ -17,6 +17,45 @@ for dir in "$base_dir"/SRR*/; do
     fi
     cd "$base_dir"
 done
+echo "All processing complete."
+```
+
+# Alternative version with .csv file containing run accession in the first column
+```bash
+base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq"
+
+# Path to the CSV file
+csv_file="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedulis_sra.csv"
+
+# Navigate to the base directory
+cd "$base_dir" || exit
+
+# Read SRA run IDs from the CSV, skip the header line
+sra_ids=$(tail -n +2 "$csv_file" | cut -d',' -f1)
+
+for sra_id in $sra_ids; do
+    # Check if .fastq.gz files already exist for this SRA ID
+    if ! ls "${sra_id}_*.fastq.gz" 1> /dev/null 2>&1; then
+        # Download SRA file using prefetch
+        prefetch "$sra_id" --output-directory "./"
+
+        # Explicitly define the path of the downloaded SRA file
+        sra_file="${sra_id}/${sra_id}.sra"
+
+        # Check if the SRA file was downloaded and exists
+        if [ -f "$sra_file" ]; then
+            # Convert SRA to FASTQ and compress
+            fastq-dump --split-files "$sra_file"
+            pigz "${sra_id}"_*.fastq
+            rm -f "$sra_file"
+        else
+            echo "Error: SRA file for $sra_id not found."
+        fi
+    else
+        echo "Skipped: .fastq.gz files already exist for $sra_id"
+    fi
+done
+
 echo "All processing complete."
 ```
 
@@ -34,15 +73,22 @@ sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkm
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/
 conda activate Mar_skmer_pip
 module load parallel kraken2 respect consult-ii
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/23apr24_screen_skimprocess.log
-bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40
+bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 39 -f 39 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/log/27may24_screen_skimprocess.log
 
-```bash
+
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
 conda activate Mar_skmer_pip
 module load parallel kraken2 respect consult-ii
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea_9apr24_screen2.log
 ```
+
+## Skmer Preprocessing Pipeline Launch for oedulis
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/
+conda activate Mar_skmer_pip
+module load parallel kraken2 respect consult-ii
+bash ../../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedu_preprocess_23may24_screen2.log
+
 
 
 ## Fast Skmer Pipeline for Eduardo
@@ -121,20 +167,37 @@ python badspecimens_identifier.py "stats-postprocess_$DATE.tsv" library library_
 Computes distance matrices using Skmer.
 
 ```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+module load parallel kraken2 respect consult-ii
 DATE=$(date +%d.%m)
-skmer distance library -t -o "jc-$DATE-dist-mat"
+skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/ -t -o "jc-$DATE-dist-mat" -p 20 -o "skmer1_Ref-$DATE-dist-mat" -l library_skmer1_Ref_$DATE
 ```
 
-## Skmer Distance Calculation with skmer2
-
+## Skmer Distance Calculation with skmer2 for Clupea
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 conda activate skmer_2_test
-#conda install jellyfish seqtk mash
-module load jellyfish parallel
+conda install jellyfish seqtk mash
+module load parallel
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 DATE=$(date +%d.%m)
-python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug distance ./library_skmer2 -r $GENOME -p 5 -o "skmer2_Ref-$DATE-dist-mat"
+
+# build the skmer2 library
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/ -r $GENOME -p 2 -o "skmer2_Ref-$DATE-dist-mat" -l library_skmer2_Ref
+
+```
+## Skmer Distance Calculation with skmer2 for Magpie
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+conda activate skmer_2_test
+conda install jellyfish seqtk mash
+module load parallel
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/ncbi_dataset/data/GCA_013398635.1/GCA_013398635.1_ASM1339863v1_genomic.fna"
+DATE=$(date +%d.%m)
+
+# build the skmer2 library
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -r $GENOME -p 2 -o "skmer2_Magpie_Ref-$DATE-dist-mat" -l library_skmer2_Magpie_Ref
 
 ```
 
