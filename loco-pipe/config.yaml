@@ -58,7 +58,7 @@ global:
 
   # Full path of the project base directory. 
   # This folder should contain subfolders such as "config" and "docs".
-  basedir: "/projects/mjolnir1/people/sjr729/Herring_4x_loco"
+  basedir: "/projects/mjolnir1/people/sjr729/Herring_1x_loco"
   
   # Full path of the reference genome.
   # The reference genome should be in fasta format. Under the current version, we recommend reference genome 
@@ -75,7 +75,7 @@ global:
   # It should include at least three columns: "sample_name", "bam", and a third column that specifies the grouping 
   # information. If you do not have a grouping variable a priori when first running loco-pipe, please make sure to 
   # create a fake column in your dataset with all samples having the same entry.
-  sample_table: "sample_table_Herring_4x_loco.tsv"
+  sample_table: "sample_table_Herring_1x_loco.tsv"
 
   # The name of a column in the sample table that specifies the grouping information.
   # If you do not have a grouping variable a priori when first running loco-pipe, enter the name of the fake column.
