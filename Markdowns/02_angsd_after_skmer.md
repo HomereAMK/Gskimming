@@ -41,8 +41,8 @@ done
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/
 module load gcc/8.2.0 bwa/0.7.17 samtools/1.18 jdk/1.8.0_291 picard/2.27.5 parallel/20230822 java-jdk/8.0.112 bamutil/1.0.15 python/3.11.3 openjdk/17.0.8 gatk/3.8
 
-DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/1x_mapped"
-DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_1/"
+DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_mapped"
+DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_0.5/"
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 
 # Create the output directory if it doesn't exist
