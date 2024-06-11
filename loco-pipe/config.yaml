@@ -58,7 +58,7 @@ global:
 
   # Full path of the project base directory. 
   # This folder should contain subfolders such as "config" and "docs".
-  basedir: "/projects/mjolnir1/people/sjr729/Herring_2x_loco"
+  basedir: "/projects/mjolnir1/people/sjr729/Herring_0.5x_loco"
   
   # Full path of the reference genome.
   # The reference genome should be in fasta format. Under the current version, we recommend reference genome 
@@ -75,7 +75,7 @@ global:
   # It should include at least three columns: "sample_name", "bam", and a third column that specifies the grouping 
   # information. If you do not have a grouping variable a priori when first running loco-pipe, please make sure to 
   # create a fake column in your dataset with all samples having the same entry.
-  sample_table: "sample_table_Herring_2x_loco.tsv"
+  sample_table: "sample_table_Herring_0.5x_loco.tsv"
 
   # The name of a column in the sample table that specifies the grouping information.
   # If you do not have a grouping variable a priori when first running loco-pipe, enter the name of the fake column.
@@ -176,7 +176,7 @@ snp_calling_global:
   # They can also be used to specify additional filters or additional analyses.
   # For example, users can use the "-site" flag here to constrain analysis on a predefined set of SNPs
   # Or, users can use the "-rmTriallelic" flag followed by a p-value threshold to remove sites with more than two alleles.
-  extra: ""
+  extra: "-rmTriallelic 0.05"
 
 # -----------------------------------------------------------------------------------------------------------------------
 # The following parameters are needed by the "subset_snp_list.smk" file to thin the SNP list and 
@@ -191,7 +191,7 @@ subset_snp_list_global:
   # The larger "n" is, the fewer SNPs are retained in the subsetted list.
   # Note that since toyfish is already heavily subsetted, we are using a small number here.
   # You will likely need to enter a much larger number when using a real dataset.
-  n: 3
+  n: 50
 
 # -----------------------------------------------------------------------------------------------------------------------
 # The following parameters are similar to the ones above, but are used to thin the SNP list and 
@@ -204,7 +204,7 @@ subset_snp_list_local:
   # The larger "n" is, the fewer SNPs are retained in the subsetted list.
   # Note that since toyfish is already heavily subsetted, we are using a small number here.
   # You will likely need to enter a much larger number when using a real dataset.
-  n: 3
+  n: 50
 
 # -----------------------------------------------------------------------------------------------------------------------
 # The following parameters are needed by the "run_pcangsd_global" rule in the "run_pcangsd.smk" file 
@@ -310,10 +310,10 @@ get_fst:
   bp_window_size: 10000
   
   # Height of the Manhattan plot, in inches.
-  fig_height: 3
+  fig_height: 15
   
   # Width of the Manhattan plot, in inches. You will likely need to enter a much larger number when using a real dataset.
-  fig_width: 3
+  fig_width: 20
 
 # -----------------------------------------------------------------------------------------------------------------------
 # The following parameters are needed by the "get_heterozygosity.smk" file, which generates individual-level genome-wide 
@@ -424,10 +424,10 @@ lostruct:
   z_cutoff: 3
   
   # Height of the mds figure. 
-  fig_height: 6
+  fig_height: 14
 
   # Width of the mds figure. You will likely need to enter a much larger number when using a real dataset.
-  fig_width: 5
+  fig_width: 20
   
   # The name of a column in the sample table that you want to to color the points by in concensus PCA plots.
   # If you do not have a grouping color, use the name of the fake column that you create.
