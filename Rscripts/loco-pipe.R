@@ -24,8 +24,16 @@ data <- read_tsv("~/Desktop/GitHub/Gskimming/01_infofiles/Clupea_n42_13var.tsv",
 # Select the required columns and create the new bam column with the specified values
 selected_data <- data %>%
   dplyr::select(sample_name = sample_name, species=sample_description, population) %>%
-  mutate(bam = paste0("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/2x_realigned/", sample_name, "_minq20.nocig.realigned.bam"))
+  mutate(bam = paste0("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/realigned/", sample_name, "_minq20.nocig.realigned.bam"))
 
 # View the resulting dataframe
 print(selected_data)
-write_tsv(selected_data, "~/Desktop/GitHub/Gskimming/01_infofiles/sample_table_Herring_2x_loco.tsv")
+write_tsv(selected_data, "~/Desktop/GitHub/Gskimming/01_infofiles/sample_table_Herring_0.5x_loco.tsv")
+
+
+
+#raw cov
+selected_data_raw <- data %>%
+  dplyr::select(sample_name = sample_name, species=sample_description, population) %>%
+  mutate(bam = paste0("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/realigned/unclassified-seq_", sample_name, ".nocig.dedup_clipoverlap.minq20_minq20.nocig.realigned.bam"))
+write_tsv(selected_data_raw, "~/Desktop/GitHub/Gskimming/01_infofiles/sample_table_Herring_raw_loco.tsv")
