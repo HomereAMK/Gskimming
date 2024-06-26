@@ -7,10 +7,10 @@
 #if CONSULT used, it needs a lot of memory
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
-srun --cpus-per-task=40 --mem=200g --time=160:00:00 --pty bash
-srun --cpus-per-task=20 --mem=60g --time=54:00:00 --pty bash
+srun --cpus-per-task=5 --mem=10g --time=110:00:00 --pty bash
+srun --cpus-per-task=30 --mem=20g --time=56:00:00 --pty bash
 
-srun --cpus-per-task=10 --mem=40g --time=12:00:00 --pty bash
+srun --cpus-per-task=5 --mem=30g --time=24:00:00 --pty bash
 
 
 sacct -u sjr729 --units=G --format "JobID%25,JobName%30,Partition,NodeList,Elapsed,CPUTime,ReqMem,MaxRSS,State%15, AllocTRES%32_" --starttime 2024-03-20

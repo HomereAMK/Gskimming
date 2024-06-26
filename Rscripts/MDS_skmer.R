@@ -26,7 +26,7 @@ library(mclust)
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/0.25x/MDS/subsampled_0.25.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/jc-24.02-dist-mat_4x_Clupea_thetas.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)
@@ -80,7 +80,7 @@ for (accession in missing_ind$run_accession) {
 
 # Renaming the columns
 annot_modern<- merge(annotation_df, annot_df_final, by = "cleaned_id")
-#write.csv(annot_modern, "../../Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv", row.names = FALSE)
+write.csv(annot_modern, "../../Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv", row.names = FALSE)
 fst_annot <- annot_modern %>% dplyr::select(sample_id.x, population)
 
 
@@ -90,12 +90,12 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer2/jskmer2_Ref-08.05-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/skmer1_Ref-18.06-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
 mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 mds_plot
-ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/0.25x/Skmer/skmer_subsamp0.25x_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
+ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/RawCov/Skmer/skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
 
 str(ibs_mat)
 

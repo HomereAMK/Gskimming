@@ -168,10 +168,19 @@ Computes distance matrices using Skmer.
 
 ```bash
 conda activate skmer_2_test
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
-module load parallel kraken2 respect consult-ii
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+module load parallel
 DATE=$(date +%d.%m)
-skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/ -t -o "jc-$DATE-dist-mat" -p 20 -o "skmer1_Ref-$DATE-dist-mat" -l library_skmer1_Ref_$DATE
+skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t -o "jc-$DATE-dist-mat" -p 29 -o "skmer1_Ref-$DATE-dist-mat" -l library_skmer1_Ref_$DATE
+
+#alternative with conda activate Mar_skmer_pip
+conda activate Mar_skmer_pip
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+module load parallel
+DATE=$(date +%d.%m)
+skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t -o "jc-$DATE-dist-mat" -p 2 -o "skmer1_p2_Ref-$DATE-dist-mat" -l library_p2_skmer1_Ref_$DATE
+
 ```
 
 ## Skmer Distance Calculation with skmer2 for Clupea
@@ -182,6 +191,9 @@ conda install jellyfish seqtk mash
 module load parallel
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 DATE=$(date +%d.%m)
+
+
+
 
 # build the skmer2 library
 python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/ -r $GENOME -p 2 -o "skmer2_Ref-$DATE-dist-mat" -l library_skmer2_Ref
@@ -434,3 +446,34 @@ rm -rf "$temp_dir"
 
 echo "All operations completed successfully"
 ```
+
+
+
+## run_skmer.sh 
+# Magpie
+```bash 
+# Magpie
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+module load parallel
+DATE=$(date +%d.%m)
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t 29 -p 10 -o library_run_skmer1_Ref_$DATE
+```
+
+```bash
+# Herring
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+module load parallel
+DATE=$(date +%d.%m)
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken -t 29 -p 10 -o library_clupea_run_skmer1_Ref_$DATE
+```
+
+
+## run skmer for subsampled herring 
+```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+module load parallel
+DATE=$(date +%d.%m)
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_4/ -t 29 -p 10 -o library_subsampled_4_skmer1_Ref_$DATE
