@@ -38,22 +38,22 @@ done
 
 ```bash
 ### mapping 
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/ #change path
 module load gcc/8.2.0 bwa/0.7.17 samtools/1.18 jdk/1.8.0_291 picard/2.27.5 parallel/20230822 java-jdk/8.0.112 bamutil/1.0.15 python/3.11.3 openjdk/17.0.8 gatk/3.8
 
-DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_mapped"
-DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_0.5/"
-GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/mapped"
+DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs"
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna"
 
 # Create the output directory if it doesn't exist
 mkdir -p $DATAOUTPUT
 
 # Loop through each merged fastq file in the DATAINPUT directory
-for filepath in "$DATAINPUT"/*__merged.fastq; do
+for filepath in "$DATAINPUT"/*_.fq; do
   # Extract the base name (prefix after "unclassified-kra_unclassified-seq_" and before "__merged")
   filename=$(basename "$filepath")
-  base=${filename#unclassified-kra_unclassified-seq_}
-  base=${base%%__merged.fastq}
+  base=${filename#unclassified-kra_}
+  base=${base%%_.fq}
 
   # Check if the BAM file already exists
   if [ -f "$DATAOUTPUT/$base.sort.minq20.bam" ]; then
@@ -64,7 +64,7 @@ for filepath in "$DATAINPUT"/*__merged.fastq; do
   echo "Processing $base"
 
   # BWA Alignment
-  bwa mem -t 8 -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$DATAINPUT"/"$filename" > "$DATAOUTPUT"/"$base".sam 2> "$DATAOUTPUT"/"$base".bwa.log
+  bwa mem -t 12 -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$DATAINPUT"/"$filename" > "$DATAOUTPUT"/"$base".sam 2> "$DATAOUTPUT"/"$base".bwa.log
 
   # Convert SAM to BAM, filter, and sort
   samtools view -bS -h -q 20 -F 4 "$DATAOUTPUT"/"$base".sam > "$DATAOUTPUT"/"$base".bam
@@ -80,8 +80,8 @@ done
 
 ### MarkDuplicates and Clip Overlap
 # Global variables
-DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_dedup" #change path
-DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_mapped" #change path
+DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/dedup" #change path
+DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/mapped" #change path
 
 # Create the output directory if it doesn't exist
 mkdir -p $DATAOUTPUT
@@ -113,19 +113,22 @@ done
 
 
 # Indel Realignment
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/
 module load gcc/8.2.0 bwa/0.7.17 samtools/1.18 jdk/1.8.0_291 picard/2.27.5
 module load parallel/20230822 java-jdk/8.0.112 bamutil/1.0.15 python/3.11.3 openjdk/17.0.8 gatk/3.8
 
 # Global variables
-DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_dedup" #change path
-DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/0.5x_realigned" #change path
-GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/dedup" #change path
+DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/realigned" #change path
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna"
 GATK_JAR="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/GenomeAnalysisTK-3.8-1-0-gf15c1c3ef/GenomeAnalysisTK.jar"
 
 # Create the output directory if it doesn't exist
 mkdir -p $DATAOUTPUT
-
+samtools faidx $GENOME
+picard CreateSequenceDictionary \
+    R="$GENOME"\
+    O="$GENOME".dict
 # Loop through each .bam file in the DATAINPUT directory
 for filepath in "$DATAINPUT"/*.nocig.dedup.minq20.bam; do
   # Extract the base name (prefix before the first ".")

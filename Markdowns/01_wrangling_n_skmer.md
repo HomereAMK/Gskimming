@@ -59,17 +59,15 @@ done
 echo "All processing complete."
 ```
 
-## Skmer Preprocessing Pipeline Launch for ClupeaAtmore
-
+## Skmer Preprocessing Pipeline 
+# Launch for ClupeaAtmore
 Executes Skmer preprocessing on fastq.gz files.
 
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
 conda activate Mar_skmer_pip
 sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
-```
 
-```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/
 conda activate Mar_skmer_pip
 module load parallel kraken2 respect consult-ii
@@ -82,28 +80,29 @@ module load parallel kraken2 respect consult-ii
 bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/rawfastqmodernClupea/ -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea_9apr24_screen2.log
 ```
 
-## Skmer Preprocessing Pipeline Launch for oedulis
+# For oedulis
 ```bash
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/
 conda activate Mar_skmer_pip
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/
 module load parallel kraken2 respect consult-ii
 bash ../../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedu_preprocess_23may24_screen2.log
-
+```
 
 
 ## Fast Skmer Pipeline for Eduardo
 
-Launches a faster Skmer preprocessing pipeline.
+# Launches a faster Skmer preprocessing pipeline.
 
 ```bash
 conda activate tutorial
 bash ../fast_skims_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/ > Magpie_fasterskim_9apr24.log
 ```
 
-## File Movement Based on Matching Base Names for ClupeaAtmore
 
-Moves .gz files to a target directory if their base names match.
+## Wrangling on skim_preprocessing output
 
+# File Movement Based on Matching Base Names for ClupeaAtmore
+# Moves .gz files to a target directory if their base names match.
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 for file in *.gz; do
@@ -115,10 +114,8 @@ for file in *.gz; do
 done
 ```
 
-## File Relocation from `./done` for Magpie
-
-Relocates files if their first five characters do not match any in the target directory.
-
+# File Relocation from `./done` for Magpie
+# Relocates files if their first five characters do not match any in the target directory.
 ```bash
 for f in ./done/*; do
     if ! ls ./skims_processing_pipeline/bbmap/${f:6:5}* 1> /dev/null 2>&1; then
@@ -127,23 +124,18 @@ for f in ./done/*; do
 done
 ```
 
-## Skim Stats Refresh and Update
-
-#Concatenates .dat files to a .csv for postprocessing.
-
+# Concatenates .dat files to a .csv for postprocessing.
 ```bash
 DATE=$(date +%d.%m)
 cat ./library/*/*dat > "stats-postprocess_$DATE.csv"
 ```
-
-#specific for Clupea skmer raw cov
+# specific for Clupea skmer raw cov
 ```bash
 for file in ./library/done/*/*.dat; do
     awk -v fname=$(basename "$file" .dat) '{print fname"    "$0}' "$file"
 done > stats-rowcov_postprocess_$DATE.csv
 ```
-
-#specific for Magpie skmer raw cov
+# specific for Magpie skmer raw cov
 ```bash
 for file in ./library/*/*.dat; do
     awk -v fname=$(basename "$file" .dat) '{print fname"    "$0}' "$file"
@@ -153,7 +145,7 @@ done > stats-rowcov_postprocess_$DATE.csv
 
 ## Preprocess Stats and Output Wrangling for ClupeaAtmore
 
-Generates stats and identifies bad specimens.
+# Generates stats and identifies bad specimens.
 
 ```bash
 DATE=$(date +%d.%m)
@@ -162,44 +154,24 @@ python csv_to_tsv_stats.py "stats-postprocess_$DATE.csv" "stats-postprocess_$DAT
 python badspecimens_identifier.py "stats-postprocess_$DATE.tsv" library library_badindividuals
 ```
 
+
+
+
+
 ## Skmer Distance Calculation with skmer1
 
-Computes distance matrices using Skmer.
-
+# Computes distance matrices using Skmer.
 ```bash
 conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
 module load parallel
 DATE=$(date +%d.%m)
 skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t -o "jc-$DATE-dist-mat" -p 29 -o "skmer1_Ref-$DATE-dist-mat" -l library_skmer1_Ref_$DATE
-
-#alternative with conda activate Mar_skmer_pip
-conda activate Mar_skmer_pip
-conda activate skmer_2_test
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
-module load parallel
-DATE=$(date +%d.%m)
-skmer reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t -o "jc-$DATE-dist-mat" -p 2 -o "skmer1_p2_Ref-$DATE-dist-mat" -l library_p2_skmer1_Ref_$DATE
-
 ```
 
-## Skmer Distance Calculation with skmer2 for Clupea
-```bash
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
-conda activate skmer_2_test
-conda install jellyfish seqtk mash
-module load parallel
-GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
-DATE=$(date +%d.%m)
 
+## Skmer2 Distance Calculation with skmer2 for Magpie
 
-
-
-# build the skmer2 library
-python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken/ -r $GENOME -p 2 -o "skmer2_Ref-$DATE-dist-mat" -l library_skmer2_Ref
-
-```
-## Skmer Distance Calculation with skmer2 for Magpie
 ```bash
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
 conda activate skmer_2_test
@@ -207,7 +179,6 @@ conda install jellyfish seqtk mash
 module load parallel
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/ncbi_dataset/data/GCA_013398635.1/GCA_013398635.1_ASM1339863v1_genomic.fna"
 DATE=$(date +%d.%m)
-
 # build the skmer2 library
 python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -r $GENOME -p 2 -o "skmer2_Magpie_Ref-$DATE-dist-mat" -l library_skmer2_Magpie_Ref
 
@@ -331,34 +302,6 @@ sbatch --job-name=Skmin_sbatch_27mar --output=Skmin_sbatch_27mar.out --error=Skm
 ```
 
 
-
-## Magpie skmer preprocess not finished
-
-```bash 
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Magpie/
-conda activate Mar_skmer_pip
-sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
-
-
-sbatch --job-name=Skmin_sbatch_1apr --output=Skmin_sbatch_1apr.out --error=Skmin_sbatch_1apr.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie && source activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -r 40 -f 40"
-
-```
-
-
-## Clupea skmer preprocess not finished
-
-```bash 
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/
-conda activate Mar_skmer_pip
-sbatch --wrap="bash ../skims_processing_pipeline.sh -x ./ -r 38 -f 38 > AtCluSkmin_sbatch_22jan.log"
-
-
-sbatch --job-name=CluSkmin_sbatch_2apr --output=CluSkmin_sbatch_2apr.out --error=CluSkmin_sbatch_2apr.err --ntasks=1 --cpus-per-task=40 --mem=180G --time=100:00:00 --mail-type=begin --mail-type=end --mail-type=fail --mail-user=homerejalves.monteiro@sund.ku.dk --wrap="cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea && conda activate Mar_skmer_pip && bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea -r 40 -f 40"
-
-```
-
-
-
 ## Kraken only script after consult decontamination for Clupea dataset
 ```bash
 #!/bin/bash
@@ -449,19 +392,17 @@ echo "All operations completed successfully"
 
 
 
-## run_skmer.sh 
+## skmer 1 with run_skmer.sh 
 # Magpie
 ```bash 
-# Magpie
 conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
 module load parallel
 DATE=$(date +%d.%m)
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t 29 -p 10 -o library_run_skmer1_Ref_$DATE
 ```
-
-```bash
 # Herring
+```bash
 conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 module load parallel
@@ -469,11 +410,53 @@ DATE=$(date +%d.%m)
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken -t 29 -p 10 -o library_clupea_run_skmer1_Ref_$DATE
 ```
 
-
-## run skmer for subsampled herring 
+# For subsampled at 4x herring 
 ```bash
 conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 module load parallel
 DATE=$(date +%d.%m)
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_4/ -t 29 -p 10 -o library_subsampled_4_skmer1_Ref_$DATE
+```
+
+
+## Skmer2 new scripts Jun24 on herring skim_preprocessed + mapped reads  with genome ref
+```bash
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+conda activate skmer_2_test
+module load parallel
+DATE=$(date +%d.%m)
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/skmer_new-err.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq/ -r $GENOME -p 4 -o "skmer2_echarvel_Clupea_Ref-$DATE-dist-mat" -l library_skmer2_echarvel_Clupea_Ref-$DATE
+```
+
+## subsample_and_estimate2 on 
+# magpie
+```bash
+conda activate skmer_2_test 
+DATE=$(date +%d.%m)
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+bash /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/subsample_and_estimate2.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -t 5 c 4,2,1,0.5,0.25 2>&1 > subsample2"$DATE"_skmer2_condskmer2test-_Magpie.log
+```
+
+
+
+## Skmer1 with script run_skmer.sh to get distance matrix of oedulis skim_preprocessed reads
+```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis
+module load parallel
+DATE=$(date +%d.%m)
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/skims_processing_pipeline/kraken/ -t 19 -p 10 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/library_runskmer1_oedulis_condaskmer2test_$DATE
+ ```
+
+
+## skmer2 with skmer_new-err.py with -p 1 on Herring skims preprocessed + mapped reads to ref Genome 
+```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+module load parallel
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+DATE=$(date +%d.%m)
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/skmer_new-err.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq/ -r $GENOME -p 1 -o "skmer2_echarvel_Clupea_Ref-$DATE-dist-mat" -l library_skmer2_echarvel_Clupea_Ref-$DATE
+```

@@ -21,12 +21,12 @@ if (!requireNamespace("dbscan", quietly = TRUE)) install.packages("dbscan")
 if (!requireNamespace("mclust", quietly = TRUE)) install.packages("mclust")
 library(dbscan)
 library(mclust)
-
+library(ggrepel)
 ### Sourcing required functions
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/jc-24.02-dist-mat_4x_Clupea_thetas.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/MappedRead/MDS/distance_matrix.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)
@@ -56,8 +56,8 @@ sum(is.na(ibs_mat))
 
 ### Creating annotation file
 sample_ids <- dist_jc[-1, 1]
-cleaned_ids <- gsub("unclassified-kra_unclassified-seq_", "", sample_ids) #beware that the prefix might changed
-cleaned_ids <- gsub("__merged", "", cleaned_ids) #beware that the suffix might changed
+cleaned_ids <- gsub("unclassified-seq_", "", sample_ids) #beware that the prefix might changed
+cleaned_ids <- gsub(".sort.minq20", "", cleaned_ids) #beware that the suffix might changed
 species_names <- rep("Clupea", length(sample_ids))
 cleaned_ids
 ### If you already have an tailored annotation file
@@ -80,7 +80,7 @@ for (accession in missing_ind$run_accession) {
 
 # Renaming the columns
 annot_modern<- merge(annotation_df, annot_df_final, by = "cleaned_id")
-write.csv(annot_modern, "../../Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv", row.names = FALSE)
+#write.csv(annot_modern, "../../Gskimming/01_infofiles/ClupeaAtmore/ClupeaModern_annot.csv", row.names = FALSE)
 fst_annot <- annot_modern %>% dplyr::select(sample_id.x, population)
 
 
@@ -90,12 +90,12 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/skmer1_Ref-18.06-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/Mapped_reads_skmer1_26.06-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
-mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = TRUE)
+mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
 mds_plot
-ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/RawCov/Skmer/skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
+ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/Mappedreads/Skmer/MDS/Mapped_reads_skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
 
 str(ibs_mat)
 
@@ -126,9 +126,35 @@ mds_plot_sum <-pcoa_table_genome_wide_joined %>%
   facet_wrap(~population) +
   theme_cowplot() +
   theme(axis.text = element_blank())
+mds_plot_sum
 
 #change filename and path
-ggsave(mds_plot_sum, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/0.25x/Skmer/Facet_skmer_subsamp0.25x_ClupeaPCA_n42_pop_PC1PC2.png", scale = 1, width = 12, height = 12, dpi = 600)
+#ggsave(mds_plot_sum, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/0.25x/Skmer/Facet_skmer_subsamp0.25x_ClupeaPCA_n42_pop_PC1PC2.png", scale = 1, width = 12, height = 12, dpi = 600)
+
+
+
+
+# Create a filtered data frame excluding specified individuals
+filtered_pcoa_table <- pcoa_table %>%
+  filter(!individual %in% c("ERR9709251", "ERR9709230", "ERR9709203", "ERR9709248"))
+# Perform PCA
+pca_result <- prcomp(filtered_pcoa_table[, c("dist_1", "dist_2", "dist_3")], center = TRUE, scale. = TRUE)
+# Extract PCA scores
+pca_scores <- as.data.frame(pca_result$x)
+pca_scores$individual <- filtered_pcoa_table$individual
+pca_scores$population <- filtered_pcoa_table$population
+# Plot PCA results
+pca_plot <- ggplot(pca_scores, aes(x = PC1, y = PC2, color = population)) +
+  geom_point(size = 2) +
+  #geom_text(aes(label = individual), size = 2, vjust = 1.5, hjust = 0.5) +
+  facet_wrap(~ population) +
+  theme_cowplot() +
+  theme(axis.text = element_blank())
+
+# Print the plot
+print(pca_plot)
+
+
 
 
 #PCoA_label(ibs_mat, annotation_df$cleaned_id, annotation_df$species,3, 1, 3, show.ellipse = F, show.label = F)
@@ -181,26 +207,27 @@ annotation_df <- merge(annotation_df, metadata_clupea, by.x = "cleaned_id", by.y
 
 ### Performing PCoA with updated annotation and type information
 mds_type <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$tissue_type, 3, 1, 2, show.ellipse = TRUE, show.label = FALSE)
-ggsave(mds_type, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_tissue_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+#ggsave(mds_type, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_tissue_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 ### Reading skims stats file
-stat_clupea <- read_tsv("../01_infofiles/ClupeaAtmore/Stats/stats-postprocess_03.02.csv", col_names = FALSE)
-str(stat_clupea)
-stat_clupea_df <- stat_clupea %>%
-  pivot_wider(names_from = X2, values_from = X3) %>%
-  rename(
-    coverage = `coverage`,
-    genome_length = `genome_length`,
-    read_length = `read_length`,
-    error_rate = `error_rate`
-  )%>%
-  mutate(X1 = str_extract(X1, "[^/]+$")) %>%
-  mutate(X1 = gsub("unclassified-kra_", "",X1))%>%
-  mutate(X1 = gsub("_", "",X1))
-
-annotation_df_tot <- merge(annot_df_final, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
+# stat_clupea <- read_tsv("../01_infofiles/ClupeaAtmore/Stats/stats-postprocess_03.02.csv", col_names = FALSE)
+# str(stat_clupea)
+# stat_clupea_df <- stat_clupea %>%
+#   pivot_wider(names_from = X2, values_from = X3) %>%
+#   rename(
+#     coverage = `coverage`,
+#     genome_length = `genome_length`,
+#     read_length = `read_length`,
+#     error_rate = `error_rate`
+#   )%>%
+#   mutate(X1 = str_extract(X1, "[^/]+$")) %>%
+#   mutate(X1 = gsub("unclassified-kra_", "",X1))%>%
+#   mutate(X1 = gsub("_", "",X1))
+# annotation_df_tot <- merge(annot_df_final, stat_clupea_df, by.x = "cleaned_id", by.y = "X1")
 #write.csv(annotation_df_tot, "../../Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv", row.names = FALSE)
 
+
+annotation_df_tot <- read_csv("~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Total_ClupeaModern_annot.csv")
 # Range of coverage by adding CoverageCategory ~
 annotation_df_tot$CoverageCategory <- ifelse(annotation_df_tot$coverage <= 0.7, "< 1x",
                                              ifelse(annotation_df_tot$coverage <= 2, "< 2x",
@@ -228,11 +255,11 @@ annotation_df_tot$genome_lengthCategory <- ifelse(annotation_df_tot$genome_lengt
 
 ### 
 PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$CoverageCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
-mds_errate <- PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$error_rateCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
-ggsave(mds_errate, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_errorrate_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$error_rateCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+#ggsave(mds_errate, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_errorrate_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
-mds_geno <- PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$genome_lengthCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
-ggsave(mds_geno, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_genomelength_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
+PCoA(ibs_mat, annotation_df_tot$cleaned_id, annotation_df_tot$genome_lengthCategory, 3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+#ggsave(mds_geno, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_genomelength_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
 
 
