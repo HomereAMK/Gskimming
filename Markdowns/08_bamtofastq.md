@@ -20,17 +20,7 @@ mkdir -p $output_dir
 # Change to the directory containing the .bam files
 cd mapped
 
-# Define the conversion function with detailed logging
-convert_bam_to_fastq() {
-    local bam_file=$1
-    fq_file="${bam_file%.bam}.fq"
-    output_path="../$output_dir/$fq_file"
-    start_time=$(date '+%Y-%m-%d %H:%M:%S')
-    echo "[$start_time] Starting conversion of $bam_file to $output_path" >> ../$output_dir/conversion.log
-    bedtools bamtofastq -i $bam_file -fq $output_path
-    end_time=$(date '+%Y-%m-%d %H:%M:%S')
-    echo "[$end_time] Finished conversion of $bam_file to $output_path" >> ../$output_dir/conversion.log
-}
+
 
 # Loop 
 for bam_file in unclassified-seq_*.bam; do

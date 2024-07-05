@@ -38,19 +38,20 @@ done
 
 ```bash
 ### mapping 
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/ #change path
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis #change path
 module load gcc/8.2.0 bwa/0.7.17 samtools/1.18 jdk/1.8.0_291 picard/2.27.5 parallel/20230822 java-jdk/8.0.112 bamutil/1.0.15 python/3.11.3 openjdk/17.0.8 gatk/3.8
 
 DATAOUTPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/mapped"
 DATAINPUT="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs"
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna"
+#GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 
 # Create the output directory if it doesn't exist
 mkdir -p $DATAOUTPUT
 
-# Loop through each merged fastq file in the DATAINPUT directory
-for filepath in "$DATAINPUT"/*_.fq; do
-  # Extract the base name (prefix after "unclassified-kra_unclassified-seq_" and before "__merged")
+# Loop through each fastq file in the DATAINPUT directory
+for filepath in "$DATAINPUT"/unclassified-kra_*.fq; do
+  # Extract the base name (prefix after "unclassified-kra_" and before ".fq")
   filename=$(basename "$filepath")
   base=${filename#unclassified-kra_}
   base=${base%%_.fq}
@@ -64,17 +65,17 @@ for filepath in "$DATAINPUT"/*_.fq; do
   echo "Processing $base"
 
   # BWA Alignment
-  bwa mem -t 12 -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$DATAINPUT"/"$filename" > "$DATAOUTPUT"/"$base".sam 2> "$DATAOUTPUT"/"$base".bwa.log
+  bwa mem -t 12 -R "@RG\tID:$base\tSM:$base\tPL:Illumina" "$GENOME" "$filepath" > "$DATAOUTPUT/$base.sam" 2> "$DATAOUTPUT/$base.bwa.log"
 
   # Convert SAM to BAM, filter, and sort
-  samtools view -bS -h -q 20 -F 4 "$DATAOUTPUT"/"$base".sam > "$DATAOUTPUT"/"$base".bam
-  samtools sort "$DATAOUTPUT"/"$base".bam -o "$DATAOUTPUT"/"$base".sort.minq20.bam
+  samtools view -bS -h -q 20 -F 4 "$DATAOUTPUT/$base.sam" > "$DATAOUTPUT/$base.bam"
+  samtools sort "$DATAOUTPUT/$base.bam" -o "$DATAOUTPUT/$base.sort.minq20.bam"
 
   # Index the sorted BAM
-  samtools index "$DATAOUTPUT"/"$base".sort.minq20.bam
+  samtools index "$DATAOUTPUT/$base.sort.minq20.bam"
 
   # Remove intermediate files
-  rm "$DATAOUTPUT"/"$base".sam "$DATAOUTPUT"/"$base".bam
+  rm "$DATAOUTPUT/$base.sam" "$DATAOUTPUT/$base.bam"
 
 done
 

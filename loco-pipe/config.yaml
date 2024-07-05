@@ -58,14 +58,14 @@ global:
 
   # Full path of the project base directory. 
   # This folder should contain subfolders such as "config" and "docs".
-  basedir: "/projects/mjolnir1/people/sjr729/Herring_raw_loco"
+  basedir: "/maps/projects/mjolnir1/people/sjr729/SteinOedulis_loco"
   
   # Full path of the reference genome.
   # The reference genome should be in fasta format. Under the current version, we recommend reference genome 
   # to be approximately at chromosome level. In other words, we advice against a highly fragmented reference genome
   # (e.g. L80 > 100). Due to the fact that many downstream analyses are performed at chromosome/scaffold/contig level,
   # having a highly-fragmented reference genome will create too many parallel jobs and might put cluster in high stress.
-  reference: "/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+  reference: "/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna"
 
   # Full path of the folder in which R scripts required for the pipeline are saved (i.e. you will need to change the 
   # "/path/to/" part to the path where loco-pipe is downloaded on your computer.)
@@ -75,7 +75,7 @@ global:
   # It should include at least three columns: "sample_name", "bam", and a third column that specifies the grouping 
   # information. If you do not have a grouping variable a priori when first running loco-pipe, please make sure to 
   # create a fake column in your dataset with all samples having the same entry.
-  sample_table: "sample_table_Herring_raw_loco.tsv"
+  sample_table: "SteinOedulis_loco.tsv"
 
   # The name of a column in the sample table that specifies the grouping information.
   # If you do not have a grouping variable a priori when first running loco-pipe, enter the name of the fake column.
@@ -86,7 +86,7 @@ global:
   # chromosome/scaffold/contig names that you would like to include in the analysis. These should exactly match
   # the names in the reference genome. The second column is optional, and it should contain the new names
   # that would be shown in Manhattan-style plots. Shorter, simpler names are recommended for clarity of the plots.
-  chr_table: "chr_table.tsv"
+  chr_table: "oedulis_chr_table.tsv"
   
   # The genotype likelihood model to be used in ANGSD. Enter 1 for the Samtools model and 2 for the GATK model. 
   # See https://www.popgen.dk/angsd/index.php/Genotype_Likelihoods for details.
@@ -298,7 +298,7 @@ get_fst:
 
   # The number of threads in the cluster needed for this job.
   # For this step, the realSFS in ANGSD module is capable of using more than 8 threads.
-  threads: 8
+  threads: 11
   
   # Optional arguments to be passed to the realSFS module in ANGSD.
   extra: ""
@@ -313,7 +313,7 @@ get_fst:
   fig_height: 15
   
   # Width of the Manhattan plot, in inches. You will likely need to enter a much larger number when using a real dataset.
-  fig_width: 20
+  fig_width: 30
 
 # -----------------------------------------------------------------------------------------------------------------------
 # The following parameters are needed by the "get_heterozygosity.smk" file, which generates individual-level genome-wide 
@@ -326,7 +326,7 @@ get_heterozygosity:
   # The number of threads in the cluster needed for this job.
   # A thread could be seen as a computing unit. Generally, the more threads you assign,
   # the faster the job could be done. For this step, the realSFS in ANGSD module is capable of using more than 8 threads.
-  threads: 8
+  threads: 11
   
   # The minimum base quality score.
   # Sequencing data below this threshold will be filtered out and not included in the heterozygosity estimation.
@@ -427,7 +427,7 @@ lostruct:
   fig_height: 14
 
   # Width of the mds figure. You will likely need to enter a much larger number when using a real dataset.
-  fig_width: 20
+  fig_width: 25
   
   # The name of a column in the sample table that you want to to color the points by in concensus PCA plots.
   # If you do not have a grouping color, use the name of the fake column that you create.
