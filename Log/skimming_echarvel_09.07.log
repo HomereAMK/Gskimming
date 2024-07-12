@@ -1,0 +1,780 @@
+(skimming_echarvel) [sjr729@mjolnirgpu03fl skimming_scripts-echarvel]$ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skimming-scripts.log
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/
++ exec
++ echo 'DECONTAMINATING DATA...'
++ exec
++ exec
+++ realpath /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416937_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416937_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416938_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416938_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416939_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416939_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416940_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416940_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416941_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416941_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416943_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416943_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416944_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416944_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416945_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416945_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416946_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416946_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416948_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416948_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416959_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416959_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416970_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26416970_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417043_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417043_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417044_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417044_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417045_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417045_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417046_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417046_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417047_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417047_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417048_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417048_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417053_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417053_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417091_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417091_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417092_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417092_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417093_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417093_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417094_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417094_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417095_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417095_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417096_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417096_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417097_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417097_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417098_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417098_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417100_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417100_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417101_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417101_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417102_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417102_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417103_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417103_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417104_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417104_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417136_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417136_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417137_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417137_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417139_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417139_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417140_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417140_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417141_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417141_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417142_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417142_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417143_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417143_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417144_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417144_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417146_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417146_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417147_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417147_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417148_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417148_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417149_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417149_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417150_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417150_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417151_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417151_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417173_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417173_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417184_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417184_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417185_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417185_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417186_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417186_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417218_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417218_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417241_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417241_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417242_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417242_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417243_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417243_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417244_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417244_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417246_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417246_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417247_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417247_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417248_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417248_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417249_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417249_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417250_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417250_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417251_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417251_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417252_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417252_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417253_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417253_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417254_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417254_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417255_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417255_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417257_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417257_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417258_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417258_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417259_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417259_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417260_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417260_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417261_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417261_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417262_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417262_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417263_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417263_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417264_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417264_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417265_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417265_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417266_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417266_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417267_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417267_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417268_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417268_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417269_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417269_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417270_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417270_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417271_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417271_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417272_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417272_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417273_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417273_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417274_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417274_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417276_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417276_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417277_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417277_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417278_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417278_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417279_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417279_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417280_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417280_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417281_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417281_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417282_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417282_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417283_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417283_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417284_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417284_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417285_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417285_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417292_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417292_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417303_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417303_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417370_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417370_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417371_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417371_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417373_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417373_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417374_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417374_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417375_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417375_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417376_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417376_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417377_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417377_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417378_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417378_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417379_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417379_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417380_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417380_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417381_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417381_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417382_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417382_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417384_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417384_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417401_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417401_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417402_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417402_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417403_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417403_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417404_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417404_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417405_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417405_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417407_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417407_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417408_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417408_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417445_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417445_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417446_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417446_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417447_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417447_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417448_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417448_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417449_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417449_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417450_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417450_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417451_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417451_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417452_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417452_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417453_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417453_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417454_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417454_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417456_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417456_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417457_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417457_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417458_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417458_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417459_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417459_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417460_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417460_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417461_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417461_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417462_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417462_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417526_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417526_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417588_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417588_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417599_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417599_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417608_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417608_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417619_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417619_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417631_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417631_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417632_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417632_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417633_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417633_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417635_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417635_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417636_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417636_2.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417674_1.fastq.gz /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//SRR26417674_2.fastq.gz
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416937_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416937_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416937_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416937_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416938_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416938_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416938_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416938_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416939_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416939_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416939_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416939_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416940_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416940_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416940_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416940_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416941_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416941_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416941_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416941_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416943_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416943_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416943_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416943_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416944_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416944_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416944_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416944_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416945_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416945_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416945_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416945_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416946_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416946_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416946_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416946_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416948_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416948_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416948_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416948_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416959_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416959_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416959_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416959_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416970_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416970_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26416970_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26416970_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417043_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417043_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417043_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417043_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417044_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417044_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417044_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417044_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417045_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417045_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417045_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417045_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417046_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417046_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417046_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417046_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417047_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417047_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417047_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417047_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417048_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417048_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417048_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417048_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417053_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417053_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417053_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417053_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417091_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417091_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417091_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417091_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417092_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417092_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417092_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417092_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417093_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417093_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417093_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417093_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417094_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417094_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417094_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417094_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417095_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417095_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417095_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417095_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417096_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417096_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417096_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417096_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417097_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417097_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417097_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417097_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417098_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417098_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417098_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417098_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417100_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417100_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417100_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417100_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417101_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417101_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417101_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417101_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417102_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417102_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417102_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417102_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417103_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417103_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417103_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417103_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417104_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417104_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417104_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417104_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417136_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417136_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417136_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417136_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417137_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417137_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417137_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417137_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417139_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417139_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417139_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417139_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417140_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417140_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417140_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417140_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417141_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417141_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417141_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417141_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417142_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417142_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417142_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417142_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417143_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417143_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417143_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417143_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417144_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417144_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417144_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417144_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417146_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417146_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417146_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417146_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417147_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417147_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417147_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417147_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417148_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417148_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417148_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417148_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417149_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417149_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417149_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417149_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417150_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417150_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417150_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417150_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417151_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417151_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417151_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417151_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417173_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417173_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417173_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417173_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417184_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417184_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417184_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417184_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417185_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417185_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417185_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417185_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417186_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417186_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417186_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417186_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417218_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417218_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417218_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417218_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417241_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417241_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417241_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417241_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417242_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417242_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417242_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417242_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417243_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417243_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417243_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417243_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417244_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417244_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417244_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417244_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417246_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417246_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417246_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417246_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417247_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417247_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417247_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417247_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417248_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417248_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417248_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417248_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417249_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417249_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417249_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417249_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417250_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417250_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417250_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417250_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417251_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417251_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417251_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417251_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417252_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417252_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417252_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417252_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417253_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417253_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417253_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417253_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417254_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417254_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417254_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417254_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417255_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417255_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417255_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417255_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417257_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417257_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417257_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417257_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417258_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417258_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417258_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417258_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417259_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417259_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417259_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417259_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417260_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417260_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417260_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417260_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417261_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417261_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417261_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417261_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417262_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417262_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417262_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417262_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417263_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417263_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417263_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417263_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417264_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417264_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417264_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417264_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417265_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417265_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417265_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417265_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417266_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417266_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417266_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417266_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417267_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417267_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417267_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417267_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417268_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417268_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417268_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417268_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417269_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417269_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417269_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417269_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417270_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417270_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417270_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417270_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417271_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417271_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417271_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417271_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417272_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417272_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417272_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417272_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417273_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417273_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417273_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417273_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417274_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417274_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417274_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417274_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417276_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417276_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417276_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417276_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417277_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417277_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417277_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417277_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417278_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417278_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417278_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417278_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417279_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417279_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417279_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417279_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417280_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417280_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417280_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417280_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417281_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417281_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417281_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417281_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417282_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417282_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417282_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417282_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417283_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417283_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417283_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417283_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417284_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417284_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417284_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417284_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417285_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417285_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417285_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417285_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417292_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417292_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417292_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417292_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417303_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417303_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417303_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417303_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417370_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417370_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417370_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417370_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417371_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417371_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417371_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417371_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417373_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417373_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417373_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417373_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417374_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417374_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417374_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417374_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417375_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417375_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417375_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417375_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417376_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417376_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417376_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417376_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417377_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417377_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417377_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417377_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417378_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417378_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417378_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417378_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417379_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417379_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417379_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417379_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417380_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417380_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417380_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417380_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417381_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417381_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417381_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417381_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417382_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417382_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417382_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417382_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417384_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417384_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417384_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417384_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417401_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417401_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417401_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417401_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417402_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417402_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417402_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417402_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417403_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417403_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417403_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417403_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417404_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417404_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417404_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417404_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417405_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417405_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417405_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417405_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417407_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417407_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417407_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417407_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417408_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417408_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417408_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417408_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417445_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417445_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417445_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417445_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417446_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417446_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417446_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417446_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417447_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417447_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417447_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417447_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417448_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417448_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417448_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417448_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417449_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417449_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417449_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417449_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417450_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417450_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417450_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417450_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417451_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417451_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417451_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417451_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417452_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417452_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417452_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417452_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417453_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417453_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417453_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417453_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417454_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417454_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417454_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417454_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417456_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417456_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417456_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417456_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417457_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417457_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417457_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417457_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417458_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417458_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417458_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417458_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417459_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417459_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417459_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417459_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417460_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417460_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417460_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417460_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417461_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417461_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417461_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417461_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417462_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417462_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417462_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417462_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417526_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417526_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417526_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417526_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417588_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417588_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417588_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417588_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417599_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417599_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417599_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417599_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417608_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417608_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417608_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417608_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417619_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417619_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417619_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417619_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417631_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417631_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417631_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417631_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417632_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417632_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417632_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417632_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417633_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417633_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417633_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417633_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417635_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417635_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417635_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417635_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417636_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417636_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417636_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417636_2.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417674_1.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417674_1.fastq.gz'
++ for file in $(realpath ${INPUT}/*)
++ echo -e 'SRR26417674_2.fastq.gz\t/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/SRR26417674_2.fastq.gz'
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/KRANK/krank query --library-dir /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/KRANK/lib_reps_adpt-k29_w35_h13_b16_s8 /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/KRANK/pangenome-05-2024-lib_rand_free-k29_w34_h13_b16_s8 --query-file /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/input_map.tsv --max-match-distance 5 --total-vote-threshold 0.03 --num-threads 10 --output-dir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/
+KRANK version: v0.3.2
+Library will be read from /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/KRANK/lib_reps_adpt-k29_w35_h13_b16_s8
+Memory allocation for the library is completed successfully
+Library is loaded and ready for performing queries
+Details:
+        Length of the k-mer, k: 29
+        Number of positions of LSH, h: 13
+        Number of columns in the table, b: 16
+        Maximum capacity size: 1073741824
+        Table row batch size: 262144
+        Total number of rows: 67108864
+        Number of species: 9019
+        Total number of (non-unique) kmers: 7471309375
+File opening failed! /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/KRANK/pangenome-05-2024-lib_rand_free-k29_w34_h13_b16_s8/metadata
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline.sh: line 162: 3926766 Segmentation fault      (core dumped) ${SCRIPT_DIR}/KRANK/krank query --library-dir ${LIBRARIES} --query-file ${OUTPUT_DIRECTORY}/input_map.tsv --max-match-distance 5 --total-vote-threshold 0.03 --num-threads ${NUM_THREADS} --output-dir "${OUTPUT_DIRECTORY}/krank_output/krank_reports/"
+++ mktemp --directory /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.XXXXXXX
++ tmp_dir=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*1.fq'
++ for file in $(realpath "${INPUT}/*${READ_1}")
++ read1='*1.fq'
++ read2='*2.fq'
++ sed -e s/@//g
++ cut -f1
++ grep --perl-regexp '\tU\t'
++ cat '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/classification_info-*1.fq'
+cat: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/classification_info-*1.fq': No such file or directory
++ grep --perl-regexp '\tU\t'
++ cat '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/classification_info-*2.fq'
++ sed -e s/@//g
++ cut -f1
+cat: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/classification_info-*2.fq': No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/filterbyname.sh 'in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*1.fq' 'in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*2.fq' 'out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq' 'out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq' threads=10 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames1.txt include=true overwrite=true
+java -ea -Xmx758649m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ driver.FilterReadsByName in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*1.fq in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*2.fq out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq threads=10 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames1.txt include=true overwrite=true
+Executing driver.FilterReadsByName [in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*1.fq, in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*2.fq, out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq, out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq, threads=10, names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames1.txt, include=true, overwrite=true]
+
+Set threads to 10
+Set INTERLEAVED to false
+Exception in thread "main" java.lang.RuntimeException: Can't find file /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_raw_fq//*1.fq
+        at fileIO.ReadWrite.getRawInputStream(ReadWrite.java:933)
+        at fileIO.ReadWrite.getInputStream(ReadWrite.java:898)
+        at fileIO.ByteFile1.open(ByteFile1.java:330)
+        at fileIO.ByteFile1.<init>(ByteFile1.java:100)
+        at fileIO.ByteFile2$BF1Thread.<init>(ByteFile2.java:237)
+        at fileIO.ByteFile2.open(ByteFile2.java:215)
+        at fileIO.ByteFile2.<init>(ByteFile2.java:86)
+        at fileIO.ByteFile.makeByteFile(ByteFile.java:35)
+        at fileIO.ByteFile.makeByteFile(ByteFile.java:27)
+        at stream.FastqReadInputStream.<init>(FastqReadInputStream.java:59)
+        at stream.ConcurrentReadInputStream.getReadInputStream(ConcurrentReadInputStream.java:116)
+        at stream.ConcurrentReadInputStream.getReadInputStream(ConcurrentReadInputStream.java:69)
+        at driver.FilterReadsByName.process(FilterReadsByName.java:253)
+        at driver.FilterReadsByName.main(FilterReadsByName.java:40)
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/filterbyname.sh 'in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq' 'in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq' 'out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*2.fq' 'out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*1.fq' threads=10 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames2.txt include=true overwrite=true
+java -ea -Xmx758660m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ driver.FilterReadsByName in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*2.fq out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*1.fq threads=10 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames2.txt include=true overwrite=true
+Executing driver.FilterReadsByName [in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq, in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq, out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*2.fq, out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*1.fq, threads=10, names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/unclass_readnames2.txt, include=true, overwrite=true]
+
+Set threads to 10
+Set INTERLEAVED to false
+Exception in thread "main" java.lang.RuntimeException: Can't find file /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq
+        at fileIO.ReadWrite.getRawInputStream(ReadWrite.java:933)
+        at fileIO.ReadWrite.getInputStream(ReadWrite.java:898)
+        at fileIO.ByteFile1.open(ByteFile1.java:330)
+        at fileIO.ByteFile1.<init>(ByteFile1.java:100)
+        at fileIO.ByteFile2$BF1Thread.<init>(ByteFile2.java:237)
+        at fileIO.ByteFile2.open(ByteFile2.java:215)
+        at fileIO.ByteFile2.<init>(ByteFile2.java:86)
+        at fileIO.ByteFile.makeByteFile(ByteFile.java:35)
+        at fileIO.ByteFile.makeByteFile(ByteFile.java:27)
+        at stream.FastqReadInputStream.<init>(FastqReadInputStream.java:59)
+        at stream.ConcurrentReadInputStream.getReadInputStream(ConcurrentReadInputStream.java:116)
+        at stream.ConcurrentReadInputStream.getReadInputStream(ConcurrentReadInputStream.java:69)
+        at driver.FilterReadsByName.process(FilterReadsByName.java:253)
+        at driver.FilterReadsByName.main(FilterReadsByName.java:40)
++ rm '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq' '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq'
+rm: cannot remove '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*2.fq': No such file or directory
+rm: cannot remove '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw/*1.fq': No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/make_decontam_figs.sh order /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/krank_reports/ /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/make_decontam_figs.sh: line 24: R: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/tmp.RVAWLyw
++ exec
++ echo 'PERFORMING BBMAP OPERATIONS...'
++ exec
++ exec
++ mkdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/bbmap_reads/
+mkdir: cannot create directory â/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/bbmap_reads/â: File exists
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*1.fq'
++ for file in $(realpath "${OUTPUT_DIRECTORY}/krank_output/decontaminated_files/*${READ_1}")
++ read1='/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*1.fq'
++ read2='/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*2.fq'
++ out_read='*1.fq'
++ test -f '/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/*2.fq'
++ exec
++ echo 'OBTAINING GENOME DISTANCES FROM FULL COVERAGE SEQUENCES...'
++ exec
++ exec
+++ ls /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/bbmap_reads/
++ skmer distance /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_library/ -p 10 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_library/CONFIG'
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/krank_output/decontaminated_files/
++ bash /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/tsv_to_phymat.sh /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.txt /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.phy
+tail: cannot open '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.txt' for reading: No such file or directory
+tail: cannot open '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.txt' for reading: No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.phy -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_tree.tre
+
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline.sh: line 224: 3926953 Segmentation fault      (core dumped) ${SCRIPT_DIR}/fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i "${OUTPUT_DIRECTORY}/distance_matrix.phy" -o "${OUTPUT_DIRECTORY}/skmer_tree.tre"
++ R --vanilla
++ echo '
+        m=as.matrix(read.csv("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.txt",sep="\t",row.names=1));
+        pdf("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_figures.pdf", width=12,height=9);
+        plot(hclust(as.dist(m)));
+        heatmap(m, scale = "none");
+        dev.off();
+        write.table(file="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/distance_matrix.txt",format(data.frame(name = row.names(m), m),digits=3),qu=F,sep="\t",row.names = FALSE);"
+        '
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline.sh: line 233: R: command not found
++ grep '' '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_library/*/*.dat'
++ sort -k2
+grep: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_library/*/*.dat: No such file or directory
++ sed -e 's/:/\t/g' -e 's/^library.//' -e 's:/[^/]*.dat\t:\t:'
++ [[ SKMER == \R\E\S\P\E\C\T ]]
++ exec
++ echo 'SUBSAMPLING DATA...'
++ exec
++ exec
+++ mktemp /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/coverages.XXXX
++ tmp_coverages=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/coverages.ASS8
++ sed -e s/NA/1.0/g
++ cut -f3
++ grep coverage /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/skmer_stats.tsv
++ sort
++ [[ SKMER == \R\E\S\P\E\C\T ]]
++ awk '{x=$2/$3; printf "%s\t%s\t%s\t%.0f\n", $1, $2, $3, x}'
++ paste /dev/fd/63 /dev/fd/62
+++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/coverages.ASS8
+++ parallel -j 10 wc --lines '{}'
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/bbmap_reads/*'
+++ awk '{x=$1/4; printf "%s\t%.0f\n", $2, x}'
+++ sort
+wc: '/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/bbmap_reads/*': No such file or directory
++ rm /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/coverages.ASS8
++ export -f subsample
++ export -f calc_new_subsample
++ for coverage in ${TARGET_COV}
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads/
+++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/read_counts.tsv
+++ tr '\t' ,
++ parallel -j 10 calc_new_subsample '{}' /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads/ 4 /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel ::: ''
+
+(standard_in) 2: syntax error
+java -ea -Xms300m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ jgi.ReformatReads in= out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//tmp.US7hkj out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//tmp.cGcTlr overwrite=true
+Executing jgi.ReformatReads [in=, out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//tmp.US7hkj, out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//tmp.cGcTlr, overwrite=true]
+
+Exception in thread "main" java.lang.RuntimeException: Error - at least one input file is required.
+        at jgi.ReformatReads.<init>(ReformatReads.java:351)
+        at jgi.ReformatReads.main(ReformatReads.java:51)
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+java -ea -Xms300m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ jgi.ReformatReads in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp2- in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp1- out=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads// overwrite=true
+Executing jgi.ReformatReads [in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp2-, in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp1-, out=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//, overwrite=true]
+
+Set INTERLEAVED to false
+Unspecified format for output /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//; defaulting to fastq.
+Unspecified format for input /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp2-; defaulting to fastq.
+Unspecified format for input /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads//temp1-; defaulting to fastq.
+Input is being processed as paired
+Writing interleaved.
+Exception in thread "main" java.lang.RuntimeException: java.io.FileNotFoundException: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads (Is a directory)
+        at fileIO.ReadWrite.getRawOutputStream(ReadWrite.java:437)
+        at fileIO.ReadWrite.getOutputStream(ReadWrite.java:402)
+        at fileIO.ReadWrite.getOutputStream(ReadWrite.java:344)
+        at stream.ReadStreamWriter.<init>(ReadStreamWriter.java:71)
+        at stream.ReadStreamByteWriter.<init>(ReadStreamByteWriter.java:18)
+        at stream.ConcurrentGenericReadOutputStream.<init>(ConcurrentGenericReadOutputStream.java:38)
+        at stream.ConcurrentReadOutputStream.getStream(ConcurrentReadOutputStream.java:71)
+        at stream.ConcurrentReadOutputStream.getStream(ConcurrentReadOutputStream.java:35)
+        at jgi.ReformatReads.process(ReformatReads.java:500)
+        at jgi.ReformatReads.main(ReformatReads.java:52)
+Caused by: java.io.FileNotFoundException: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads (Is a directory)
+        at java.base/java.io.FileOutputStream.open0(Native Method)
+        at java.base/java.io.FileOutputStream.open(FileOutputStream.java:289)
+        at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:230)
+        at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:150)
+        at fileIO.ReadWrite.getRawOutputStream(ReadWrite.java:435)
+        ... 9 more
++ exec
++ echo 'PERFORMING SKIMMING OPERATIONS ON SUBSAMPLED DATA...'
++ exec
++ exec
++ for coverage in ${TARGET_COV}
+++ ls /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/reads/
++ skmer distance /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/skmer_library/ -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/distance_matrix
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/skmer_library/CONFIG'
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/respect/
++ echo -e 'Input\tread_length'
+++ find /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/skmer_library/ -maxdepth 1 -mindepth 1 -type d
+find: â/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/skmer_library/â: No such file or directory
++ respect --input-directories /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/respect/ --info-file /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/respect/hist_info.txt --output-directory /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/ --spectra-output-size 50 --iterations 1000 --threads 10
+2024-07-09 12:00:15,784 WARNING:/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/echarvel_Stein_fast-skims_results_08.07/subsampled_data/4x_data/respect/hist_info.txt does not have valid extension; it's skipped
+No valid input file is provided. Please provide an input FASTQ/A or .hist file

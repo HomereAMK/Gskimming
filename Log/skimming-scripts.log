@@ -1,0 +1,160 @@
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/
+++ mktemp --directory /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XXXXXXX
++ tmp_dir=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ
++ ...creates decontaminated read files from KRANK output...
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline_withoutKRANK.sh: line 166: ...creates: command not found
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_1.fastq.gz'
++ for file in $(realpath "${INPUT}/*${READ_1}")
++ read1='*=_1.fastq.gz'
++ read2='*=_2.fastq.gz'
++ sed -e s/@//g
++ grep --perl-regexp '\tU\t'
++ cut -f1
++ cat '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/classification_info-*=_1.fastq.gz'
+cat: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/classification_info-*=_1.fastq.gz': No such file or directory
++ grep --perl-regexp '\tU\t'
++ sed -e s/@//g
++ cat '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/classification_info-*=_2.fastq.gz'
++ cut -f1
+cat: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/classification_info-*=_2.fastq.gz': No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/filterbyname.sh 'in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_1.fastq.gz' 'in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_2.fastq.gz' 'out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz' 'out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz' threads=18 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/unclass_readnames1.txt include=true overwrite=true
+java -ea -Xmx248386m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ driver.FilterReadsByName in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_1.fastq.gz in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_2.fastq.gz out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz threads=18 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/unclass_readnames1.txt include=true overwrite=true
+Exception in thread "main" java.lang.AssertionError: To many '=' signs: in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/*=_1.fastq.gz
+	at shared.PreParser.<init>(PreParser.java:92)
+	at shared.PreParser.<init>(PreParser.java:32)
+	at driver.FilterReadsByName.<init>(FilterReadsByName.java:49)
+	at driver.FilterReadsByName.main(FilterReadsByName.java:39)
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/filterbyname.sh 'in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz' 'in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz' 'out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_2.fastq.gz' 'out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_1.fastq.gz' threads=18 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/unclass_readnames2.txt include=true overwrite=true
+java -ea -Xmx248486m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ driver.FilterReadsByName in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_2.fastq.gz out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_1.fastq.gz threads=18 names=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/unclass_readnames2.txt include=true overwrite=true
+Exception in thread "main" java.lang.AssertionError: To many '=' signs: in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz
+	at shared.PreParser.<init>(PreParser.java:92)
+	at shared.PreParser.<init>(PreParser.java:32)
+	at driver.FilterReadsByName.<init>(FilterReadsByName.java:49)
+	at driver.FilterReadsByName.main(FilterReadsByName.java:39)
++ rm '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz' '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz'
+rm: cannot remove '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_2.fastq.gz': No such file or directory
+rm: cannot remove '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ/*=_1.fastq.gz': No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/make_decontam_figs.sh order /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/krank_reports/ /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/make_decontam_figs.sh: line 24: R: command not found
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/tmp.XSS21KJ
++ exec
++ echo 'PERFORMING BBMAP OPERATIONS...'
++ exec
++ exec
++ mkdir /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/bbmap_reads/
+mkdir: cannot create directory ‘/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/bbmap_reads/’: File exists
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_1.fastq.gz'
++ for file in $(realpath "${OUTPUT_DIRECTORY}/krank_output/decontaminated_files/*${READ_1}")
++ read1='/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_1.fastq.gz'
++ read2='/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_2.fastq.gz'
++ out_read='*=_1.fastq.gz'
++ test -f '/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/*=_2.fastq.gz'
++ exec
++ echo 'OBTAINING GENOME DISTANCES FROM FULL COVERAGE SEQUENCES...'
++ exec
++ exec
+++ ls /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/bbmap_reads/
++ skmer distance /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_library/ -p 18 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_library/CONFIG'
++ rm -r /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/krank_output/decontaminated_files/
++ bash /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/tsv_to_phymat.sh /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.txt /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.phy
+tail: cannot open '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.txt' for reading: No such file or directory
+tail: cannot open '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.txt' for reading: No such file or directory
++ /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.phy -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_tree.tre
+
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline_withoutKRANK.sh: line 224: 66925 Segmentation fault      (core dumped) ${SCRIPT_DIR}/fastme-2.1.5/binaries/fastme-2.1.5-linux64 -i "${OUTPUT_DIRECTORY}/distance_matrix.phy" -o "${OUTPUT_DIRECTORY}/skmer_tree.tre"
++ R --vanilla
+/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline_withoutKRANK.sh: line 233: R: command not found
++ echo '
+	m=as.matrix(read.csv("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.txt",sep="\t",row.names=1)); 
+	pdf("/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_figures.pdf", width=12,height=9); 
+	plot(hclust(as.dist(m))); 
+	heatmap(m, scale = "none"); 
+	dev.off(); 
+	write.table(file="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/distance_matrix.txt",format(data.frame(name = row.names(m), m),digits=3),qu=F,sep="\t",row.names = FALSE);"
+	'
++ grep '' '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_library/*/*.dat'
++ sed -e 's/:/\t/g' -e 's/^library.//' -e 's:/[^/]*.dat\t:\t:'
++ sort -k2
+grep: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_library/*/*.dat: No such file or directory
++ [[ SKMER == \R\E\S\P\E\C\T ]]
++ exec
++ echo 'SUBSAMPLING DATA...'
++ exec
++ exec
+++ mktemp /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/coverages.XXXX
++ tmp_coverages=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/coverages.hNm5
++ sed -e s/NA/1.0/g
++ sort
++ grep coverage /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/skmer_stats.tsv
++ cut -f3
++ [[ SKMER == \R\E\S\P\E\C\T ]]
++ awk '{x=$2/$3; printf "%s\t%s\t%s\t%.0f\n", $1, $2, $3, x}'
++ paste /dev/fd/63 /dev/fd/62
+++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/coverages.hNm5
+++ parallel -j 18 wc --lines '{}'
+++ realpath '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/bbmap_reads/*'
+++ awk '{x=$1/4; printf "%s\t%.0f\n", $2, x}'
+++ sort
+wc: '/maps/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/bbmap_reads/*': No such file or directory
++ rm /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/coverages.hNm5
++ export -f subsample
++ export -f calc_new_subsample
++ for coverage in ${TARGET_COV}
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads/
+++ cat /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/read_counts.tsv
+++ tr '\t' ,
++ parallel -j 18 calc_new_subsample '{}' /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads/ 4 /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel ::: ''
+ 
+(standard_in) 2: syntax error
+java -ea -Xms300m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ jgi.ReformatReads in= out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//tmp.qx60yQ out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//tmp.UztSPp overwrite=true
+Executing jgi.ReformatReads [in=, out1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//tmp.qx60yQ, out2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//tmp.UztSPp, overwrite=true]
+
+Exception in thread "main" java.lang.RuntimeException: Error - at least one input file is required.
+	at jgi.ReformatReads.<init>(ReformatReads.java:351)
+	at jgi.ReformatReads.main(ReformatReads.java:51)
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+java -ea -Xms300m -cp /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap/current/ jgi.ReformatReads in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp2- in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp1- out=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads// overwrite=true
+Executing jgi.ReformatReads [in1=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp2-, in2=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp1-, out=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//, overwrite=true]
+
+Set INTERLEAVED to false
+Unspecified format for output /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//; defaulting to fastq.
+Unspecified format for input /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp2-; defaulting to fastq.
+Unspecified format for input /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads//temp1-; defaulting to fastq.
+Input is being processed as paired
+Writing interleaved.
+Exception in thread "main" java.lang.RuntimeException: java.io.FileNotFoundException: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads (Is a directory)
+	at fileIO.ReadWrite.getRawOutputStream(ReadWrite.java:437)
+	at fileIO.ReadWrite.getOutputStream(ReadWrite.java:402)
+	at fileIO.ReadWrite.getOutputStream(ReadWrite.java:344)
+	at stream.ReadStreamWriter.<init>(ReadStreamWriter.java:71)
+	at stream.ReadStreamByteWriter.<init>(ReadStreamByteWriter.java:18)
+	at stream.ConcurrentGenericReadOutputStream.<init>(ConcurrentGenericReadOutputStream.java:38)
+	at stream.ConcurrentReadOutputStream.getStream(ConcurrentReadOutputStream.java:71)
+	at stream.ConcurrentReadOutputStream.getStream(ConcurrentReadOutputStream.java:35)
+	at jgi.ReformatReads.process(ReformatReads.java:500)
+	at jgi.ReformatReads.main(ReformatReads.java:52)
+Caused by: java.io.FileNotFoundException: /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads (Is a directory)
+	at java.base/java.io.FileOutputStream.open0(Native Method)
+	at java.base/java.io.FileOutputStream.open(FileOutputStream.java:289)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:230)
+	at java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:150)
+	at fileIO.ReadWrite.getRawOutputStream(ReadWrite.java:435)
+	... 9 more
++ exec
++ echo 'PERFORMING SKIMMING OPERATIONS ON SUBSAMPLED DATA...'
++ exec
++ exec
++ for coverage in ${TARGET_COV}
+++ ls /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/reads/
++ skmer distance /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/skmer_library/ -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/distance_matrix
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/skmer_library/CONFIG'
++ mkdir --parents /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/respect/
++ echo -e 'Input\tread_length'
+++ find /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/skmer_library/ -maxdepth 1 -mindepth 1 -type d
+find: ‘/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/skmer_library/’: No such file or directory
++ respect --input-directories /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/respect/ --info-file /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/respect/hist_info.txt --output-directory /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/ --spectra-output-size 50 --iterations 1000 --threads 18
+2024-07-12 18:59:17,563 WARNING:/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07/subsampled_data/4x_data/respect/hist_info.txt does not have valid extension; it's skipped
+No valid input file is provided. Please provide an input FASTQ/A or .hist file
