@@ -1,7 +1,6 @@
-## SRA to FastQ Conversion for HanClupea
-
+## SRA to FastQ Conversion 
+# For oedulis
 # Transforms .sra files in ERR* folders to fastq.gz files.
-
 ```bash
 #!/bin/bash
 base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis"
@@ -20,22 +19,23 @@ done
 echo "All processing complete."
 ```
 
-# Alternative version with .csv file containing run accession in the first column
+# Alternative version with.csv file containing run accession in the first column Stein Mortensen collected oedulis
 ```bash
+module load sratoolkit sra-tools pigz 
 base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq"
-
 # Path to the CSV file
 csv_file="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedulis_sra.csv"
-
 # Navigate to the base directory
 cd "$base_dir" || exit
-
-# Read SRA run IDs from the CSV, skip the header line
-sra_ids=$(tail -n +2 "$csv_file" | cut -d',' -f1)
+# Read SRA run IDs sampled by Stein Mortensen from the CSV, skip the header line
+sra_ids=$(tail -n +2 "$csv_file" | cut -d',' -f1,11 | grep "Stein Mortensen" | cut -d',' -f1)
+#sra_ids=$(tail -n +2 "$csv_file" | cut -d',' -f1,11 | grep "Ane" | cut -d',' -f1)
 
 for sra_id in $sra_ids; do
     # Check if .fastq.gz files already exist for this SRA ID
-    if ! ls "${sra_id}_*.fastq.gz" 1> /dev/null 2>&1; then
+    if [ -f "${sra_id}_1.fastq.gz" ] && [ -f "${sra_id}_2.fastq.gz" ]; then
+        echo "Skipped: .fastq.gz files already exist for $sra_id"
+    else
         # Download SRA file using prefetch
         prefetch "$sra_id" --output-directory "./"
 
@@ -51,16 +51,43 @@ for sra_id in $sra_ids; do
         else
             echo "Error: SRA file for $sra_id not found."
         fi
-    else
-        echo "Skipped: .fastq.gz files already exist for $sra_id"
     fi
 done
-
 echo "All processing complete."
 ```
 
+
+
+
+## Stein Mortensen sampled skim_processed .fq in fastq/
+```bash
+base_dir="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/Stein_Mortensen_fqs/"
+# Path to the CSV file
+csv_file="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedulis_sra.csv"
+
+# Navigate to the base directory
+cd "$base_dir" || exit
+
+# Read SRA run IDs sampled by Stein Mortensen from the CSV, skip the header line
+sra_ids=$(tail -n +2 "$csv_file" | grep "Stein Mortensen" | cut -d',' -f1)
+
+for sra_id in $sra_ids; do
+    # Check if .fq files already exist for this SRA ID in oedulis/fastq/Stein_Mortensen_fqs/ if not, cp the file in oedulis/fastq/Stein_Mortensen_fqs/
+    if [ -f "unclassified-kra_${sra_id}_.fq" ] ; then
+        echo "Skipped: .fq files already exist for $sra_id"
+    else
+        # Check if the SRA file was downloaded and exists
+        if [ -f "../skims_processing_pipeline/kraken/unclassified-kra_${sra_id}_.fq" ]; then
+            cp "../skims_processing_pipeline/kraken/unclassified-kra_${sra_id}_.fq" ./
+        else
+            echo "File not found: unclassified-kra_${sra_id}_.fq"
+        fi
+    fi
+done
+```
+
 ## Skmer Preprocessing Pipeline 
-# Launch for ClupeaAtmore
+# Launch for Herring
 Executes Skmer preprocessing on fastq.gz files.
 
 ```bash
@@ -82,10 +109,10 @@ bash ../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutoria
 
 # For oedulis
 ```bash
-conda activate Mar_skmer_pip
+conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/
 module load parallel kraken2 respect consult-ii
-bash ../../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedu_preprocess_23may24_screen2.log
+bash ../../skims_processing_pipeline.sh -x /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq -r 40 -f 40 > /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/oedu_preprocess_29jun24_screen2.log
 ```
 
 
@@ -185,7 +212,7 @@ python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/
 ```
 
 
-## Subsample to 4x and estimate with Skmer
+## subsample_and_estimate.sh to 4x and estimate with Skmer
 ```bash
 #cd /path/to/dir
 conda activate Mar_skmer_pip 
@@ -330,7 +357,6 @@ echo "All Kraken2 decontamination processes are complete."
 ```
 
 ## Skmer operations, Respect pipeline, and Skmer distance calculation after consult + kraken decontamination
-
 ```bash
 #!/bin/bash
 module load parallel kraken2 skmer respect
@@ -391,15 +417,22 @@ echo "All operations completed successfully"
 ```
 
 
-
-## skmer 1 with run_skmer.sh 
+## Skmer1 with script run_skmer.sh to get distance matrix of skim_preprocessed reads
+# oedulis
+```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis
+module load parallel
+DATE=$(date +%d.%m)
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/skims_processing_pipeline/kraken/ -t 19 -p 10 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/library_runskmer1_oedulis_condaskmer2test_$DATE
+ ```
 # Magpie
 ```bash 
 conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
 module load parallel
 DATE=$(date +%d.%m)
-/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t 29 -p 10 -o library_run_skmer1_Ref_$DATE
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/ -t 40 -p 20 -o library_runskmer1_magpie_condaskmer2test_$DATE
 ```
 # Herring
 ```bash
@@ -408,6 +441,18 @@ cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 module load parallel
 DATE=$(date +%d.%m)
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/skims_processing_pipeline_jan24/kraken -t 29 -p 10 -o library_clupea_run_skmer1_Ref_$DATE
+```
+
+## Use run_skmer.sh to get distance matrix of skimmed preprocessed read mapped to the ref genome
+# Herring
+```bash
+conda activate skmer_2_test
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
+module load parallel
+DATE=$(date +%d.%m)
+ /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq -t 19 -p 10 -o library_runskmer_mappedreads_skmer1_condaskmer2test_$DATE
+ # result are in library_runskmer_mappedreads_skmer1_condaskmer2test_26.06
+
 ```
 
 # For subsampled at 4x herring 
@@ -430,25 +475,18 @@ GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/
 python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/skmer_new-err.py --debug reference /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq/ -r $GENOME -p 4 -o "skmer2_echarvel_Clupea_Ref-$DATE-dist-mat" -l library_skmer2_echarvel_Clupea_Ref-$DATE
 ```
 
-## subsample_and_estimate2 on 
-# magpie
+## subsample_and_estimate2  (needs module parallel to work)
+# Magpie skim_preprocessed reads
 ```bash
 conda activate skmer_2_test 
 DATE=$(date +%d.%m)
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
-bash /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/subsample_and_estimate2.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/done -t 5 c 4,2,1,0.5,0.25 2>&1 > subsample2"$DATE"_skmer2_condskmer2test-_Magpie.log
-```
-
-
-
-## Skmer1 with script run_skmer.sh to get distance matrix of oedulis skim_preprocessed reads
-```bash
-conda activate skmer_2_test
-cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis
 module load parallel
-DATE=$(date +%d.%m)
-/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/skims_processing_pipeline/kraken/ -t 19 -p 10 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/library_runskmer1_oedulis_condaskmer2test_$DATE
- ```
+cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie
+INPUTDIR="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testMagpie/skims_processing_pipeline/kraken/"
+bash /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/subsample_and_estimate2.sh -i $INPUTDIR -t 16 c 4,2,1,0.5,0.25 2>&1 > subsample2"$DATE"_condaskmer2test-_Magpieskim_preprocessed.log
+
+
+```
 
 
 ## skmer2 with skmer_new-err.py with -p 1 on Herring skims preprocessed + mapped reads to ref Genome 
