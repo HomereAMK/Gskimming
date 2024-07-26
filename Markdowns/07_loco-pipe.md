@@ -46,8 +46,9 @@ snakemake -n --forceall --rulegraph \
 --directory $BASEDIR \
 --snakefile $SOFTWARE_DIR/loco-pipe/workflow/pipelines/loco-pipe.smk  | \
 dot -Tpdf > $SOFTWARE_DIR/loco-pipe/toyfish/figures/flowchart/toyfish.pdf
-
-
+```
+# Snakemake run of the loco_pipe
+```bash
 #Launching the pipeline
 #for dry run add -n
 conda activate loco-pipe
@@ -67,3 +68,31 @@ snakemake \
 #--conda-prefix /home/sjr729/miniforge3/envs \
 ```
 
+# Rerun Angsd on combined SNP list to get combine Ibs.mat
+```bash
+conda activate angsd_lcpipe
+module purge
+
+SNPLIST=/projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/angsd/snp_calling_global/combined.subsetted.snp_list
+REF=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna
+
+angsd -bam /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.txt \
+-ref $REF \
+-sites $SNPLIST \
+-P 20 \
+-out /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/angsd/snp_calling_global/25.07_SteinOedulis_loco_run2_totalSNPlist_forDistMat \
+-GL 1 \
+-doGlf 2 \
+-doIBS 1 \
+-makematrix 1 \
+-doMajorMinor 3 \
+-doDepth 1 -doCounts 1 -maxDepth 100000 -dumpCounts 1 -setMinDepth 69 -setMaxDepth 230 -minInd 46 -setMinDepthInd 1 \
+-minQ 20 -minMapQ 20 \
+-remove_bads 1 \
+-only_proper_pairs 1
+
+
+#Get the label list from the bam list
+awk '{split($0,a,"/"); print a[9]}' /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.txt | awk '{split($0,b,"_"); print b[1]"_"b[2]}' > /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.labels
+#Get the annotation file 
+cat /home/projects/dp_00007/people/hmon/Flat_oysters/01_infofiles/Bam_list_13dec21.labels | awk '{split($0,a,"_"); print $1"\t"a[1]}' > /home/projects/dp_00007/people/hmon/Flat_oysters/01_infofiles/Bam_list_13dec21.annot
