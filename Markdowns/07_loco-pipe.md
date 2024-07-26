@@ -64,11 +64,11 @@ snakemake \
 --scheduler greedy \
 --printshellcmds \
 --snakefile $SOFTWARE_DIR/loco-pipe/workflow/pipelines/loco-pipe.smk \
---cores 19 --rerun-incomplete --keep-going
+--cores 19 --rerun-incomplete --keep-going --unlock
 #--conda-prefix /home/sjr729/miniforge3/envs \
 ```
 
-# Rerun Angsd on combined SNP list to get combine Ibs.mat
+# Rerun Angsd on combined SNP list to get combine Ibs.mat oedulis dataset
 ```bash
 conda activate angsd_lcpipe
 module purge
@@ -90,9 +90,4 @@ angsd -bam /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.
 -minQ 20 -minMapQ 20 \
 -remove_bads 1 \
 -only_proper_pairs 1
-
-
-#Get the label list from the bam list
-awk '{split($0,a,"/"); print a[9]}' /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.txt | awk '{split($0,b,"_"); print b[1]"_"b[2]}' > /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.labels
-#Get the annotation file 
-cat /home/projects/dp_00007/people/hmon/Flat_oysters/01_infofiles/Bam_list_13dec21.labels | awk '{split($0,a,"_"); print $1"\t"a[1]}' > /home/projects/dp_00007/people/hmon/Flat_oysters/01_infofiles/Bam_list_13dec21.annot
+```

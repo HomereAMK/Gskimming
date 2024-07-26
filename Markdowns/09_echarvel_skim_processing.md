@@ -118,3 +118,14 @@ bash /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipelin
 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_11.07 -t 18 -p 10 \
 -f _1.fastq.gz \
 -r _2.fastq.gz
+
+# -> high error-rate ~0.01 and empty dist matrix
+
+conda activate skimming_echarvel
+module purge
+module load parallel
+bash /projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/skimming_pipeline.sh \
+-i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq \
+-o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/fastq/echarvel_fast-skims_25.07 -t 20 -p 10 \
+-f _1.fastq.gz \
+-r _2.fastq.gz
