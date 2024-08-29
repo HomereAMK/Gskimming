@@ -35,9 +35,9 @@ done
 
 
 ### Full ANGSD Preprocessing: Full Launcher Script
+# mapping 
 
 ```bash
-### mapping 
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis #change path
 module load gcc/8.2.0 bwa/0.7.17 samtools/1.18 jdk/1.8.0_291 picard/2.27.5 parallel/20230822 java-jdk/8.0.112 bamutil/1.0.15 python/3.11.3 openjdk/17.0.8 gatk/3.8
 
