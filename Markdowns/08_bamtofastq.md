@@ -74,17 +74,17 @@ module load bedtools parallel
 
 # code
 ```bash
-cd /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ #change pathe
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/ #change pathe
 # Create the output directory if it doesn't exist
-output_dir="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/bbmap_mapped_fq" 
+output_dir="/projects/mjolnir1/people/sjr729/Skmer_ms/Herring/NoInv_bbmap_mapped_fq" 
 mkdir -p $output_dir
 
 # Change to the directory containing the .bam files
-cd bbmapReadsMappedToRef
+cd NoInv_bbmapReadsMappedToNoInvRef
 
 
 # Loop 
-for bam_file in *.sort.minq20.bam; do
+for bam_file in *.noinv.sort.minq20.bam; do
     fq_file="${bam_file%.bam}.fq"
     output_path="$output_dir/$fq_file"
     start_time=$(date '+%Y-%m-%d %H:%M:%S')
@@ -136,14 +136,31 @@ remove == 0 {print}
 ## Use run_skmer.sh to get distance matrix of skimmed preprocessed read mapped to the ref genome
 ```bash
 conda activate skimming_echarvel
-cd /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/bbmapReadsMappedToRef/
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/bbmap_mapped_fq/
 module load parallel
 DATE=$(date +%d.%m)
-bash /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/bbmapReadsMappedToRef/ -t 19 -p 10 -o /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/library_runskmer_bbmapreads_mappedtoRef_skmer1_Oedulis_$DATE
+bash /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/bbmap_mapped_fq/ -t 20 -p 2 -o /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/skmer1/skmer1_Herring_bbmapreads_mappedtoRef-30.08/
  # result are in library_runskmer_mappedreads_skmer1_condaskmer2test_26.06
+
+#with skmer ref
+#Herring
+conda activate skimming_echarvel
+module load parallel
+DATE=$(date +%d.%m)
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/skmer1/
+skmer reference /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/NoInv_bbmap_mapped_fq/ -p 20 -o "NoInv_skmer1_Herring_bbmapreads_mappedtoRef_p20-$DATE-dist-mat" -l NoInv_skmer1_Herring_bbmapreads_mappedtoRef_p20-$DATE 2>&1 > "$DATE"_NoInv_skmer1_Herring_bbmapreads_mappedtoRef_p20.log
+#skmer reference /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/bbmap_mapped_fq/ -p 2 -o "skmer1_Herring_bbmapreads_mappedtoRef-$DATE-dist-mat" -l skmer1_Herring_bbmapreads_mappedtoRef_p2-$DATE 2>&1 > "$DATE"_skmer1_Herring_bbmapreads_mappedtoRef_p2.log
+
+
+conda activate skimming_echarvel
+module load parallel
+DATE=$(date +%d.%m)
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/
+skmer reference /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/NoInv_bbmap_mapped_fq/ -p 10 -l /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/NoInv_skmer1_Oedulis_bbmapreads_mappedtoRef_p10-$DATE  -o NoInv_skmer1_Oedulis_bbmapreads_mappedtoRef_p10-"$DATE"_dist_mat 2>&1 > "$DATE"_NoInv_skmer1_Oedulis_bbmapreads_mappedtoRef_p10.log
+
  ```
 
-## Skmer2 Distance Calculation with skmer2 
+## Skmer2 reference Calculation with skmer2 
 
 ```bash
 #Herring bbmap reads map to ref 
@@ -154,4 +171,36 @@ module load parallel
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 DATE=$(date +%d.%m)
 # build the skmer2 library
-python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/bbmap_mapped_fq/ -r $GENOME -p 2 -o "library_skmer2_bbmapreads_mappedtoRef_Herring_$DATE-dist-mat" -l library_skmer2_bbmapreads_mappedtoRef_Herring_$DATE
+python /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/Skmer-2/skmer/__main_TESTING.py --debug reference /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/bbmap_mapped_fq/ -r $GENOME -p 2 -l /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/library_skmer2_bbmapreads_mappedtoRef_Herring_$DATE
+```
+
+## Skmer1 and Skmer2 distance
+```bash
+#Oedulis
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis
+#mkdir -p krank_library_bbmapreads_mapToRef_Herring_skmer_3sep24 && mv bbmap_mapped_fq/*/ library_bbmapreads_mapToRef_Oedulis_skmer_3sep24/
+conda activate skimming_echarvel
+module load parallel
+skmer distance /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/library_bbmapreads_mapToRef_Oedulis_skmer_3sep24 -o /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/bbmapreads_mapToRef_Oedulis_skmer_3sep24_jc-dist-mat -t -p 2
+
+#Herring
+cd /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/skmer1/
+skmer distance /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/krank_library_bbmapreads_mapToRef_herring_skmer_3_sep -o /projects/mjolnir1/people/sjr729/Skmer_ms/Herring/skmer1/krank_bbmapreads_mapToRef_herring_skmer_3sep24_jc-dist-mat -t -p 2
+```
+
+## Generate a stat file 
+```bash 
+LIB_PATH="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/library_bbmapreads_mapToRef_Oedulis_skmer_3sep24"
+OUTPUT_FILE="${LIB_PATH}_stats_skmer.csv"
+
+# Add a header to the output file
+echo "folder,genome_length,coverage,read_length" > $OUTPUT_FILE
+
+find $LIB_PATH -type f -name "*.dat" | while read file; do
+    folder=$(basename $(dirname "$file"))
+    coverage=$(awk '/coverage/{print $2; exit}' "$file")
+    genome_length=$(awk '/genome_length/{print $2; exit}' "$file")
+    read_length=$(awk '/read_length/{print $2; exit}' "$file")
+    echo "$folder,$genome_length,$coverage,$read_length" >> $OUTPUT_FILE
+done
+```
