@@ -26,7 +26,7 @@ library(ggrepel)
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Oedulis/RawCov/RawReadsMappedToGenome/runskmer1_Herring_bbmapreads_mappedtoGenome-09.09/distance_matrix.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer2/Oedulis/RawCov/skmer2_skmer1lib_oedulis_bbmapreads_mappedtoGenome_p2_Herring_15.09.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)

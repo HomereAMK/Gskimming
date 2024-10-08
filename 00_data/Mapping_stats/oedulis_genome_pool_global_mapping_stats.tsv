@@ -1,0 +1,2 @@
+Sample	Raw_Reads	Raw_Bases	Trimmed_Bases	Mapped_Reads_BWA	Percentage_Mapped_Reads_BWA	Mapped_Reads_Post_BWA_BBMAP	Mapped_Percentage_Post_BWA_BBMAP	Mosdepth_Avg_Depth	Prop_g_cov_1	Prop_g_cov_2	Prop_g_cov_3	Prop_g_cov_4
+oedulisn10	20659728	3098959200	0	16651336	80.60	13395600	64.84	2.28	74.74	55.10	36.89	22.56

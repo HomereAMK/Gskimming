@@ -450,7 +450,7 @@ conda activate skmer_2_test
 cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea
 module load parallel
 DATE=$(date +%d.%m)
- /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq -t 19 -p 10 -o library_runskmer_mappedreads_skmer1_condaskmer2test_$DATE
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/angsd/mapped_fq -t 19 -p 10 -o library_runskmer_mappedreads_skmer1_condaskmer2test_$DATE
  # result are in library_runskmer_mappedreads_skmer1_condaskmer2test_26.06
 
 ```

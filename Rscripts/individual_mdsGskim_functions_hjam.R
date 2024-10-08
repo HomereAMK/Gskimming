@@ -102,7 +102,7 @@ geom_enterotype <- function(mapping = NULL, data = NULL, stat = "identity",  pos
   
   layer1 <- layer(data = data, mapping = mapping, stat = stat, geom = GeomPoint, 
                   position = position, show.legend = show.legend, inherit.aes = inherit.aes, 
-                  params = list(na.rm = na.rm, ...))
+                  params = list(na.rm = na.rm, size=4, ...))
   layer2 <- layer(stat = StatEllipse, data = data, mapping = mapping, geom = GeomEllipse, position = position, show.legend = FALSE, 
                   inherit.aes = inherit.aes, params = list(na.rm = na.rm, prop = prop, alpha = alpha, ...))
   layer3 <- layer(data = data, mapping = mapping, stat =  StatConline, geom = GeomPath, 
@@ -140,6 +140,12 @@ PCoA <- function(dist_matrix, ind_label, pop_label, k, x_axis, y_axis, show.poin
   # show.line: whether to show lines connecting population means with each individual point
   # alpha: the transparency of ellipses
   # index_exclude: the indices of individuals to exclude from the analysis
+  
+  
+  
+  
+  
+  
   
   index_include <- setdiff(seq_along(ind_label), index_exclude)
   m <- as.matrix(dist_matrix)

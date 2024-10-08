@@ -26,7 +26,7 @@ library(ggrepel)
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/MappedRead/MDS/distance_matrix.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer2/Clupea/4x_respect_oct24/ref-dist-mat.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)
@@ -56,8 +56,8 @@ sum(is.na(ibs_mat))
 
 ### Creating annotation file
 sample_ids <- dist_jc[-1, 1]
-cleaned_ids <- gsub("unclassified-seq_", "", sample_ids) #beware that the prefix might changed
-cleaned_ids <- gsub(".sort.minq20", "", cleaned_ids) #beware that the suffix might changed
+cleaned_ids <- gsub("unclassified-kra_unclassified-seq_", "", sample_ids) #beware that the prefix might changed
+cleaned_ids <- gsub("__merged", "", cleaned_ids) #beware that the suffix might changed
 species_names <- rep("Clupea", length(sample_ids))
 cleaned_ids
 ### If you already have an tailored annotation file
@@ -90,14 +90,46 @@ colnames(fst_annot) <- c("genome", "family")
 
 fst_annot$genome
 # Writing the data frame to a TSV file
-#write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer/Mapped_reads_skmer1_26.06-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer2/4x_respect_skmer2_02.10-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
-mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = FALSE)
+mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 mds_plot
 ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/Mappedreads/Skmer/MDS/Mapped_reads_skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
 
 str(ibs_mat)
+
+
+
+#### Outliers removal ####
+### Extract outliers values
+str(pcoa_table)
+# Load necessary library
+str(ibs_mat)
+
+# Function to find outliers
+find_outliers <- function(df, column) {
+  Q1 <- quantile(df[[column]], 0.25)
+  Q3 <- quantile(df[[column]], 0.75)
+  IQR <- Q3 - Q1
+  lower_bound <- Q1 - 1.5 * IQR
+  upper_bound <- Q3 + 1.5 * IQR
+  outliers <- df[df[[column]] < lower_bound | df[[column]] > upper_bound, ]
+  return(outliers)
+}
+
+# Applying the function to each dist_ column
+outliers_dist_1 <- find_outliers(pcoa_table, 'dist_1')
+outliers_dist_2 <- find_outliers(pcoa_table, 'dist_2')
+outliers_dist_3 <- find_outliers(pcoa_table, 'dist_3')
+
+# Combining the outliers from all dist_ columns
+combined_outliers <- unique(rbind(outliers_dist_1, outliers_dist_2))
+outlier_table <- combined_outliers[, c('individual', 'population')]
+print(outlier_table)
+
+
+
 
 # Extract the individual IDs from the outliers dataframe
 outlier_ids <- outliers_dist_1$individual
@@ -108,29 +140,30 @@ outlier_ids <- outliers_dist_1$individual
 #mds_plot_ecot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$sample_description,4, 1, 2, show.ellipse = FALSE, show.label = TRUE)
 #ggsave(mds_plot_ecot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/4x/Skmer/4x_ClupeaPCA_n45_ecotype_JCcorr_Skmer_rawcoverage_PC1PC2.png",scale = 1, dpi = 600)
 
-pcoa_table_genome_wide <- pcoa_table
-pcoa_table2 <- pcoa_table[!rownames(pcoa_table) %in% outlier_ids, !colnames(pcoa_table) %in% outlier_ids]
-pcoa_table_cleaned <- pcoa_table[!pcoa_table$individual %in% outlier_ids, ]
+
+# Remove outliers from pcoa_table
+pcoa_table_clean <- pcoa_table %>%
+  anti_join(combined_outliers, by = "individual")
+
+# View the cleaned dataframe
+pcoa_table_clean
+
 
 #write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/01_infofiles/DBScan/4x_jc-24.02-pcoa_table-mat_4x_Clupea.csv", row.names = FALSE)
 #write.csv(pcoa_table, "~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/MDS/pcoa_table-mat_40pc_4x_jc-24.02.24_Clupea.csv", row.names = FALSE)
 
-pcoa_table
-pcoa_table_genome_wide_joined <- pcoa_table %>%
+
+pcoa_table_genome_wide_joined_clean <- pcoa_table_clean %>%
   dplyr::select(1:5) %>%
   left_join(annot_df_final, by=c("individual"="cleaned_id", "population"="population"))
-mds_plot_sum <-pcoa_table_genome_wide_joined %>%
+mds_plot_sum <-pcoa_table_genome_wide_joined_clean %>%
   ggplot(aes(x=dist_1, y=dist_2)) +
-  geom_point(data=dplyr::select(pcoa_table_genome_wide_joined, -population), size = 0.1, color="grey") +
+  geom_point(data=dplyr::select(pcoa_table_genome_wide_joined_clean, -population), size = 0.1, color="grey") +
   geom_point(size=1, mapping = aes(color=population)) +
   facet_wrap(~population) +
   theme_cowplot() +
   theme(axis.text = element_blank())
 mds_plot_sum
-
-#change filename and path
-#ggsave(mds_plot_sum, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/0.25x/Skmer/Facet_skmer_subsamp0.25x_ClupeaPCA_n42_pop_PC1PC2.png", scale = 1, width = 12, height = 12, dpi = 600)
-
 
 
 
