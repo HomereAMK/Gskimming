@@ -8,7 +8,7 @@
 ```
 #salloc --qos=debug --nodes=1 -c 20 --mem-per-cpu 18000 -t 140000
 srun --cpus-per-task=30 --mem=20g --time=02:00:00 --pty bash
-srun --cpus-per-task=30 --mem=110g --time=45:00:00 --pty bash
+srun --cpus-per-task=30 --mem=120g --time=64:00:00 --pty bash
 
 srun --cpus-per-task=40 --mem=120g --time=110:00:00 --pty bash
 
