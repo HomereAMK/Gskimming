@@ -12,7 +12,7 @@ setwd(dir = "~/Desktop/GitHub/Gskimming/")
 pacman::p_load(tidyverse, reshape2, Hmisc)
 
 # Loads Fst table ~
-Fst <- read.table("01_infofiles/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst.tsv", sep = "\t", header = FALSE, stringsAsFactors = FALSE)
+Fst <- read.table("01_infofiles/ClupeaAtmore/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst.tsv", sep = "\t", header = FALSE, stringsAsFactors = FALSE)
 
 
 # Adds column names ~
@@ -32,7 +32,7 @@ for (i in 1:nrow(Fst)) {
 
 
 # Writes Fst-Sites matrix ~
-write.table(FstSites, "01_infofiles/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst-Sites.txt", sep = "\t", row.names = TRUE, col.names = TRUE)
+write.table(FstSites, "01_infofiles/ClupeaAtmore/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst-Sites.txt", sep = "\t", row.names = TRUE, col.names = TRUE)
 
 # Creates Fst-Fst matrix ~
 Fst_Fst <- matrix(0, nrow = n, ncol = n, dimnames = list(Fst_Pops, Fst_Pops))
@@ -42,7 +42,7 @@ for (i in 1:nrow(Fst)) {
 
 
 # Writes Fst-Fst matrix ~
-write.table(Fst_Fst, "01_infofiles/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst-Fst.txt", sep = "\t", row.names = TRUE, col.names = TRUE)
+write.table(Fst_Fst, "01_infofiles/ClupeaAtmore/Fst/Angsd/Mar24--mindInd0.25_Unfolded_ModerClupea_InvFreeSNPlist--Fst-Fst.txt", sep = "\t", row.names = TRUE, col.names = TRUE)
 
 
 # Gets Fst midpoint ~
@@ -56,6 +56,7 @@ Fstmiddle = max(Fst_df$Value) / 2
 # Gets Fst label ~
 Fst.label = expression(italic("F")[ST])
 
+str(Fst)
 
 # Creates plot ~
 Fst_Plot <-

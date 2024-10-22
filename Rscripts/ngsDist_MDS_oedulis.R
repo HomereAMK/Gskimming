@@ -10,28 +10,30 @@ rm(list=ls())
 pacman::p_load(optparse, tidyverse, plyr, RColorBrewer, extrafont, ggforce, ggstar, plotly)
 
 # Reads data ~
-data <- read.table("~/Desktop/GitHub/Gskimming/00_data/ngsDist/Oedulis/Raw_cov/MDS/combined.subsetted.filtered_chr4568.mds")
+data <- read.table("~/Desktop/GitHub/Gskimming/00_data/ngsDist/Oedulis/Oedulis_beagle.mds")
 n <- ncol(data)
-annot <- read_tsv("GitHub/Gskimming/01_infofiles/SteinOedulis_loco.tsv")
+annot <- read_csv("~/Desktop/GitHub/Gskimming/01_infofiles/oedulis/oedulis_sra.csv")
 colnames(annot) <- c("Sample_ID","species", "Population", "bam")
 data <- data %>% rownames_to_column(var = "Sample_ID")
-data
+str(data)
+#Create $population
+data <- data %>%
+  mutate(population = substr(Sample_ID, 1, 4))
 
-#D1_9.24236936859321 D2_3.29265946212272
-#D1_8.37412651756432 D2_2.67957562546938
+#D1_3.95925929224189 D2_2.49150038136162
 
 # Merge MDS with AnnotUp
 data <- merge(data, annot, by = "Sample_ID")
 MDS_12 <-
-  ggplot(data, aes_string(x = "D1_8.37412651756432", y = "D2_2.67957562546938", fill = "Population")) +
+  ggplot(data, aes_string(x = "D1_3.95925929224189", y = "D2_2.49150038136162", fill = "population")) +
   geom_point(alpha = .9, size = 2.75, shape = 21, colour = "#000000") +
   #scale_fill_manual(values = c("#377eb8", "#4daf4a", "#d01c8b", "#e66101")) +
-  scale_x_continuous("Dimension 1 (8.37%)",
+  scale_x_continuous("Dimension 1 (3.96%)",
                      #breaks = c(-0.075, -0.05, -0.025, 0, 0.025),
                      #labels = c("-0.075", "-0.05", "-0.025", "0", "0.025"),
                      #limits = c(-0.073, 0.03),
                      expand = c(.015, .015)) +
-  scale_y_continuous("Dimension 2 (2.68%)",
+  scale_y_continuous("Dimension 2 (2.49%)",
                      #breaks = c(-0.05, -0.025, 0, 0.025, 0.05), 
                      #labels = c("-0.05", "-0.025", "0", "0.025", "0.05"), 
                      #limits = c(-0.0525, 0.0525),
@@ -53,6 +55,6 @@ MDS_12 <-
   guides(fill = guide_legend(title = "Population", title.theme = element_text(size = 15, face = "bold"),
                              label.theme = element_text(size = 14)))
 
-ggsave(MDS_12, file = "~/Desktop/GitHub/Gskimming/02_figures/Oedulis/ngsdist/MDS/Oedulis_noinv_ngsdist_mds_percountry_pop_PC1PC2.png",scale = 1, dpi = 600)
+ggsave(MDS_12, file = "~/Desktop/GitHub/Gskimming/02_figures/Oedulis/ngsdist/Oedulis_ngsdist_mds__pop_PC1PC2.png",scale = 1, dpi = 600)
 
 

@@ -259,8 +259,8 @@ for genome in "${!R1_files[@]}"; do
 
     if [ "0" -eq "$counter" ] && [ "0" -eq "$assembly_counter" ]; then
         echo "Kraken2 decontamination step starts"
-        ./kraken2 --db krakenlib/ \
-            "${out_dir}/${direc_name}/consult/unclassified-seq_${genome}_merged" \
+        kraken2 --db kraken2/krakenlib/ \
+            "${out_dir}/${direc_name}/consult/unclassified-seq_${genome}_merged.fq" \
             --unclassified-out "${out_dir}/${direc_name}/kraken/unclassified-kra_${genome}.fq"
         echo "Kraken2 decontamination step ends"
 

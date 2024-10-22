@@ -1,0 +1,65 @@
+Assembly Accession	Assembly-unit accession	Chromosome name	GC Count	GC Percent	GenBank seq accession	Molecule type	Ordering	RefSeq seq accession	Role	Seq length	UCSC style name	Unlocalized Count	Sequence name
+GCA_020745685.1	Primary Assembly	1	15109800	41.5	CM036534.1	Chromosome			assembled-molecule	37089861			SUPER_1
+GCA_020745685.1	Primary Assembly	2	14858902	41	CM036535.1	Chromosome			assembled-molecule	36453828			SUPER_2
+GCA_020745685.1	Primary Assembly	3	14559643	41	CM036536.1	Chromosome			assembled-molecule	35756311			SUPER_3
+GCA_020745685.1	Primary Assembly	4	14603529	41	CM036537.1	Chromosome			assembled-molecule	35697881			SUPER_4
+GCA_020745685.1	Primary Assembly	5	14167468	41	CM036538.1	Chromosome			assembled-molecule	34651172			SUPER_5
+GCA_020745685.1	Primary Assembly	6	14001295	41	CM036539.1	Chromosome			assembled-molecule	34031112			SUPER_6
+GCA_020745685.1	Primary Assembly	7	13802330	41.5	CM036540.1	Chromosome			assembled-molecule	33530406			SUPER_7
+GCA_020745685.1	Primary Assembly	8	13334385	41	CM036541.1	Chromosome			assembled-molecule	32813921			SUPER_8
+GCA_020745685.1	Primary Assembly	9	13443462	41.5	CM036542.1	Chromosome			assembled-molecule	32538578			SUPER_9
+GCA_020745685.1	Primary Assembly	10	13179041	41.5	CM036543.1	Chromosome			assembled-molecule	32147969			SUPER_10
+GCA_020745685.1	Primary Assembly	11	12951118	41	CM036544.1	Chromosome			assembled-molecule	31651171			SUPER_11
+GCA_020745685.1	Primary Assembly	12	13009956	41	CM036545.1	Chromosome			assembled-molecule	31691308			SUPER_12
+GCA_020745685.1	Primary Assembly	13	12764088	41	CM036546.1	Chromosome			assembled-molecule	31106095			SUPER_13
+GCA_020745685.1	Primary Assembly	14	12615120	41.5	CM036547.1	Chromosome			assembled-molecule	30468290			SUPER_14
+GCA_020745685.1	Primary Assembly	15	12256426	41	CM036548.1	Chromosome			assembled-molecule	29849804			SUPER_15
+GCA_020745685.1	Primary Assembly	16	11690219	41	CM036549.1	Chromosome			assembled-molecule	29539442			SUPER_16
+GCA_020745685.1	Primary Assembly	17	11658701	41.5	CM036550.1	Chromosome			assembled-molecule	28512809			SUPER_17
+GCA_020745685.1	Primary Assembly	18	11416051	41.5	CM036551.1	Chromosome			assembled-molecule	27749821			SUPER_18
+GCA_020745685.1	Primary Assembly	19	11321673	42	CM036552.1	Chromosome			assembled-molecule	27112668			SUPER_19
+GCA_020745685.1	Primary Assembly	20	10983898	41.5	CM036553.1	Chromosome			assembled-molecule	26430270			SUPER_20
+GCA_020745685.1	Primary Assembly	21	10519038	41.5	CM036554.1	Chromosome			assembled-molecule	25307336			SUPER_21
+GCA_020745685.1	Primary Assembly	22	9234608	42	CM036555.1	Chromosome			assembled-molecule	22187871			SUPER_22
+GCA_020745685.1	Primary Assembly	23	8924579	42	CM036556.1	Chromosome			assembled-molecule	21304941			SUPER_23
+GCA_020745685.1	Primary Assembly	24	6423182	42.5	CM036557.1	Chromosome			assembled-molecule	15181429			SUPER_24
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000026.1	Chromosome			unplaced-scaffold	34535			scaffold_103_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000027.1	Chromosome			unplaced-scaffold	31681			scaffold_105_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000028.1	Chromosome			unplaced-scaffold	30394			scaffold_106_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000029.1	Chromosome			unplaced-scaffold	30267			scaffold_107_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000030.1	Chromosome			unplaced-scaffold	28980			scaffold_109_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000031.1	Chromosome			unplaced-scaffold	28868			scaffold_110_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000032.1	Chromosome			unplaced-scaffold	27892			scaffold_112_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000033.1	Chromosome			unplaced-scaffold	25326			scaffold_114_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000034.1	Chromosome			unplaced-scaffold	25208			scaffold_115_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000035.1	Chromosome			unplaced-scaffold	24205			scaffold_116_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000036.1	Chromosome			unplaced-scaffold	23973			scaffold_117_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000037.1	Chromosome			unplaced-scaffold	22800			scaffold_118_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000038.1	Chromosome			unplaced-scaffold	22415			scaffold_119_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000039.1	Chromosome			unplaced-scaffold	22134			scaffold_120_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000040.1	Chromosome			unplaced-scaffold	21808			scaffold_121_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000041.1	Chromosome			unplaced-scaffold	20579			scaffold_122_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000042.1	Chromosome			unplaced-scaffold	20428			scaffold_123_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000043.1	Chromosome			unplaced-scaffold	18618			scaffold_124_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000044.1	Chromosome			unplaced-scaffold	17850			scaffold_126_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000045.1	Chromosome			unplaced-scaffold	17675			scaffold_127_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000046.1	Chromosome			unplaced-scaffold	17505			scaffold_128_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000047.1	Chromosome			unplaced-scaffold	17530			scaffold_129_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000048.1	Chromosome			unplaced-scaffold	16211			scaffold_130_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000049.1	Chromosome			unplaced-scaffold	13695			scaffold_131_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000050.1	Chromosome			unplaced-scaffold	12600			scaffold_132_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000051.1	Chromosome			unplaced-scaffold	12466			scaffold_133_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000052.1	Chromosome			unplaced-scaffold	10755			scaffold_134_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000053.1	Chromosome			unplaced-scaffold	10415			scaffold_135_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000054.1	Chromosome			unplaced-scaffold	7081			scaffold_136_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000055.1	Chromosome			unplaced-scaffold	5958			scaffold_137_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000056.1	Chromosome			unplaced-scaffold	5701			scaffold_138_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000057.1	Chromosome			unplaced-scaffold	5438			scaffold_139_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000058.1	Chromosome			unplaced-scaffold	4965			scaffold_140_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000059.1	Chromosome			unplaced-scaffold	4136			scaffold_141_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000060.1	Chromosome			unplaced-scaffold	3701			scaffold_142_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000061.1	Chromosome			unplaced-scaffold	1703			scaffold_143_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000062.1	Chromosome			unplaced-scaffold	533			scaffold_144_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000063.1	Chromosome			unplaced-scaffold	44194			scaffold_67_ctg1
+GCA_020745685.1	Primary Assembly	Un			JAJGRF010000064.1	Chromosome			unplaced-scaffold	71174			scaffold_83_ctg1
+GCA_020745685.1	non-nuclear	MT	7959	48.5	CM036584.1	Mitochondrion			assembled-molecule	16494			fTauAds1

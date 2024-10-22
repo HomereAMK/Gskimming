@@ -26,7 +26,7 @@ library(ggrepel)
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer2/Clupea/4x_respect_oct24/ref-dist-mat.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Clupea/RawCov/no_merge_4x_herring_oct24/ref-dist-mat.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)
@@ -56,7 +56,7 @@ sum(is.na(ibs_mat))
 
 ### Creating annotation file
 sample_ids <- dist_jc[-1, 1]
-cleaned_ids <- gsub("unclassified-kra_unclassified-seq_", "", sample_ids) #beware that the prefix might changed
+cleaned_ids <- gsub("unclassified-kra_subsampled4x_", "", sample_ids) #beware that the prefix might changed
 cleaned_ids <- gsub("__merged", "", cleaned_ids) #beware that the suffix might changed
 species_names <- rep("Clupea", length(sample_ids))
 cleaned_ids
@@ -93,9 +93,9 @@ fst_annot$genome
 write.table(fst_annot, "~/Desktop/GitHub/Gskimming/01_infofiles/ClupeaAtmore/Fst/Skmer2/4x_respect_skmer2_02.10-dist-mat_Clupea_Fstannot.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ### Performing PCoA with initial annotation
-mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,3, 1, 2, show.ellipse = FALSE, show.label = TRUE)
+mds_plot <- PCoA(ibs_mat, annot_df_final$cleaned_id, annot_df_final$population,6, 1, 2, show.ellipse = FALSE, show.label = FALSE)
 mds_plot
-ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/Mappedreads/Skmer/MDS/Mapped_reads_skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
+#ggsave(mds_plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/Mappedreads/Skmer/MDS/Mapped_reads_skmer_rawcov_ClupeaPCA_n42_pop_PC1PC2.png",scale = 1, dpi = 600)
 
 str(ibs_mat)
 

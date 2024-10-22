@@ -11,7 +11,7 @@ pacman::p_load(pheatmap, tidyverse, reshape2)
 
 # Loads Fst table ~
 # Don't forget to remove the "sample" string in the .txt file
-data <- read.table("/Users/sjr729/Desktop/GitHub/Gskimming/00_data/Skmer2/Clupea/8x/Fst/skmer2_8x_n42_Clupea_wcfst.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE,)
+data <- read.table("/Users/sjr729/Desktop/GitHub/Gskimming/00_data/Skmer2/Clupea/4x_respect_oct24/Fst/herring_4x_respect_skmer2_oct24_wcfst.txt", sep = "\t", header = TRUE, stringsAsFactors = FALSE,)
 str(data)
 
 #Remove the redundant first column, but the scalability of this need to be checked
@@ -47,6 +47,10 @@ upper_tri_melted_Fst$WeightedColor <- pmax(upper_tri_melted_Fst$Weighted, 0)
 # Create a new column for identifying categories
 upper_tri_melted_Fst$Category <- ifelse(upper_tri_melted_Fst$Weighted > 1, "greater_than_1", "within_0_to_1")
 
+# Define the desired order
+desired_order <- c("KALM", "BLEK", "KALI", "KARM", "MORE", "BAGO", "SNAR", "KOUG", "LULL")
+
+upper_tri_melted_Fst$Pop1 <- factor(upper_tri_melted_Fst$Pop1, levels = desired_order)
 # Plotting the upper triangular heatmap with custom color breaks
 Fst_Plot <- ggplot() +
   geom_tile(data = subset(upper_tri_melted_Fst, Category == "within_0_to_1"), 
@@ -83,12 +87,64 @@ Fst_Plot <- ggplot() +
         legend.title = element_text(colour = "#000000", size = 18, face = "bold"),
         legend.text = element_text(colour = "#000000", size = 10))
 
+
+
 # Display the plot
 print(Fst_Plot)
 
 ggsave(Fst_Plot, file = "~/Desktop/GitHub/Gskimming/02_figures/ClupeaAtmore/8x/Skmer2/Fst/Skmer2_8x_Fst_n42_locality.png",
        scale = 1, width = 12, height = 12, dpi = 300)
 
+
+
+
+
+
+
+# Define the desired order
+desired_order <- c("KALM", "BLEK", "KALI", "KARM", "MORE", "BAGO", "SNAR", "KOUG", "LULL")
+
+# Reorder the factors
+upper_tri_melted_Fst$Pop1 <- factor(upper_tri_melted_Fst$Pop1, levels = desired_order)
+upper_tri_melted_Fst$Pop2 <- factor(upper_tri_melted_Fst$Pop2, levels = desired_order)
+
+# Plotting the upper triangular heatmap with custom color breaks
+Fst_Plot <- ggplot() +
+  geom_tile(data = subset(upper_tri_melted_Fst, Category == "within_0_to_1"),
+            aes(x = Pop1, y = Pop2, fill = WeightedColor), color = "#ffffff", lwd = 1.5, linetype = 1) +
+  geom_tile(data = subset(upper_tri_melted_Fst, Category == "greater_than_1"),
+            aes(x = Pop1, y = Pop2), fill = "red", color = "#ffffff", lwd = 1.5, linetype = 1) +
+  geom_text(data = upper_tri_melted_Fst,
+            aes(x = Pop1, y = Pop2, label = round(Weighted, digits = 3)), color = "white", size = 7) +
+  coord_fixed() +
+  scale_x_discrete(expand = c(0,0)) +
+  scale_y_discrete(expand = c(0,0), position = "right") +
+  scale_fill_gradientn(colors = c("black", "blue", "red"),
+                       values = scales::rescale(c(0, 0.1, 1)),
+                       limits = c(0, 1),
+                       breaks = c(0, 0.1, 1),
+                       labels = c("0", "0.1", "1"),
+                       na.value = "black",
+                       name = "Weighted") +
+  guides(fill = guide_colorbar(barwidth = 2, barheight = 4)) +
+  theme(
+    panel.background = element_rect(fill = "#ffffff"),
+    panel.border = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(t = 0.005, b = 0.005, r = .2, l = .2, unit = "cm"),
+    axis.line = element_blank(),
+    axis.title = element_blank(),
+    axis.text.x = element_text(colour = "#000000", size = 18, angle = 60, vjust = 1, hjust = 1),
+    axis.text.y = element_text(colour = "#000000", size = 18),
+    axis.ticks = element_line(color = "#000000", size = .3),
+    legend.position = "right",
+    legend.margin = margin(t = 0, b = 0, r = 0, l = 0),
+    legend.box.margin = margin(t = 30, b = 25, r = 0, l = 0),
+    legend.key = element_rect(fill = NA),
+    legend.background = element_blank(),
+    legend.title = element_text(colour = "#000000", size = 18, face = "bold"),
+    legend.text = element_text(colour = "#000000", size = 10)
+  )
 
 
 
