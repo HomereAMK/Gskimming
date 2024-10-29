@@ -15,7 +15,7 @@ withr::with_libpaths(new = "/home/sjr729/miniforge3/envs/lostruct_lcpipe/lib/R/l
 ```bash
 
 SOFTWARE_DIR=/projects/mjolnir1/people/sjr729/
-BASEDIR=/projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2
+BASEDIR=/projects/mjolnir1/people/sjr729/EUostrea_molecol_loco
 mkdir $BASEDIR
 cd $BASEDIR
 mkdir docs

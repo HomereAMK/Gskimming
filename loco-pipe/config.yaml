@@ -58,7 +58,7 @@ global:
 
   # Full path of the project base directory. 
   # This folder should contain subfolders such as "config" and "docs".
-  basedir: "/projects/mjolnir1/people/sjr729/SteinOedulis_loco"
+  basedir: "/projects/mjolnir1/people/sjr729/EUostrea_molecol_loco"
   
   # Full path of the reference genome.
   # The reference genome should be in fasta format. Under the current version, we recommend reference genome 

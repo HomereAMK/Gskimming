@@ -6,7 +6,7 @@ library(dplyr)
 
 #### Herring ####
 # Read the TSV file
-data <- read_tsv("~/Desktop/GitHub/Gskimming/01_infofiles/Clupea_n42_13var.tsv", col_names = TRUE)
+data <- read_csv("~/Desktop/GitHub/Gskimming/01_infofiles/oedulis/oedulis_sra.csv", col_names = TRUE)
 
 # # Select the required columns and add an empty column between the first and second column
 # selected_data <- data %>%

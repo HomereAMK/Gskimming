@@ -425,6 +425,9 @@ cd /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis
 module load parallel
 DATE=$(date +%d.%m)
 /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/fastq/skims_processing_pipeline/kraken/ -t 19 -p 10 -o /projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/oedulis/skmer/library_runskmer1_oedulis_condaskmer2test_$DATE
+
+
+
  ```
 # Magpie
 ```bash 

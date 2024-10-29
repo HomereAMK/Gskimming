@@ -1,8 +1,8 @@
 
-# ngsdist to get p-distance from ANGSD beagle after SNP "calling".
+# 1. ngsdist to get p-distance from ANGSD beagle after SNP "calling".
+# 1.1 Oyster
 ```bash
 
-module load ngsdist
 
 #Get the label list from the bam list
 awk '{split($0,a,"/"); split(a[12],b,"_"); print b[1]}' /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.txt > /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/docs/bamlist.labels
@@ -18,8 +18,9 @@ ngsDist --n_threads 40 --geno $BEAGLE --pairwise_del --seed 3 --probs --n_ind 93
 conda activate r_lcpipe
 tail -n +3 /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/angsd/snp_calling_global/combined.subsetted.dist | Rscript --vanilla --slave /projects/mjolnir1/people/sjr729/get_PCA.R --no_header --data_symm -n 10 -m mds -o /projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/angsd/snp_calling_global/combined.subsetted.mds
 ```
+# 1.2 Herring
 
-# filtered out of probable inversion on chr6 beagle file
+# 2. filtered out of probable inversion on chr6 beagle file
 ```bash
 # Decompress the original Beagle file
 zcat angsd/snp_calling_global/combined.subsetted.beagle.gz > combined.subsetted.beagle

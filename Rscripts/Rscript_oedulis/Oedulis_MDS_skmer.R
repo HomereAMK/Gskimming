@@ -26,7 +26,7 @@ library(ggrepel)
 source("~/Desktop/GitHub/Gskimming/Rscripts/individual_mdsGskim_functions_hjam.R")
 
 ### Reading and processing distance matrix
-dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer2/Oedulis/RawCov/skmer2_skmer1lib_oedulis_bbmapreads_mappedtoGenome_p2_Herring_15.09.txt", col_names = FALSE) %>%
+dist_jc <- read_tsv("~/Desktop/GitHub/Gskimming/00_data/Skmer/Oedulis/oct24/distance_matrix.txt", col_names = FALSE) %>%
   dplyr::select(1:nrow(.)) %>%
   as.matrix()
 str(dist_jc)
@@ -56,8 +56,8 @@ sum(is.na(ibs_mat))
 
 ### Creating annotation file
 sample_ids <- dist_jc[-1, 1]
-#cleaned_ids <- gsub("unclassified-kra_", "", sample_ids) #beware that the prefix might changed
-cleaned_ids <- gsub("_bbmap", "", sample_ids) #beware that the suffix might changed
+cleaned_ids <- gsub("unclassified-kra_", "", sample_ids) #beware that the prefix might changed
+cleaned_ids <- gsub("_", "", cleaned_ids) #beware that the suffix might changed
 species_names <- rep("Oedulis", length(sample_ids))
 #cleaned_ids <- sample_ids
 ### If you already have an tailored annotation file 

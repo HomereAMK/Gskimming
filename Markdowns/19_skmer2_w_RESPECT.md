@@ -1,4 +1,20 @@
 # Herring
+# 0.Uniqueness ratio of the genome RESPECT
+```bash
+GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
+conda activate skimming_echarvel
+module load parallel
+threads=301
+
+respect -i ${GENOME} --threads ${threads}
+
+
+
+
+
+
+
+
 # 1.SKMER1
 ```bash
 INPUT_DIR=/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/testClupea/subsampled_4
@@ -71,9 +87,13 @@ conda activate skimming_echarvel
 module load parallel
 
 cd $OUTPUT_DIRECTORY
-/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i $INPUT_DIR -t 20 -p 20 -o $OUTPUT_DIRECTORY/skmer1/skmer1_library
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/run_skmer.sh -i $INPUT_DIR -t 10 -p 10 -o $OUTPUT_DIRECTORY/skmer1/skmer1_library_oct24
 
 ```
 # SKMER1
 # RESPECT
-# SKMER2
+``` bash
+# It makes a directory with all the .hist files
+# Creates hist_info file with the read lengths
+# No need to run jellyfish
+
