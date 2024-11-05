@@ -58,14 +58,14 @@ global:
 
   # Full path of the project base directory. 
   # This folder should contain subfolders such as "config" and "docs".
-  basedir: "/projects/mjolnir1/people/sjr729/EUostrea_molecol_loco"
+  basedir: "/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe"
   
   # Full path of the reference genome.
   # The reference genome should be in fasta format. Under the current version, we recommend reference genome 
   # to be approximately at chromosome level. In other words, we advice against a highly fragmented reference genome
   # (e.g. L80 > 100). Due to the fact that many downstream analyses are performed at chromosome/scaffold/contig level,
   # having a highly-fragmented reference genome will create too many parallel jobs and might put cluster in high stress.
-  reference: "/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/ncbi_dataset/data/GCF_947568905.1/GCF_947568905.1_xbOstEdul1.1_genomic.fna"
+  reference: "/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeOedulis/Tanguy/fileOegenome10scaffoldC3G.fasta"
 
   # Full path of the folder in which R scripts required for the pipeline are saved (i.e. you will need to change the 
   # "/path/to/" part to the path where loco-pipe is downloaded on your computer.)
@@ -75,7 +75,7 @@ global:
   # It should include at least three columns: "sample_name", "bam", and a third column that specifies the grouping 
   # information. If you do not have a grouping variable a priori when first running loco-pipe, please make sure to 
   # create a fake column in your dataset with all samples having the same entry.
-  sample_table: "SteinOedulis_loco.tsv"
+  sample_table: "sample_table_ATgenome.tsv"
 
   # The name of a column in the sample table that specifies the grouping information.
   # If you do not have a grouping variable a priori when first running loco-pipe, enter the name of the fake column.
@@ -86,7 +86,7 @@ global:
   # chromosome/scaffold/contig names that you would like to include in the analysis. These should exactly match
   # the names in the reference genome. The second column is optional, and it should contain the new names
   # that would be shown in Manhattan-style plots. Shorter, simpler names are recommended for clarity of the plots.
-  chr_table: "oedulis_chr_table.tsv"
+  chr_table: "chr_table_ATgenome.tsv"
   
   # The genotype likelihood model to be used in ANGSD. Enter 1 for the Samtools model and 2 for the GATK model. 
   # See https://www.popgen.dk/angsd/index.php/Genotype_Likelihoods for details.
