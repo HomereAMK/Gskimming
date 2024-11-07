@@ -111,8 +111,33 @@ $SIAVASH_NGSDIST \
 --n_sites 114019 --labels $LABEL \
 --theta --evol_model 0 --tot_sites $N_SITES  \
 --out $BASE_DIR/Siavash_ngsdist_oedulis_merged_subsampled_1out10_theta_--evol_model0_nsites$N_SITES.dist
-
-
-
-
 ```             
+
+
+
+
+# 3. Oyster with 14M variavle sites
+```bash 
+BASE_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/varSites_sensitivity"
+BEAGLE="$BASE_DIR/Oedulis_varSites_sensitivity_-SNP_pval1e-03_setMinDepth500_setMaxDepth1500.beagle.gz"
+BAMLIST="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/bam_molecol_list.txt"
+LABEL="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/bam_molecol_list.labels"
+SIAVASH_NGSDIST="/projects/mjolnir1/people/sjr729/Skmer_ms/scripts/ngsDist/ngsDist"
+OUT_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist"
+
+#downsamp
+zcat $BEAGLE | awk 'NR % 20 == 1' | gzip > $BASE_DIR/Oedulis_varSites_sensitivity_-SNP_pval1e-03_setMinDepth500_setMaxDepth1500_1out20.beagle.gz
+DOWNSAMP_BEAGLE="$BASE_DIR/Oedulis_varSites_sensitivity_-SNP_pval1e-03_setMinDepth500_setMaxDepth1500_1out20.beagle.gz"
+zcat $DOWNSAMP_BEAGLE | tail -n +2 | wc -l #698453
+
+#labels
+sed 's|/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/bam_molecol/||' /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/bam_molecol_list.txt | cut -c 1-7 > /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/ngsdist/bam_molecol_list.labels
+
+N_SITES=$((13969066/20))
+
+$SIAVASH_NGSDIST \
+--n_threads 10 --geno $DOWNSAMP_BEAGLE \
+--seed 3 --probs --n_ind 519 \
+--n_sites 698453 --labels $LABEL \
+--theta --evol_model 0 --tot_sites $N_SITES  \
+--out $OUT_DIR/Siavash_ngsdist_Oedulis_varSites_sensitivity_-SNP_pval1e-03_setMinDepth500_setMaxDepth1500_1out20_theta_--evol_model0_nsites$N_SITES.dist
