@@ -60,10 +60,6 @@ angsd \
 -nThreads 10
 ```
 
-angsd -bam $BAMLIST \
--ref $GENOME \
--doMajorMinor 1 -doMaf 1 \
--gl 1 -snp_pval 1e-1 -P 10 -dosnpstat 1 \
--out $OUTPUTFOLDER/Oedulis_varSites_pval_1e-1_scaffold6 -doHWE 1 -r scaffold6
+
 
 

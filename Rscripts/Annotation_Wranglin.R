@@ -50,3 +50,19 @@ magpie_annot$sample_id <- gsub(".nocig.dedup_clipoverlap.minq20_minq20.nocig.rea
 magpie_annot <- magpie_annot %>%
   mutate(population = sub("_.*", "", sample_id))
 write.csv(magpie_annot,"~/Desktop/GitHub/Gskimming/01_infofiles/Magpie/Magpie_annot.csv")
+
+
+
+#### Ragweed #####
+
+# Reading the TSV file into a data frame
+data1 <- read_delim("~/Desktop/GitHub/Gskimming/01_infofiles/Ragweed/sciadv.abo5115_table_s1.csv", col_names = TRUE)
+
+# Reading the CSV file into a data frame
+data2 <- read_table("~/Desktop/GitHub/Gskimming/01_infofiles/Ragweed/plant-modern-filenames.txt", col_names = FALSE)
+colnames(data2) <- c("SRA accession code")
+
+
+# Merging the data frames on the 'sample_title' variable
+merged_data <- merge(data1, data2, by = "SRA accession code")
+write.csv(merged_data, "~/Desktop/GitHub/Gskimming/01_infofiles/Ragweed/Master_list_Ragweed_modern.csv", row.names = FALSE)

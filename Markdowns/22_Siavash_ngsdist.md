@@ -141,3 +141,8 @@ $SIAVASH_NGSDIST \
 --n_sites 698453 --labels $LABEL \
 --theta --evol_model 0 --tot_sites $N_SITES  \
 --out $OUT_DIR/Siavash_ngsdist_Oedulis_varSites_sensitivity_-SNP_pval1e-03_setMinDepth500_setMaxDepth1500_1out20_theta_--evol_model0_nsites$N_SITES.dist
+
+
+
+whole_genome_sites=840354420
+(0.6*13969066)/$whole_genome_sites=0.00997

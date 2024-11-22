@@ -1,0 +1,327 @@
+"SRA accession code","Individual ID","Latitude (°)","Longitude (°)","Collection date","Herbarium/ Collector","Sample age class","Extraction method","Lib prep method","Sequencing platform and chemistry","Spatial group assignment","Population assignmnent","reason if excluded from final analysis","note"
+"ERR3597472","NSB-7",44754723,"-63,671654","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","diffuse","East",NA,NA
+"ERR3597473","FLD-5",27374365,"-80,416042","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","FL South","South",NA,NA
+"ERR3597474","NSA-1",44908797,"-65,177264","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","Nova Scotia West","East",NA,NA
+"ERR3597475","FLD-6",27374365,"-80,416042","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","FL South","South",NA,NA
+"ERR3597476","NSA-3",44908797,"-65,177264","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","Nova Scotia West","East",NA,NA
+"ERR3597480","FLD-7",27374365,"-80,416042","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","FL South","South",NA,NA
+"ERR3597482","NSB-6",44754723,"-63,671654","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","diffuse","East",NA,NA
+"ERR3597483","NSA-6",44908797,"-65,177264","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","Nova Scotia West","East",NA,NA
+"ERR3597485","MOB-8",38386347,"-90,25932","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","MO St Louis","Mideast",NA,NA
+"ERR3597486","FLG-7",2708522,"-81,79497","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","diffuse","South",NA,NA
+"ERR3597487","FLG-8",2708522,"-81,79497","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","diffuse","South",NA,NA
+"ERR3597488","FLD-1",27374365,"-80,416042","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","FL South","South",NA,NA
+"ERR3602084","FLD-4",27374365,"-80,416042","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","FL South","South",NA,NA
+"ERR3602086","MOB-4",38386347,"-90,25932","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","MO St Louis","Mideast",NA,NA
+"ERR3602088","NSA-7",44908797,"-65,177264","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","Nova Scotia West","East",NA,NA
+"ERR3602089","MOB-7",38386347,"-90,25932","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","MO St Louis","Mideast",NA,NA
+"ERR3602090","NSA-8",44908797,"-65,177264","2009","Michael Martin","modern","Martin et al., 2014","BEST (Bieker et al., 2020)","HiSeq4000 150x2 bp","Nova Scotia West","East",NA,NA
+"ERR7445024","280808-1-18",4472490,"22,42060","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7445117","280808-1-5",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445121","A-2010-T1-7",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445129","280808-1-24",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445133","280808-1-10",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445134","280808-1-8",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445140","280808-1-3",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445144","280808-1-11",447249,"22,4206","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE100","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445154","AA2-4",4983778,"-97,32931","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445189","AA2-1",4983778,"-97,32931","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445199","A-2010-T1-1",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445214","AA20-3",4814689,"-103,57172","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445215","AA16-2",4409456,"-102,87050","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445217","AA3-15",4819453,"-97,32856","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445249","AA3-17",4819453,"-97,32856","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445272","A-2010-T1-10",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445274","A-2010-T1-9",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445288","AA5-16",4621708,"-96,05019","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445306","AA5-9A",4621708,"-96,05019","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445311","A-2010-T1-8",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445330","A-2010-T1-3",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445339","AA7-11",4473800,"-95,41233","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445349","A-2010-T1-6",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445351","AR-6",3397552,"-91,41343","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7445353","AA7-24",4473800,"-95,41233","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445361","AR-7",3397552,"-91,41343","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7445368","AA7-12",4473800,"-95,41233","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445379","AR-2019-2",33841883,"-93,77575","2009/2010","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7445380","280808-1-17",4472490,"22,42060","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445383","AR-2019-1",33841883,"-93,77575","2009/2010","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7445405","B1-1",4787951,"18,15611","2014","SMARTER","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Aba, Slovakia. Collected 10/2/2014. Seeds provided by SMARTER. Grown from seeds in TRH greenhouses."
+"ERR7445424","B3-1",4787951,"18,15611","2014","SMARTER","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Aba, Slovakia. Collected 10/2/2014. Seeds provided by SMARTER. Grown from seeds in TRH greenhouses."
+"ERR7445430","AA20-26",4814689,"-103,57172","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445439","AA3-23",4819453,"-97,32856","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445443","AA7-27",4473800,"-95,41233","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445449","B-2",4490308,"-0,53517","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordaux","Europe (West)",NA,NA
+"ERR7445467","AA5-23",4621708,"-96,05019","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445475","AA20-19",4814689,"-103,57172","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445482","280808-1-16",4472490,"22,42060","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Orsova, Romania","Europe (Mideast)",NA,NA
+"ERR7445491","AA5-1",4621708,"-96,05019","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445507","CT-H-10",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445510","B2-1",4787951,"18,15611","2014","SMARTER","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Aba, Slovakia. Collected 10/2/2014. Seeds provided by SMARTER. Grown from seeds in TRH greenhouses."
+"ERR7445527","CT-H-2",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445539","CT-H-7",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445552","AA16-19",4409456,"-102,87050","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7445563","CT-H-8",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445568","B-3",4490308,"-0,53517","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordaux","Europe (Mideast)",NA,NA
+"ERR7445571","CT-H-3",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445574","A-2010-T1-2",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445580","A-2010-T1-4",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445586","Caluire-26",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445587","B-1",4490308,"-0,53517","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordaux","Europe (Mideast)",NA,NA
+"ERR7445588","CT-H-6",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445595","Caluire-27",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445598","CT-H-9",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445599","CT-H-4",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445601","A-2010-T1-5",4729309,"11,04754","2010","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","AU Innsbruck","Europe",NA,NA
+"ERR7445605","CT-H-5",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","-","-","related to CT-H-4 ",NA
+"ERR7445609","Caluire-31",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445612","Caluire-37",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445618","B-4",4490308,"-0,53517","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordaux","Europe (West)",NA,NA
+"ERR7445630","EU2-01-12",4603608,"15,29614","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7445641","Caluire-32",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445643","Caluire-42",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445649","Caluire-47",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445672","EU2-05-18",4546996,"12,10920","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7445676","EU2-04-11",4787992,"18,15447","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,NA
+"ERR7445685","Caluire-46",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445690","Caluire-41",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445696","D-2017-4-4",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7445702","Caluire-36",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 2: Caluire","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Caluire, France."
+"ERR7445722","EU2-02-1",4713087,"16,90308","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,NA
+"ERR7445725","EU2-06-18",4557073,"8,78546","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7445744","EU2-09-13",4506541,"7,59229","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7445759","D-2017-4-6",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7445760","EU2-04-12",4787992,"18,15447","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,NA
+"ERR7445798","BN-ON-5",4500000,"-77,70000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","related to BN-ON-6",NA
+"ERR7445820","EU2-09-10",4506541,"7,59229","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7445823","EU2-05-23",4546996,"12,10920","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7445851","CT-H-1",4128770,"-73,76631","2009","Michael Martin","modern","Martin et al., 2014","This study (BEST)","NovaSeq PE150","NY/NJ","East",NA,NA
+"ERR7445883","D-2017-4-5",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7445900","D-2017-4-7",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7445918","BN-ON-6",4500000,"-77,70000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7445944","D-2017-4-9",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7445959","EU2-12-13",4666434,"4,32780","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","BGI, NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7445996","EU2-08-21",4593087,"8,98377","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446018","D-2017-4-10",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7446032","EU2-03-9C",4732780,"19,73070","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446048","D-2017-4-2",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7446052","D-2017-4-3",5282430,"13,76905","2017","Gerhard Karrer","modern","This study","This study (BEST)","NovaSeq PE150","DE Berlin","Europe (East)",NA,"Collected by Gerhard Karrer. Eberswalde, Germany. 30 km NE of Berlin. Collected 28.7.2017."
+"ERR7446122","EU2-08-13",4593087,"8,98377","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446125","EU2-19-1",5616811,"15,89044","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,NA
+"ERR7446130","EU2-19-7",5616811,"15,89044","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446143","EU2-16-1",4616220,"6,00940","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446153","EU2-16-13",4616220,"6,00940","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446159","EU2-19-2",5616811,"15,89044","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446171","EU2-06-15D",4557073,"8,78546","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446204","EU2-20-1",5163281,"14,18437","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (East)",NA,NA
+"ERR7446240","EU2-16-12",4616220,"6,00940","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446267","EU2-14-12",4745560,"5,21213","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446281","EU2-20-11",5163281,"14,18437","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (East)",NA,NA
+"ERR7446288","EU2-21-22",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446303","EU2-14-1",4745560,"5,21213","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446349","EU2-21-27",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446402","EU2-22-15",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446411","EU2-21-29",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446430","EU2-21-18",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446431","EU2-17-6",5112003,"5,84030","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","NL Appeldorn","Europe",NA,NA
+"ERR7446433","EU2-21-13",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446434","EU2-22-22",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446435","EU2-21-14",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446436","EU2-23-12",5044297,"18,86337","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446437","EU2-22-24",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446438","EU2-21-24",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446439","EU2-21-20",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446440","EU2-22-18",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446441","EU2-25-15",4797730,"23,04430","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446443","EU2-26-1",4623696,"24,85397","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446444","EU2-30-1",4986851,"23,01180","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446445","EU2-23-10",5044297,"18,86337","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446446","EU2-22-25",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446447","EU2-25-14",4797730,"23,04430","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446449","EU2-31-11",4537402,"27,07202","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446450","EU2-22-1",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446454","EU2-22-13",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446455","EU2-33-1",4440457,"26,13484","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446456","EU2-36-1",4331519,"24,25981","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446457","EU2-30-12",4986851,"23,01180","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446458","EU2-24-10",4848919,"21,80622","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446459","FL-10",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446460","FL-11",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446461","FL-24",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446462","FL-25",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446464","EU2-32-12",4416268,"28,50984","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446465","FL-29",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446466","FL-30",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446467","FL-5",3040630,"-83,14014","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446468","EU2-33-10",4440457,"26,13484","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446469","EU2-35-14",4309184,"21,93797","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446470","EU2-36-11",4331519,"24,25981","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446471","EU2-35-1",4309184,"21,93797","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446472","EU2-37-1",4391788,"20,73313","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446473","EU2-37-11",4391788,"20,73313","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,NA
+"ERR7446474","FL-B-1",2776424,"-81,59491","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","South",NA,NA
+"ERR7446475","EU2-22-19",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446476","FL-E-2",2935716,"-81,15955","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","South",NA,NA
+"ERR7446478","FL-B-2",2776424,"-81,59491","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","South",NA,NA
+"ERR7446479","FL-E-1",2935716,"-81,15955","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","South",NA,NA
+"ERR7446480","FLD-3",27374365,"-80,416042","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","-","-","Sequencing depth (MAPQ 25) < 0.1",NA
+"ERR7446481","EU2-22-26",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446483","EU2-31-1",4537402,"27,07202","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446485","FLH-2018-2",2995931,"-82,71238","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL North","South",NA,NA
+"ERR7446486","FL-F-1",3069589,"-86,75080","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446487","FLH-2018-1",2995931,"-82,71238","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL North","South",NA,NA
+"ERR7446488","FL-D-2018-2",2737437,"-80,41604","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL South","South",NA,NA
+"ERR7446489","FL-D-2018-1",2737437,"-80,41604","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL South","South",NA,NA
+"ERR7446490","FL-D-2018-3",2737437,"-80,41604","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL South","South",NA,NA
+"ERR7446491","FL-F-2",3069589,"-86,75080","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446492","EU2-23-17",5044297,"18,86337","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446493","FLH-2018-3",2995931,"-82,71238","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL North","South",NA,NA
+"ERR7446494","FL-A-1",2554179,"-80,41284","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","South",NA,NA
+"ERR7446495","GA-1",3167867,"-83,19613","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446496","FLH-2018-5",2995931,"-82,71238","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL North","South",NA,NA
+"ERR7446497","FR7-6",4717582,"3,01463","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446499","FR2-7",4567878,"4,97993","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446500","FR1-26",4508023,"4,75744","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446501","FR-5",4567878,"4,97993","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446502","GA-2",3167867,"-83,19613","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446503","IA-10",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446504","FLH-2018-6",2995931,"-82,71238","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","FL North","South",NA,NA
+"ERR7446505","IA-3",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446506","IA-2",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446507","FR7-3",4717582,"3,01463","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446508","FR2-1",4567878,"4,97993","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446509","IA-5",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446511","EU2-38-12D",4571531,"15,65380","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446512","IA-1",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446513","FR9-5",4475302,"4,87052","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446514","Eu2-09-1",4506541,"7,59229","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (West)",NA,NA
+"ERR7446515","IL-1",3923775,"-88,15122","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446516","IA-4",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446517","IA-8",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446518","IA-9",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446519","KSAP_1",3844550,"-96,55713","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","different species or hybrid",NA
+"ERR7446521","KSAP-9",3844550,"-96,55713","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","different species or hybrid",NA
+"ERR7446522","IA-7",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446523","KSAP_5",3844550,"-96,55713","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","-","-","different species or hybrid",NA
+"ERR7446524","IW-11",4267797,"-96,50239","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7446526","EU2-38-13D",4571531,"15,65380","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446527","MA-A-2",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446528","EU2-22-10",4941803,"17,96153","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Brno","Europe",NA,NA
+"ERR7446529","MA-A-1",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446531","MA-A-10",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446533","MA-A-6",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446534","MA-A-7",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446536","MA-A-9",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446537","K12-1",4525472,"19,91231","2017","Bojan  Konstantinovic","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,"Seeds collected by Bojan Konstantinovic. November 2017. Grown from seeds in TRH greenhouses."
+"ERR7446538","K2-1",4525472,"19,91231","2017","Bojan  Konstantinovic","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Seeds collected by Bojan Konstantinovic. November 2017. Grown from seeds in TRH greenhouses."
+"ERR7446539","ME-E-1",4515784,"-67,28904","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7446540","FR8-19",4421666,"4,26401","2008","François Bretagnolle, Alessia Guggisberg","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446542","MI-2",4635814,"-84,88066","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446543","MA-A-4",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446544","IA-6",4187498,"-93,48278","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","IA Ames","West",NA,NA
+"ERR7446546","MA-A-5",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446588","MA-A-3",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446589","EU2-21-16",5019005,"15,06036","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","CR Prague","Europe",NA,NA
+"ERR7446590","KY-29",3862588,"-85,00741","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446608","MO-A-2019-1",3896843,"-93,87942","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","West",NA,NA
+"ERR7446610","MI-B-2019-2",4315405,"-84,503539","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7446611","MI-B-2019-1",4315405,"-84,503539","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7446623","MA-A-8",4231109,"-71,16120","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MA Boston","East",NA,NA
+"ERR7446626","EU2-08-4",4593087,"8,98377","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe (Mideast)",NA,NA
+"ERR7446633","K16-1",4525472,"19,91231","2017","Bojan  Konstantinovic","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Seeds collected by Bojan Konstantinovic. November 2017. Grown from seeds in TRH greenhouses."
+"ERR7446639","ME-C-1",4401332,"-70,06944","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7446640","MO-G-1",3666569,"-94,34692","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7446641","KY-14",3862588,"-85,00741","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446653","IL-2",3923775,"-88,15122","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446654","MO-A-2019-2",3896843,"-93,87942","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","West",NA,NA
+"ERR7446665","MO-B-2018-4",3838635,"-90,25932","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MO St Louis","Mideast",NA,NA
+"ERR7446666","MO-B-2018-7",3838635,"-90,25932","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MO St Louis","Mideast",NA,NA
+"ERR7446679","MO-B-2018-6",3838635,"-90,25932","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MO St Louis","Mideast",NA,NA
+"ERR7446702","K13-1",4525472,"19,91231","2017","Bojan  Konstantinovic","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Europe",NA,"Seeds collected by Bojan Konstantinovic. November 2017. Grown from seeds in TRH greenhouses."
+"ERR7446703","MO-B-2018-3",3838635,"-90,25932","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MO St Louis","Mideast",NA,NA
+"ERR7446716","NC-10-F",3560699,"-83,02168","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7446722","MO-G-2",3666569,"-94,34692","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","West",NA,NA
+"ERR7446748","MO-E-2019-2",36517661,"-90,248998","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7447078","MN2-1",4444716,"-79,80385","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7447157","ME-C-2",4401332,"-70,06944","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447174","NJ-C-3",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7447176","NH-E-2",4318630,"-71,13989","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447211","NH-A-1",4289069,"-72,52767","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447499","NH-E-1",4318630,"-71,13989","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447502","NJ-C-2",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7447517","NJ-C-8",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7447527","NJ-G-1",4077276,"-74,50439","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447534","MO-B-2018-5",3838635,"-90,25932","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","MO St Louis","Mideast",NA,NA
+"ERR7447760","NJ-C-4",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7447865","NS-A-2018-1",4490880,"-65,17726","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","Nova Scotia West","East",NA,NA
+"ERR7447938","OH-1",4048763,"-82,72695","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7447940","NS-A-2018-2",4490880,"-65,17726","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","Nova Scotia West","East",NA,NA
+"ERR7447941","MS-3",4208830,"-72,09619","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7447947","OH-B-1",3890957,"-82,72842","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7447993","ON3-7",4532971,"-74,89333","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448012","NS-A-2018-3",4490880,"-65,17726","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","Nova Scotia West","East",NA,NA
+"ERR7448022","PA-1",4096589,"-78,17482","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448053","NJ-C-1",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7448100","NB-A-1",4603306,"-65,04093","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast?",NA,NA
+"ERR7448102","NC-9D",3560699,"-83,02168","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448103","MO-E-2019-1",36517661,"-90,248998","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7448117","ME-E-2",4515784,"-67,28904","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448167","MN2-3",4444716,"-79,80385","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448182","NJ-C-7",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7448186","MS-1",4208830,"-72,09619","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448214","PA-D-1",4131407,"-75,54015","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448220","NB-A-2",4603306,"-65,04093","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast?",NA,NA
+"ERR7448239","NJ-G-2",4077276,"-74,50439","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448262","NJ-C-6",3962068,"-75,50552","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7448263","ON3-8",4532971,"-74,89333","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448288","OH-B-2",3890957,"-82,72842","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448510","PA-5",4096589,"-78,17482","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448731","OH-6",4048763,"-82,72695","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448733","PA-D-2",4131407,"-75,54015","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448734","RI-B-1",4148481,"-71,55799","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448736","SC-K-1",3422524,"-81,34310","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448742","PA-E-1",4020361,"-75,90600","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7448750","PA-F-2",4183220,"-80,11621","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448755","PA-E-2",4020361,"-75,90600","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","PA Philadelphia","East",NA,NA
+"ERR7448761","SC-K-2",3422524,"-81,34310","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448785","StGalmier-21",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448786","TN-1",3611943,"-85,05890","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448790","QC-2-17",4688667,"-70,86839","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Quebec","East",NA,NA
+"ERR7448793","TN-2019-1",3611943,"-85,05890","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE100","diffuse","Mideast",NA,NA
+"ERR7448826","StGalmier-12",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448829","PA-F-1",4183220,"-80,11621","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7448847","RI-B-2",4148481,"-71,55799","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448849","EU2-10-3",4393235,"4,32049","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","BGI","FR Montpellier","Europe (Mideast)",NA,NA
+"ERR7448860","StGalmier-7",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","-","-","related to StGalmier-6","Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448872","StGalmier-11",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448878","StGalmier-22",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448881","StGalmier-17",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448886","StGalmier-16",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7448889","QC3-20",4767876,"-69,02200","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East",NA,NA
+"ERR7448892","EU2-24-1",4848919,"21,80622","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","BGI","diffuse","Europe (Mideast)",NA,NA
+"ERR7450221","TRQB-7",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451245","pop2-1",4540917,"-0,52944","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7451249","WU-16",4799444,"16,32944","2016","WU","modern herbarium","This study","This study (BEST)","NovaSeq PE100","diffuse","Europe (Mideast)",NA,NA
+"ERR7451269","WU-17",4820028,"16,45500","2013","WU","modern herbarium","This study","This study (BEST)","NovaSeq PE100","diffuse","Europe (Mideast)",NA,NA
+"ERR7451278","TRQB-4",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451282","WI-3",4487934,"-89,42377","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7451289","pop2-2",4540917,"-0,52944","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7451305","EU2-10-10",4393235,"4,32049","2014","Lotte A. van Boheemen","modern","This study","This study (BEST)","BGI","FR Montpellier","Europe (Mideast)",NA,NA
+"ERR7451315","pop2-3",4540917,"-0,52944","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7451326","TRQB-10",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451327","SC-1",3479252,"-80,41533","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","East?",NA,NA
+"ERR7451336","pop3-1",4547806,"-0,37306","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7451338","StGalmier-1",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7451343","TRQB-1",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451414","SC-2",3479252,"-80,41533","2009","Michael Martin","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7451419","TRQB-9",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451424","WU-15",4798833,"16,28306","2010","WU","modern herbarium","This study","This study (BEST)","NovaSeq PE100","diffuse","Europe",NA,NA
+"ERR7451425","StGalmier-2",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7451437","StGalmier-6",4623520,"8,01545","2017","Bruno Chauvel","modern","This study","This study (BEST)","NovaSeq PE150","FR Lyon 1: St Galmier","Europe (Mideast)",NA,"Collected by Bruno Chauvel. August 2017. Plants collected from 5 locations around St. Galmier, France."
+"ERR7451441","TRQB-2",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451447","TRQB-8",4550000,"-72,50000","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","Montreal","East",NA,NA
+"ERR7451468","WI-1",4487934,"-89,42377","2013","Kathryn A. Hodgins","modern","This study","This study (BEST)","NovaSeq PE150","diffuse","Mideast",NA,NA
+"ERR7451499","pop3-3",4547806,"-0,37306","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7451586","pop3-2",4547806,"-0,37306","2019","François Bretagnolle","modern","This study","This study (BEST)","NovaSeq PE100","FR Bordeaux","Europe (Mideast)",NA,NA
+"ERR7460255","TRH-5",5808278,"6,75278","2007","TRH","modern herbarium","This study","This study (BEST)","NovaSeq PE100","diffuse","Europe (Mideast)",NA,NA
+"ERR7460286","TRH-6",6342972,"10,39333","2006","TRH","modern herbarium","This study","This study (BEST)","NovaSeq PE100","diffuse","Europe",NA,NA

@@ -1,14 +1,15 @@
 #!/usr/bin/env Rscript
 rm(list = ls(all = TRUE))
+pak::pak(c("usethis", "cli", "crayon", "rlang", "roxygen2", "pkgload"))
 
 ## Load required packages
 library(tidyverse)
 library(cowplot)
 
 ## Define the paths and variable directly for running without command-line arguments
-indir <- "~/Desktop/GitHub/SteinOedulis/figures_1strun/heterozygosity/sfs"
-outdir <- "~/Desktop/GitHub/SteinOedulis/figures_1strun/heterozygosity"
-sample_table_path <- "~/Desktop/GitHub/Gskimming/01_infofiles/SteinOedulis_loco.tsv"
+indir <- "~/Desktop/GitHub/Gskimming/00_data/loco-pipe/Oedulis/"
+outdir <- "~/Desktop/GitHub/Gskimming/02_figures/Oedulis/loco-pipe/heterozygosity"
+sample_table_path <- "~/Desktop/GitHub/Gskimming/01_infofiles/oedulis/sample_table_UKgenome.tsv"
 
 ## read in the data
 sample_table <- read_tsv(sample_table_path)
@@ -21,6 +22,7 @@ for (i in 1:nrow(sample_table)){
   het <- c(het, het_i)
 }
 het
+
 ## plot a boxplot
 het_plot <- mutate(sample_table, het=het) %>%
   ggplot(aes(x=population, y=het, fill=population)) +
@@ -50,4 +52,5 @@ het_plot
 
 summary(het)
 ## Save the plot
-ggsave(filename = str_c(outdir, "/heterozygosity_plot.png"), plot = het_plot)
+ggsave(filename = str_c(outdir, "/HC_Oedulis_UKgenome_pval1e-3_unfoldedSFS_heterozygosity_plot_nov24.png"), plot = het_plot)
+median(het)

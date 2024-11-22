@@ -1,0 +1,23 @@
+# 1. Skmer1
+```{r}
+#/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/skmer1_library/distance_matrix.txt
+d <- 0.0045823592325943685
+k <- 31
+
+# Compute theta
+theta <- 1 - ( (55 / (6 - 36 * (1 - d)^k) + 17/6) )^( (6/11)*(1/k) )
+theta
+
+```
+
+# 1. Skmer2+ref
+
+```{r}
+# Given values
+d <- 0.00871844648002866
+k <- 31
+
+# Compute theta
+theta <- 1 - ( (55 / (6 - 36 * (1 - d)^k) + 17/6) )^( (6/11)*(1/k) )
+theta
+```
