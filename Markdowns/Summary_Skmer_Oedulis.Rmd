@@ -1,6 +1,6 @@
-# 1. Skmer1
+# 1. Skmer1 LC 
 ```{r}
-#/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/skmer1_library/distance_matrix.txt
+# /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/skmer1/skmer1_library/distance_matrix.txt
 d <- 0.0045823592325943685
 k <- 31
 
@@ -10,11 +10,67 @@ theta
 
 ```
 
-# 1. Skmer2+ref
+# 1. Skmer2+ref LC
 
 ```{r}
 # Given values
 d <- 0.00871844648002866
+k <- 31
+
+# Compute theta
+theta <- 1 - ( (55 / (6 - 36 * (1 - d)^k) + 17/6) )^( (6/11)*(1/k) )
+theta
+```
+
+
+# 2. Ngsdist HC UK genome pval1e-3 SFS unfolded
+```{r}
+# /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist/HC_oedulis_UKgenome_pval1e-3_full_theta_--evol_model0_nsites_12394449.dist
+
+whole_genome_sites=840354420		
+variants_sites=12394449		
+median_dist=0.19490921145
+theta <-(median_dist*variants_sites)/ whole_genome_sites		
+theta
+```
+
+
+# 2. Ngsdist HC UK genome pval1e-6 SFS unfolded
+```{r}
+# /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist/HC_oedulis_UKgenome_pval1e-6_full_theta_--evol_model0_nsites_11751986.dist
+
+whole_genome_sites=840354420		
+variants_sites=11751986		
+median_dist=0.1998742452
+theta <-(median_dist*variants_sites)/ whole_genome_sites		
+theta
+```
+
+
+# 1. Skmer2+ref HC UKgenome
+
+```{r}
+# /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4/Skmer2/skmer2__UKgenome_ref_library_v3/ref-dist-mat.txt
+
+# Given values
+d <- 0.008643408758469842
+k <- 31
+
+# Compute theta
+theta <- 1 - ( (55 / (6 - 36 * (1 - d)^k) + 17/6) )^( (6/11)*(1/k) )
+theta
+```
+
+
+
+# 1. Skmer2+ref HC FRgenome
+```{r}
+
+# /projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4/Skmer2/skmer2__FRgenome_ref_library_v3/FR_genome_ref_library-dist-mat.txt
+
+# Given values
+d <- 0.0015757646132845589 #median distance
+
 k <- 31
 
 # Compute theta

@@ -440,14 +440,12 @@ done
 
 
 #loco-pipe
-BASEDIR=/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_hetonly
-# Snakemake run of the loco_pipe
 #Launching the pipeline
 #for dry run add -n
 conda activate loco-pipe
 module purge
 SOFTWARE_DIR=/projects/mjolnir1/people/sjr729/
-BASEDIR=/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/locopipe1e-3_UKgenome_subset/
+BASEDIR=/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/locopipe1e-6_UKgenome_subset/
 cd $SOFTWARE_DIR
 snakemake \
 --use-conda \
@@ -460,3 +458,58 @@ snakemake \
 --cores 10 --rerun-incomplete --keep-going 
 
 ```
+
+
+# 8. HC oedulis UKgenome ngsdist Dist-based het (p=1-e3)
+```bash
+BASE_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq"
+BEAGLE_FR_1E3="$BASE_DIR/locopipe1e-3_UKgenome_subset/angsd/snp_calling_global/combined.beagle.gz"
+
+LABEL="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist/UKgenome_subset.labels"
+SIAVASH_NGSDIST="/projects/mjolnir1/people/sjr729/Skmer_ms/scripts/ngsDist/ngsDist"
+OUT_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist"
+DOWNSAMP_BEAGLE="$BASE_DIR/locopipe1e-3_UKgenome_subset/angsd/snp_calling_global/combined.subsetted.beagle.gz"
+
+#zcat $BEAGLE_FR_1E3 | tail -n +2 | wc -l #12394449
+#zcat $DOWNSAMP_BEAGLE | tail -n +2 | wc -l #4131479
+
+
+N_SITES=$((12394449))
+
+$SIAVASH_NGSDIST \
+--n_threads 10 --geno $DOWNSAMP_BEAGLE \
+--seed 3 --probs --n_ind 9 \
+--n_sites 4131479 --labels $LABEL \
+--theta --evol_model 0 --tot_sites $N_SITES  \
+--out $OUT_DIR/HC_oedulis_UKgenome_pval1e-3_full_theta_--evol_model0_nsites_$N_SITES.dist
+```
+
+```{r}
+whole_genome_sites=840354420
+variants_sites=13969066
+(median(dist)*13969066)/$whole_genome_sites
+```
+
+
+# 8. HC oedulis UKgenome ngsdist Dist-based het (p=1-e6)
+```bash
+BASE_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq"
+BEAGLE_FR_1E6="$BASE_DIR/locopipe1e-6_UKgenome_subset/angsd/snp_calling_global/combined.beagle.gz"
+
+LABEL="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist/UKgenome_subset.labels"
+SIAVASH_NGSDIST="/projects/mjolnir1/people/sjr729/Skmer_ms/scripts/ngsDist/ngsDist"
+OUT_DIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/ngsdist"
+DOWNSAMP_BEAGLE="$BASE_DIR/locopipe1e-6_UKgenome_subset/angsd/snp_calling_global/combined.subsetted.beagle.gz"
+
+zcat $BEAGLE_FR_1E6 | tail -n +2 | wc -l #11751986
+zcat $DOWNSAMP_BEAGLE | tail -n +2 | wc -l #3917326
+
+
+N_SITES=$((11751986))
+
+$SIAVASH_NGSDIST \
+--n_threads 20 --geno $DOWNSAMP_BEAGLE \
+--seed 3 --probs --n_ind 9 \
+--n_sites 3917326 --labels $LABEL \
+--theta --evol_model 0 --tot_sites $N_SITES  \
+--out $OUT_DIR/HC_oedulis_UKgenome_pval1e-6_full_theta_--evol_model0_nsites_$N_SITES.dist

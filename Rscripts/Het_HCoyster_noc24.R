@@ -7,7 +7,7 @@ library(tidyverse)
 library(cowplot)
 
 ## Define the paths and variable directly for running without command-line arguments
-indir <- "~/Desktop/GitHub/Gskimming/00_data/loco-pipe/Oedulis/"
+indir <- "~/Desktop/GitHub/Gskimming/00_data/loco-pipe/Oedulis/HC_Oedulis_pval1e-6_UKgenomesubset_nov24/"
 outdir <- "~/Desktop/GitHub/Gskimming/02_figures/Oedulis/loco-pipe/heterozygosity"
 sample_table_path <- "~/Desktop/GitHub/Gskimming/01_infofiles/oedulis/sample_table_UKgenome.tsv"
 
@@ -52,5 +52,5 @@ het_plot
 
 summary(het)
 ## Save the plot
-ggsave(filename = str_c(outdir, "/HC_Oedulis_UKgenome_pval1e-3_unfoldedSFS_heterozygosity_plot_nov24.png"), plot = het_plot)
+ggsave(filename = str_c(outdir, "/HC_Oedulis_UKgenome_pval1e-6_unfoldedSFS_heterozygosity_plot_nov24.png"), plot = het_plot)
 median(het)
