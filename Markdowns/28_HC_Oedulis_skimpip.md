@@ -1,11 +1,12 @@
 
 ```bash
 # Variables
-DATAINPUT="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq"
+DATAINPUT="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/fastq"
 DATAOUTPUT="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4"
 GENOME="/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/genomeClupea/ncbi_dataset/data/GCA_900700415.2/GCA_900700415.2_Ch_v2.0.2_genomic.fna"
 BBMAP_DIR="/projects/mjolnir1/people/sjr729/skimming_scripts-echarvel/bbmap"
 
+cd $DATAINPUT
 # Create output directory if it doesn't exist
 mkdir -p "$DATAOUTPUT"
 
@@ -25,7 +26,7 @@ desired_bases=$((genome_size * coverage))
 num_samples=$(ls "$DATAINPUT"/*_1.fq.gz | wc -l)
 
 # Desired reads per sample
-reads_per_sample=$((desired_bases / avg_read_length / num_samples))
+reads_per_sample=$((desired_bases / avg_read_length ))
 
 echo "Genome size: $genome_size bp"
 echo "Desired total bases: $desired_bases bp"
@@ -66,13 +67,12 @@ done
 ```bash
 conda activate skimming_echarvel
 module load parallel
-OUTPUTDIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4/skimpreprocpip"
-DATAINPUT="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4"
+OUTPUTDIR="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4/skimpreprocpip_new"
+DATAINPUT="/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/HC_fastq/subsampled_4/fastq"
 
 mkdir -p $OUTPUTDIR
 cd $OUTPUTDIR
-
-/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/skims_processing_pipeline_oct24.sh -x $DATAINPUT -r 30 -f 30 > $OUTPUTDIR/HC_oedulis_skims_22nov24.log 2>&1
+/projects/mjolnir1/people/sjr729/tutorial/skimming_scripts/skims_processing_pipeline_oct24.sh -x $DATAINPUT -r 30 -f 30 > $OUTPUTDIR/HC_oedulis_skims_11dec24.log 2>&1
 ```
 
 
