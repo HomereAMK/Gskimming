@@ -60,3 +60,45 @@ with open('$csv_file', newline='', encoding='utf-8') as csvfile:
 done
 ```
 
+
+# make the chr file 
+```
+# Using cut:
+cut -f 1 genome/ragweed-dipasm-hap1.fasta.fai > loco-pipe-git_1e-3/docs/chr_ragweed-dipasm-hap1.tsv
+awk '$1 ~ /^h1s([1-9]|1[0-8])$/ { print }' loco-pipe-git_1e-3/docs/chr_ragweed-dipasm-hap1.tsv > loco-pipe-git_1e-3/docs/chr_ragweed-dipasm-hap1_subset_h1s1-18.fai
+
+```
+
+
+# Set up the file structure.
+```bash
+
+SOFTWARE_DIR=/projects/mjolnir1/people/sjr729/
+BASEDIR=/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed
+mkdir -p $BASEDIR
+cd $BASEDIR
+mkdir docs
+mkdir config
+conda activate loco-pipe-git
+
+#/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed
+#/genome/ncbi_dataset/data//GCA_032199755.1/GCA_032199755.1_A.artemisiifolia_dipasm_2023_h1_p_genomic.fna
+#/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/docs/sample_table_ragweed.tsv
+#/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/docs/chr_list.tsv
+
+conda activate loco-pipe-git
+module purge
+SOFTWARE_DIR=/projects/mjolnir1/people/sjr729/
+BASEDIR=/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/loco-pipe-git_1e-3
+cd $SOFTWARE_DIR
+snakemake \
+--use-conda \
+--conda-frontend mamba \
+--directory $BASEDIR \
+--rerun-triggers mtime \
+--scheduler greedy \
+--printshellcmds \
+--snakefile $SOFTWARE_DIR/loco-pipe/workflow/pipelines/loco-pipe.smk \
+--cores 10 --rerun-incomplete --keep-going 
+
+
