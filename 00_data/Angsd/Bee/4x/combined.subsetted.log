@@ -1,0 +1,47 @@
+# conda environments:
+#
+base                     /home/sjr729/miniforge3
+angsd_lcpipe             /home/sjr729/miniforge3/envs/angsd_lcpipe
+loco-pipe                /home/sjr729/miniforge3/envs/loco-pipe
+loco-pipe-git            /home/sjr729/miniforge3/envs/loco-pipe-git
+lostruct_lcpipe          /home/sjr729/miniforge3/envs/lostruct_lcpipe
+pcangsd_lcpipe        *  /home/sjr729/miniforge3/envs/pcangsd_lcpipe
+r_lcpipe                 /home/sjr729/miniforge3/envs/r_lcpipe
+samtools_lcpipe_test     /home/sjr729/miniforge3/envs/samtools_lcpipe_test
+skimming_echarvel        /home/sjr729/miniforge3/envs/skimming_echarvel
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_hetonly/.snakemake/conda/4ab2a06bb3637c979e8204bc5643c48e_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_hetonly/.snakemake/conda/6274a2a78e36d4510747b9f8054fbb23_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_hetonly/.snakemake/conda/78617105a5b4f7086938493fdb1535ef_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_pval1e-3/.snakemake/conda/443cc8b59471cd5710b5aa0b73f0b6cb_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_pval1e-3/.snakemake/conda/51cfdec99d76190f2c4ed25fdcc0e178_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_pval1e-3/.snakemake/conda/6add16ece912d65466d8a70f20bbefb8_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/HC/locopipe_pval1e-3/.snakemake/conda/825578c76034d7509c990df342f02bef_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/low_cov_hetonly_test/.snakemake/conda/1bfffeb0867170b6174ac84e8484db49_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/low_cov_hetonly_test/.snakemake/conda/4e35710eb7428f94dd8051b0f46b74f1_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/low_cov_hetonly_test/.snakemake/conda/86f38673b88b8492ede30943f34e5acb_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Oedulis/low_cov_hetonly_test/.snakemake/conda/d83223f6ab30fea3f0f985f20ce6f4fb_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/loco-pipe-git_1e-3/.snakemake/conda/1ee6c8630ae35dc635889100c0142c64_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/loco-pipe-git_1e-3/.snakemake/conda/361f56622070351c2e6371f118703832_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/loco-pipe-git_1e-3/.snakemake/conda/3e44e5bf660fc69556fd84624a5789c3_
+                         /maps/projects/mjolnir1/people/sjr729/Skmer_ms/Ragweed/loco-pipe-git_1e-3/.snakemake/conda/e4ef6c18163249e575a0f0a376080e2f_
+                         /maps/projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/.snakemake/conda/b8691fb61374ee56ade2264423e0adc2_
+                         /maps/projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/.snakemake/conda/be75ba9e52f24ee2a95e8f7cf29cc301_
+                         /maps/projects/mjolnir1/people/sjr729/SteinOedulis_loco_run2/.snakemake/conda/c70c96486d57aba32ae180c080eb032d_
+                         /maps/projects/tomg/people/sjr729/echarvel_bam/bee/4x_locopipe/.snakemake/conda/68093ebaa52926f8b722ebaf5917da4c_
+                         /maps/projects/tomg/people/sjr729/echarvel_bam/bee/4x_locopipe/.snakemake/conda/85c3dc7aa5dd17cbb4302c84e387f6de_
+                         /maps/projects/tomg/people/sjr729/echarvel_bam/bee/4x_locopipe/.snakemake/conda/8f5f003d53af2f9bb67bc58aed2c54b1_
+                         /maps/projects/tomg/people/sjr729/echarvel_bam/bee/4x_locopipe/.snakemake/conda/de87414b15f85d3150a00a1dea7a9bc6_
+
+usage: pcangsd [-h] [-b FILE] [-p FILE-PREFIX] [-e INT] [-t INT] [-o OUTPUT]
+               [--filter FILE] [--filterSites FILE] [--plink_error FLOAT]
+               [--minMaf FLOAT] [--maf_iter INT] [--maf_tole FLOAT]
+               [--iter INT] [--tole FLOAT] [--hwe FILE] [--hwe_tole FLOAT]
+               [--selection] [--snp_weights] [--pcadapt] [--selection_e INT]
+               [--inbreedSites] [--inbreedSamples] [--inbreed_iter INT]
+               [--inbreed_tole FLOAT] [--geno FLOAT] [--genoInbreed FLOAT]
+               [--admix] [--admix_K INT] [--admix_iter INT]
+               [--admix_tole FLOAT] [--admix_batch INT] [--admix_alpha FLOAT]
+               [--admix_seed INT] [--admix_auto FLOAT] [--admix_depth INT]
+               [--tree] [--tree_samples FILE] [--maf_save] [--pi_save]
+               [--dosage_save] [--sites_save]
+pcangsd: error: ambiguous option: --maf could match --maf_iter, --maf_tole, --maf_save
